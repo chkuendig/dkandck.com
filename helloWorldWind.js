@@ -9,11 +9,11 @@ WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_DEBUG);
 var wwd = new WorldWind.WorldWindow("canvasOne");
 wwd.goToAnimator = new CustomGoToAnimator(wwd.goToAnimator.wwd)
 console.log(wwd.navigator.tilt )
+console.log(wwd.navigator.roll )
 wwd.navigator.tilt = 60
-wwd.navigator.roll = 0
 wwd.navigator.range = 0.7e7
 
-wwd.goToAnimator.travelTime = 700
+//wwd.goToAnimator.travelTime = 700
 
 //wwd.addLayer(new WorldWind.BMNGOneImageLayer());
 wwd.addLayer(new WorldWind.BMNGLandsatLayer());
@@ -21,7 +21,7 @@ wwd.addLayer(new WorldWind.BMNGLandsatLayer());
  // The Sun simulation is a feature of Atmosphere layer. We'll create and add the layer.
  var atmosphereLayer = new WorldWind.AtmosphereLayer();
  wwd.addLayer(atmosphereLayer);
-
+ 
  // Atmosphere layer requires a date to simulate the Sun position at that time.
  // In this case the current date will be given to initialize the simulation.
  var timeStamp = Date.now();
@@ -30,9 +30,11 @@ wwd.addLayer(new WorldWind.BMNGLandsatLayer());
  /*setInterval(function () {
      timeStamp += 180 * 1000;
      atmosphereLayer.time = new Date(timeStamp);
+   //  console.log(timeStamp)
      wwd.redraw();
  }, 64);
-*/
+ */
+
 
 
 //wwd.addLayer(new WorldWind.CompassLayer());

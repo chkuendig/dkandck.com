@@ -31,6 +31,7 @@ Vec3 = WorldWind.Vec3
          * @throws {ArgumentError} If the specified WorldWindow is null or undefined.
          */
         function CustomGoToAnimator (worldWindow) {
+            
             if (!worldWindow) {
                 throw new ArgumentError(Logger.logMessage(Logger.LEVEL_SEVERE, "CustomGoToAnimator", "constructor",
                     "missingWorldWindow"));
@@ -57,7 +58,7 @@ Vec3 = WorldWind.Vec3
              * @type {Number}
              * @default 3000
              */
-            this.travelTime = 3000;
+            this.travelTime = 100;
 
             /**
              * Indicates whether the current or most recent animation has been cancelled. Use the cancel() function
@@ -88,8 +89,6 @@ Vec3 = WorldWind.Vec3
                 throw new ArgumentError(Logger.logMessage(Logger.LEVEL_SEVERE, "CustomGoToAnimator", "goTo",
                     "missingPosition"));
             }
-
-            console.log(" CustomGoToAnimator.prototype.goTo")
             this.completionCallback = completionCallback;
 
             // Reset the cancellation flag.
@@ -104,7 +103,7 @@ Vec3 = WorldWind.Vec3
                 this.wwd.navigator.lookAtLocation.latitude,
                 this.wwd.navigator.lookAtLocation.longitude,
                 this.wwd.navigator.range);
-            this.startTime = Date.now();
+            //this.startTime = Date.now();
 
             // Determination of the pan and range velocities requires the distance to be travelled.
             var animationDuration = this.travelTime,
@@ -154,7 +153,7 @@ Vec3 = WorldWind.Vec3
             if (animationDistance < 2 * viewportSize) {
                 // Start and target positions are close, so reduce the travel time based on the
                 // distance to travel relative to the viewport size.
-                animationDuration = Math.min((animationDistance / viewportSize) * this.travelTime, this.travelTime);
+          //      animationDuration = Math.min((animationDistance / viewportSize) * this.travelTime, this.travelTime);
             }
 
             // Don't let the animation duration go to 0.
@@ -168,9 +167,8 @@ Vec3 = WorldWind.Vec3
 
             // Set up the animation timer.
             var thisAnimator = this;
-            var timerCallback = function () {
+            var timerCallback = function (progress) {
 
-            console.log("navigator timer callback")
                 if (thisAnimator.cancelled) {
                     if (thisAnimator.completionCallback) {
                         thisAnimator.completionCallback(thisAnimator);
@@ -178,17 +176,18 @@ Vec3 = WorldWind.Vec3
                     return;
                 }
 
-                if (thisAnimator.update()) {
-                    setTimeout(timerCallback, thisAnimator.animationFrequency);
+                if (thisAnimator.update(progress)) {
+                  //  setTimeout(timerCallback, thisAnimator.animationFrequency);
                 } else if (thisAnimator.completionCallback) {
                     thisAnimator.completionCallback(thisAnimator);
                 }
             };
-            setTimeout(timerCallback, this.animationFrequency); // invoke it the first time
+          //  setTimeout(timerCallback, this.animationFrequency); // invoke it the first time
+          return timerCallback
         };
 
         // Intentionally not documented.
-        CustomGoToAnimator.prototype.update = function () {
+        CustomGoToAnimator.prototype.update = function (progress) {
             // This is the timer callback function. It invokes the range animator and the pan animator.
 
             var currentPosition = new Position(
@@ -196,8 +195,8 @@ Vec3 = WorldWind.Vec3
                 this.wwd.navigator.lookAtLocation.longitude,
                 this.wwd.navigator.range);
 
-            var continueAnimation = this.updateRange(currentPosition);
-            continueAnimation = this.updateLocation(currentPosition) || continueAnimation;
+            var continueAnimation = this.updateRange(currentPosition, progress);
+            continueAnimation = this.updateLocation(currentPosition,progress) || continueAnimation;
 
             this.wwd.redraw();
 
@@ -205,7 +204,7 @@ Vec3 = WorldWind.Vec3
         };
 
         // Intentionally not documented.
-        CustomGoToAnimator.prototype.updateRange = function (currentPosition) {
+        CustomGoToAnimator.prototype.updateRange = function (currentPosition, progress) {
             // This function animates the range.
             var continueAnimation = false,
                 nextRange, elapsedTime;
@@ -213,7 +212,7 @@ Vec3 = WorldWind.Vec3
             // If we haven't reached the maximum altitude, then step-wise increase it. Otherwise step-wise change
             // the range towards the target altitude.
             if (!this.maxAltitudeReachedTime) {
-                elapsedTime = Date.now() - this.startTime;
+                elapsedTime = progress;
                 nextRange = Math.min(this.startPosition.altitude + this.rangeVelocity * elapsedTime, this.maxAltitude);
                 // We're done if we get withing 1 meter of the desired range.
                 if (Math.abs(this.wwd.navigator.range - nextRange) < 1) {
@@ -222,7 +221,7 @@ Vec3 = WorldWind.Vec3
                 this.wwd.navigator.range = nextRange;
                 continueAnimation = true;
             } else {
-                elapsedTime = Date.now() - this.maxAltitudeReachedTime;
+                elapsedTime = progress;
                 if (this.maxAltitude > this.targetPosition.altitude) {
                     nextRange = this.maxAltitude - (this.rangeVelocity * elapsedTime);
                     nextRange = Math.max(nextRange, this.targetPosition.altitude);
@@ -239,9 +238,9 @@ Vec3 = WorldWind.Vec3
         };
 
         // Intentionally not documented.
-        CustomGoToAnimator.prototype.updateLocation = function (currentPosition) {
+        CustomGoToAnimator.prototype.updateLocation = function (currentPosition, progress) {
             // This function animates the pan to the desired location.
-            var elapsedTime = Date.now() - this.startTime,
+            var elapsedTime = progress,
                 distanceTravelled = Location.greatCircleDistance(this.startPosition, currentPosition),
                 distanceRemaining = Location.greatCircleDistance(currentPosition, this.targetPosition),
                 azimuthToTarget = Location.greatCircleAzimuth(currentPosition, this.targetPosition),
