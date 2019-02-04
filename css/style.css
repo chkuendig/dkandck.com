@@ -6,13 +6,60 @@ html, body
 	margin: 0;
 	padding: 0;
 }
+#title h1 {
+	font-size: 3em;
+	font-weight: normal;
+	font-family: 'Lato', sans-serif;
+	color: rgb(61, 70, 93);
+	margin: 0;
+	text-transform: uppercase;
+	padding: 0;
+	top: 10%;
+	position: relative;
+	z-index: 99;
+}
+
+#canvasOne {
+	width: 100%;
+	height: 100%;
+}
+
+#canvasContainer {
+	position: fixed;
+	top: 50%;
+	left: 0px;
+	z-index: 10;
+	width: 100%;
+	height: 50%;
+	/*transition:700ms ease-in-out;*/
+
+
+}
+
+#canvasContainer.globe {
+	position: fixed;
+	top: 2%;
+	left: 2%;
+	width: 30vh;
+	height: 30vh;
+	z-index: 99;
+}
+
+
+div.block.white {
+	background-color: rgb(255, 255, 255);
+}
+
+div.block.grey{
+	background-color: rgb(245, 245, 245);
+}
 
 body
 {
-	background: #061c2d;
-	color: #d7e7f3;
+	background: #FFFFFF;
+	color: #2e2e2eaa;
 	
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 /*	font-size: 22px;
 	line-height: 33px;*/
 	
@@ -21,7 +68,7 @@ body
 
 a
 {
-	color: #d7e7f3;
+	color: #2e2e2eaa;
 	text-decoration: none;
 	font-weight: 500;
 	
@@ -41,6 +88,7 @@ h1
 /*	text-transform: uppercase;*/
 	line-height: normal;
 	
+	text-transform: uppercase; 
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -49,8 +97,9 @@ h2
 	font-weight: 300;
 	font-size: 1.3em;
 	line-height: 1.5em;
-	color: #779dba;
+	color: #000000;
 	
+	text-transform: uppercase; 
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -59,7 +108,7 @@ h3
 	font-weight: 500;
 	font-size: 1em;
 	line-height: 1.5em;
-	color: #d7e7f3;
+	color: #000000;
 	margin: 80px 0 0 0;
 	
 	-webkit-font-smoothing: subpixel-antialiased;
@@ -68,8 +117,8 @@ h3
 div.block
 {
 	position: relative;
-	height: 80vh;
-	padding: 20vh 15vw 0 15vw;
+	height: 100vh;
+	padding: 0vh 15vw 0 15vw;
 }
 
 div.block svg
@@ -81,25 +130,6 @@ div.block svg
 	animation: chevronAnimation 4s ease-in-out 0s infinite;
 }
 
-div.block svg path
-{
-	fill: #7e9aae;
-}
-
-div.block:nth-child(1n)
-{
-	background: #061c2d;
-}
-
-div.block:nth-child(2n)
-{
-	background: hsl(205, 84%, 14%);
-}
-
-div.block:nth-child(3n)
-{
-	background: hsl(205, 90%, 22%);
-}
 
 
 /**

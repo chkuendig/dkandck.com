@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=500" />
+    <meta name="keywords" content="ScrollMagic, example, scrolling, attaching, scrollbar, anchor, link, in-page, navigation, hash" />
+    <meta name="author" content="Jan Paepke (www.janpaepke.de)" />
+    <title>Section Wipes (natural) - Examples - ScrollMagic</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+    <script src="worldwind.js" type="text/javascript"></script>
+    <script src="helloWorldWind2.js" type="text/javascript"></script>
+    <script src="CustomGoToAnimator.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<style type="text/css">
+    body,
+    html {
+        background: #FFFFFF;
+        color: #2e2e2eaa;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+    }
+
+
+    #title {
+        position: relative;
+        height: 80vh;
+        padding: 20vh 15vw 0 15vw;
+    }
+
+    #title h1 {
+        font-size: 3em;
+        font-weight: normal;
+        font-family: 'Lato', sans-serif;
+        color: rgb(61, 70, 93);
+        margin: 0;
+        text-transform: uppercase;
+        padding: 0;
+        top: 10%;
+        position: relative;
+        z-index: 99;
+    }
+    #pinMaster {
+        padding-top:50px;
+    }
+    #pinMaster>div:first-child {
+     
+        position: relative;
+        border-radius: 3px;
+        border: 1px solid #e6e6e6;
+        background: white;
+        overflow: hidden;
+        left: calc(50% - 307px);
+        width: 614px;
+        margin-bottom: 50px;
+
+        text-align: left;
+    }
+
+    #pinContainer {
+        width: 614px;
+        height: 614px;
+        left: calc(50% - 307px);
+        overflow: hidden;
+        position: relative;
+
+    }
+
+    
+    .pinHeader,
+    .pinFooter {
+        padding: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: black;
+        font-size: 15px;
+        text-transform: none;
+
+    }
+
+    .pinFooter>p.date {
+        color: #999;
+
+        margin: 0px;
+        text-transform: uppercase;
+    }
+
+    .pinHeader p {
+        margin: 0px;
+    }
+
+    img.avatar {
+
+        margin-right: 10px;
+        margin-bottom: 16px;
+        display: block;
+        float: left;
+        height: 30px;
+        border-radius: 100%;
+        box-shadow: 0 0 0 1.5em #ffffff;
+
+    }
+
+    .panel {
+        height: 614px;
+        width: 614px;
+        position: absolute;
+    }
+
+
+    #footer {
+        height: 100px;
+        background-color: black;
+    }
+
+    div.spacer {
+        height: 600px;
+    }
+
+    .blue {
+        background-color: #3883d8;
+    }
+
+    .turqoise {
+        background-color: #38ced7;
+    }
+
+    .brown {
+        background-color: #a66f28;
+    }
+
+    .bordeaux {
+        background-color: #953543;
+    }
+
+    .black {
+        background-color: #000000;
+    }
+
+    .green {
+        background-color: #22d659;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        font-size: 60px;
+        position: absolute;
+        right: 50px;
+        bottom: 100px;
+        color: white;
+        text-align: center;
+    }
+
+    .imageRed {
+        background: red;
+    }
+
+    .imageGreen {
+        background: green;
+    }
+
+    .imageBlue {
+        background: navy;
+    }
+</style>
+
+<body>
+    <div id="canvasContainer">
+        <canvas id="canvasOne">
+            Your browser does not support HTML5 Canvas.
+        </canvas>
+        <div style="        width:100%;        height:100%;z-index:100;position:absolute;top:0;left:0">
+            <!-- make sure to not allow any events to bubble to the globe-->
+        </div>
+
+    </div>
+
+    <div class="block grey" id="title">
+        <h1> Let us take you on a journey...</h1>
+
+        <svg viewBox="0 0 60 60" style='z-index: 102;'>
+            <path d="M52.254 18.327c0.816-0.804 2.127-0.804 2.937 0s0.813 2.103 0 2.907l-23.724 23.49c-0.81 0.804-2.121 0.804-2.937 0l-23.724-23.49c-0.81-0.804-0.81-2.103 0-2.907 0.813-0.804 2.127-0.804 2.937 0l22.257 21.423 22.254-21.423z"></path>
+        </svg>
+    </div>
+    <div class="spacer block white" id="spacerblack"><b>Content</b></div>
+    <div class="block grey" id="pinMaster">
+        <div>
+            <div class="pinHeader"><img class="avatar" src="https://christian.kuendig.info/images/avatar.png">
+                <p><b>Christian & Deepthi</b><br />Zürich, Switzerland</p>
+            </div>
+            <div id="pinContainer">
+
+                <section class="panel blue">
+                    <b>Pin Panel A</b>
+                </section>
+                <section class="panel turqoise">
+                    <b>Pin Panel B</b>
+                </section>
+                <section class="panel bordeaux">
+                    <b>Pin Panel C</b>
+                </section>
+                <section class="panel brown">
+                    <b>Pin Panel D</b>
+                </section>
+
+            </div>
+            <div class="pinFooter">
+                <p><b>Christian & Deepthi</b> Our first date after meeting on Tinder</p>
+                <p class="date">21. April 2016</p>
+            </div>
+        </div>
+    </div>
+    <div class="spacer block white"><b>Content</b></div>
+    <div class="spacer block white" ><b>Content</b></div>
+
+</body>

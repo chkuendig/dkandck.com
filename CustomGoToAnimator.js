@@ -68,6 +68,15 @@ Vec3 = WorldWind.Vec3
              * @readonly
              */
             this.cancelled = false;
+
+
+            /**
+             * Indicates whether the current or most recent animation has been updated at least once
+             * @type {Boolean}
+             * @default false
+             * @readonly
+             */
+            this.running = false;
         };
 
         // Stop the current animation.
@@ -84,8 +93,8 @@ Vec3 = WorldWind.Vec3
          * animation completes. The completion callback is called with a single argument, this animator.
          * @throws {ArgumentError} If the specified location or position is null or undefined.
          */
-        CustomGoToAnimator.prototype.goTo = function (position, completionCallback) {
-            if (!position) {
+        CustomGoToAnimator.prototype.goTo = function (origPosition,destPosition, completionCallback) {
+            if (!origPosition || !destPosition) {
                 throw new ArgumentError(Logger.logMessage(Logger.LEVEL_SEVERE, "CustomGoToAnimator", "goTo",
                     "missingPosition"));
             }
@@ -93,16 +102,16 @@ Vec3 = WorldWind.Vec3
 
             // Reset the cancellation flag.
             this.cancelled = false;
-
+            this.running = false;
             // Capture the target position and determine its altitude.
-            this.targetPosition = new Position(position.latitude, position.longitude,
-                position.altitude || this.wwd.navigator.range);
+            this.targetPosition = new Position(destPosition.latitude, destPosition.longitude,
+                destPosition.altitude || this.wwd.navigator.range);
 
             // Capture the start position and start time.
             this.startPosition = new Position(
-                this.wwd.navigator.lookAtLocation.latitude,
-                this.wwd.navigator.lookAtLocation.longitude,
-                this.wwd.navigator.range);
+                origPosition.latitude,
+                origPosition.longitude,
+                origPosition.altitude);
             //this.startTime = Date.now();
 
             // Determination of the pan and range velocities requires the distance to be travelled.
@@ -132,7 +141,7 @@ Vec3 = WorldWind.Vec3
             // We need to capture the time the max altitude is reached in order to begin decreasing the range
             // midway through the animation. If we're already above the max altitude, then that time is now since
             // we don't back out if the current altitude is above the computed max altitude.
-            this.maxAltitudeReachedTime = this.maxAltitude <= this.wwd.navigator.range ? Date.now() : null;
+            this.maxAltitudeReachedTime = this.maxAltitude <= this.startPosition.altitude ? 0 : null;
 
             // Compute the total range to travel since we need that to compute the range velocity.
             // Note that the range velocity and pan velocity are computed so that the respective animations, which
@@ -189,17 +198,22 @@ Vec3 = WorldWind.Vec3
         // Intentionally not documented.
         CustomGoToAnimator.prototype.update = function (progress) {
             // This is the timer callback function. It invokes the range animator and the pan animator.
+            if(!this.running) {
+             
+        //     this.updateRange(this.startPosition, progress);
+             this.updateLocation(this.startPosition,progress) ;
 
+            this.running = true;
+            }
             var currentPosition = new Position(
                 this.wwd.navigator.lookAtLocation.latitude,
                 this.wwd.navigator.lookAtLocation.longitude,
                 this.wwd.navigator.range);
-
+          
             var continueAnimation = this.updateRange(currentPosition, progress);
             continueAnimation = this.updateLocation(currentPosition,progress) || continueAnimation;
 
             this.wwd.redraw();
-
             return continueAnimation;
         };
 
@@ -211,17 +225,17 @@ Vec3 = WorldWind.Vec3
 
             // If we haven't reached the maximum altitude, then step-wise increase it. Otherwise step-wise change
             // the range towards the target altitude.
-            if (!this.maxAltitudeReachedTime) {
+            if (this.maxAltitudeReachedTime < 0) {
                 elapsedTime = progress;
                 nextRange = Math.min(this.startPosition.altitude + this.rangeVelocity * elapsedTime, this.maxAltitude);
                 // We're done if we get withing 1 meter of the desired range.
                 if (Math.abs(this.wwd.navigator.range - nextRange) < 1) {
-                    this.maxAltitudeReachedTime = Date.now();
+                    this.maxAltitudeReachedTime = progress;
                 }
                 this.wwd.navigator.range = nextRange;
                 continueAnimation = true;
             } else {
-                elapsedTime = progress;
+                elapsedTime = progress  - this.maxAltitudeReachedTime;;
                 if (this.maxAltitude > this.targetPosition.altitude) {
                     nextRange = this.maxAltitude - (this.rangeVelocity * elapsedTime);
                     nextRange = Math.max(nextRange, this.targetPosition.altitude);
