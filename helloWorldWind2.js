@@ -1,7 +1,8 @@
 var globePositions = {
     "-1": { latitude: 80, longitude: 8.55, altitude: 0.7e7, tilt: 60 },
     0: { latitude: 50, longitude: 8.55, altitude: 2e7, tilt: 0 },
-    1: { latitude: 47.36667, longitude: 8.55, altitude: 1000, tilt: 20 },
+    1: { latitude: 47.36667, longitude: 8.55, altitude: 3000, tilt: 50 },
+    2: { latitude: 48.001978608087825, longitude: 8.068545291305831, altitude: 156070.22387086655, tilt: 0 },
     2: { latitude: -3.065653, longitude: 37.35201, altitude: 50, tilt: 0 },
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // build scenes
     var tweenBigGlobe = new TweenMax("#canvasContainer", 1, { className: "globe" });
-    var scene = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "50%", triggerHook: "0" })
+    var sectionTitle = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "50%", triggerHook: "0" })
         .addIndicators() // add indicators (requires plugin)
         .setTween(tweenBigGlobe)
         .addTo(controller)
@@ -24,22 +25,28 @@ document.addEventListener('DOMContentLoaded', function () {
             loop(-1, e.progress)
         });;
 
-    var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
 
-    var scene2 = new ScrollMagic.Scene({ triggerElement: "#section2016", duration: "100%", triggerHook: 1 })
+    var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
+    var section2016 = new ScrollMagic.Scene({ triggerElement: "#section2016", duration: "100%", triggerHook: 1 })
         .addIndicators() // add indicators (requires plugin)
         .setTween(tweenSmallGlobe)
         .addTo(controller)
         .on("progress", function (e) {
-            console.log(e)
             loop(0, e.progress)
         });;
 
+    var section2017 = new ScrollMagic.Scene({
+        triggerElement: "#section2017", duration: "100%", triggerHook: 1
+    })
+        .addIndicators() // add indicators (requires plugin)
+        .addTo(controller)
+        .on("progress", function (e) {
+            loop(1, e.progress)
+        });;
+
+    // photo scrolling
     document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock) {
-
-
         var tl = new TimelineMax();
-
         pinnedBlock.querySelectorAll("section.igPicture").forEach(function (igPicture, idx) {
             if (idx > 0) {
                 tl.from(igPicture, 1, { yPercent: 100 });
