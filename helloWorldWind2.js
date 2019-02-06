@@ -1,50 +1,62 @@
 var globePositions = {
-    "-1": { latitude: 30, longitude: -110, altitude: 0.7e7, tilt: 60 },
-    0: { latitude: 47.36667, longitude: 8.55, altitude: 1e7, tilt: 0 },
+    "-1": { latitude: 80, longitude: 8.55, altitude: 0.7e7, tilt: 60 },
+    0: { latitude: 50, longitude: 8.55, altitude: 2e7, tilt: 0 },
     1: { latitude: 47.36667, longitude: 8.55, altitude: 1000, tilt: 20 },
     2: { latitude: -3.065653, longitude: 37.35201, altitude: 50, tilt: 0 },
 }
 document.addEventListener('DOMContentLoaded', function () {
-    // init controller
-    var controller = new ScrollMagic.Controller();
+    // init globe
+    window.wwd = launchGlobe();
 
+    // init controller
     TweenLite.defaultEase = Linear.easeNone;
     var controller = new ScrollMagic.Controller();
-    var tl = new TimelineMax();
-    tl.from("section.panel.turqoise", 1, { yPercent: 100 });
-    tl.from("section.panel.bordeaux", 1, { yPercent: 100 });
-    tl.from("section.panel.brown", 1, { yPercent: 100 });
 
 
-    new ScrollMagic.Scene({
-        triggerElement: "#pinMaster",
-        triggerHook: "onLeave",
-        duration: "200%"
-    })
-        .setPin("#pinMaster")
-        .setTween(tl)
-        .addIndicators({
-            colorTrigger: "white",
-            colorStart: "white",
-            colorEnd: "white",
-            indent: 40
-        })
-        .addTo(controller);
-        var tl2 = new  TweenMax("#canvasContainer", 1, {className: "+=globe"});
 
-
-    // build scene
-    var scene = new ScrollMagic.Scene({ triggerElement: "#spacerblack", duration: "100%", triggerHook: 1 })
-
+    // build scenes
+    var tweenBigGlobe = new TweenMax("#canvasContainer", 1, { className: "globe" });
+    var scene = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "50%", triggerHook: "0" })
         .addIndicators() // add indicators (requires plugin)
-        .setTween(tl2)
+        .setTween(tweenBigGlobe)
         .addTo(controller)
         .on("progress", function (e) {
-             loop(0,e.progress.toFixed(3))
+            loop(-1, e.progress)
         });;
 
+    var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
 
-    window.wwd = launchGlobe();
+    var scene2 = new ScrollMagic.Scene({ triggerElement: "#section2016", duration: "100%", triggerHook: 1 })
+        .addIndicators() // add indicators (requires plugin)
+        .setTween(tweenSmallGlobe)
+        .addTo(controller)
+        .on("progress", function (e) {
+            console.log(e)
+            loop(0, e.progress)
+        });;
+
+    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock) {
+
+
+        var tl = new TimelineMax();
+
+        pinnedBlock.querySelectorAll("section.igPicture").forEach(function (igPicture, idx) {
+            if (idx > 0) {
+                tl.from(igPicture, 1, { yPercent: 100 });
+            }
+        });
+        new ScrollMagic.Scene({
+            triggerElement: pinnedBlock,
+            triggerHook: "onLeave",
+            duration: "200%"
+        })
+            .setPin(pinnedBlock)
+            .setTween(tl)
+            .addIndicators()
+            .addTo(controller);
+
+    })
+
 
 });
 
@@ -59,42 +71,32 @@ var adjustRestingRange = function (progress) {
 }
 function loop(page, pageProgress) {
 
-        requestAnimationFrame(function () {
-            console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage })
+    requestAnimationFrame(function () {
+        console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage })
 
-            if (page == 0) {
-                // we do a double-animation in the first page
-                if (pageProgress < 0.5) {
-                    page = "-1"
-                    pageProgress = pageProgress * 2
+        var nextPage = parseInt(page) + 1
+        if (globePositions[page] && globePositions[nextPage]) { // animate globe
+            if (animatorPage != page) {
+                animatorPage = page
+                animator = wwd.goToAnimator.goTo(globePositions[page], globePositions[nextPage]);
+                if (page == -1) {
+                    //       startSun()
                 } else {
-                    pageProgress = (pageProgress - 0.5) * 2
+                    //     stopSun()
                 }
             }
+            wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
+            animator(pageProgress * 100)
+            console.log({ latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
+        }
+    });
 
-            var nextPage = parseInt(page) + 1
-            if (globePositions[page] && globePositions[nextPage]) { // animate globe
-                if (animatorPage != page) {
-                    animatorPage = page
-                    animator = wwd.goToAnimator.goTo(globePositions[page], globePositions[nextPage]);
-                    if(page == -1){
-                        startSun()
-                    } else {
-                        stopSun()
-                    }
-                }
-                wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
-                animator(pageProgress * 100)
-                console.log({ latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range });
-            }
-        });
-    
 
 };
 var atmosphereLayer = null
 var atmosphereLayerInterval = null
-function startSun(){
-  // Atmosphere layer requires a date to simulate the Sun position at that time.
+function startSun() {
+    // Atmosphere layer requires a date to simulate the Sun position at that time.
     // In this case the current date will be given to initialize the simulation.
     var timeStamp = Date.now();
 
@@ -102,19 +104,20 @@ function startSun(){
     atmosphereLayerInterval = setInterval(function () {
         timeStamp += 180 * 1000 * 3;
         atmosphereLayer.time = new Date(timeStamp);
-      //  console.log(timeStamp)
+        //  console.log(timeStamp)
         wwd.redraw();
     }, 64);
-    
+
 
 }
-function stopSun(){
+function stopSun() {
 
     /* later */
-    if(atmosphereLayerInterval){
-    clearInterval(atmosphereLayerInterval)
-    atmosphereLayer.time = null
-    atmosphereLayerInterval = null}
+    if (atmosphereLayerInterval) {
+        clearInterval(atmosphereLayerInterval)
+        atmosphereLayer.time = null
+        atmosphereLayerInterval = null
+    }
 }
 function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
@@ -124,7 +127,7 @@ function launchGlobe() {
     //  htmlCanvas.background = "black";
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_DEBUG);
-    var wwd = new WorldWind.WorldWindow("canvasOne",new WorldWind.EarthElevationModel());
+    var wwd = new WorldWind.WorldWindow("canvasOne", new WorldWind.EarthElevationModel());
     wwd.goToAnimator = new CustomGoToAnimator(wwd.goToAnimator.wwd)
     wwd.navigator.lookAtLocation.latitude = globePositions["-1"].latitude;
     wwd.navigator.lookAtLocation.longitude = globePositions["-1"].longitude;
@@ -132,13 +135,19 @@ function launchGlobe() {
     wwd.navigator.range = globePositions["-1"].altitude
 
     //wwd.goToAnimator.travelTime = 700
-
-  //  wwd.addLayer(new WorldWind.BMNGOneImageLayer());
-  //  wwd.addLayer(new WorldWind.BMNGLandsatLayer());
-    wwd.addLayer(new WorldWind.BingAerialLayer(null));
+    var layerBMNGOneImage = new WorldWind.BMNGOneImageLayer()
+    layerBMNGOneImage.minActiveAltitude = 4000000
+    wwd.addLayer(layerBMNGOneImage);
+    var layerBMNGLandsat = new WorldWind.BMNGLandsatLayer()
+    layerBMNGLandsat.maxActiveAltitude = 4000000
+    layerBMNGLandsat.minActiveAltitude = 5000
+    wwd.addLayer(layerBMNGLandsat);
+    var layerBingAerial = new WorldWind.BingAerialLayer(null);
+    layerBingAerial.maxActiveAltitude = 5000;
+    wwd.addLayer(layerBingAerial);
     // The Sun simulation is a feature of Atmosphere layer. We'll create and add the layer.
-   atmosphereLayer = new WorldWind.AtmosphereLayer();
-   atmosphereLayer.minActiveAltitude = 10000;
+    atmosphereLayer = new WorldWind.AtmosphereLayer();
+    atmosphereLayer.minActiveAltitude = 10000;
     wwd.addLayer(atmosphereLayer);
 
 
