@@ -1,9 +1,9 @@
 var globePositions = {
-    "-1": { latitude: 80, longitude: 8.55, altitude: 0.7e7, tilt: 60 },
-    0: { latitude: 50, longitude: 8.55, altitude: 2e7, tilt: 0 },
-    1: { latitude: 47.36667, longitude: 8.55, altitude: 3000, tilt: 50 },
-    2: { latitude: 48.001978608087825, longitude: 8.068545291305831, altitude: 156070.22387086655, tilt: 0 },
-    2: { latitude: -3.065653, longitude: 37.35201, altitude: 50, tilt: 0 },
+    "-1": { latitude: 80, longitude: 8.55, altitude: 0.7e7, tilt: 60 }, // start, nord pole 
+    0: { latitude: 50, longitude: 8.55, altitude: 2e7, tilt: 0 }, // whole world
+    1: { latitude: 47.36667, longitude: 8.545, altitude: 3100, tilt: 55 }, // zurich
+    2: { latitude:37.85358,  longitude:15.28851, altitude:2000,tilt:55}, // taormina
+    3: { latitude: -3.065653, longitude: 37.35201, altitude: 50, tilt: 0 },
 }
 document.addEventListener('DOMContentLoaded', function () {
     // init globe
@@ -44,11 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
             loop(1, e.progress)
         });;
 
+    
+    
     // photo scrolling
-    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock) {
+    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock,blockIdx) {
         var tl = new TimelineMax();
-        pinnedBlock.querySelectorAll("section.igPicture").forEach(function (igPicture, idx) {
-            if (idx > 0) {
+        var igPictures = pinnedBlock.querySelectorAll("section.igPicture")
+        igPictures.forEach(function (igPicture, pictureidx) {
+            if (pictureidx > 0) {
                 tl.from(igPicture, 1, { yPercent: 100 });
             }
         });
@@ -60,10 +63,26 @@ document.addEventListener('DOMContentLoaded', function () {
             .setPin(pinnedBlock)
             .setTween(tl)
             .addIndicators()
-            .addTo(controller);
+           
+      
+            .addTo(controller)
+            .on("progress", function (e) {
+               if(blockIdx == 0) { //2016
+                var progress = e.progress
+                ratioPerPic = 1/(igPictures.length-1)
+                pictureIdx = Math.floor(progress/ratioPerPic)+1
+                pictureProg = (progress-ratioPerPic*(pictureIdx-1))/ratioPerPic;
+                
+                console.log({pictureIdx:pictureIdx,pictureProg:pictureProg,progress:progress});
+                if(pictureIdx==2){
+
+            loop(2, pictureProg)
+                }
+               }
+              });;
 
     })
-
+    
 
 });
 
@@ -96,7 +115,7 @@ function loop(page, pageProgress) {
             }
             wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
             animator(pageProgress * 100)
-            console.log({ latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
+           // console.log({ latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
         }
     });
 

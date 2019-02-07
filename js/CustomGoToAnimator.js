@@ -219,16 +219,14 @@ Vec3 = WorldWind.Vec3
 
         // Intentionally not documented.
         CustomGoToAnimator.prototype.updateRange = function (currentPosition, progress) {
-
-            // TODO: use https://greensock.com/docs/Easing/Power4/static.easeInOut 
-            
-            // This function animates the range.
+             // This function animates the range.
             var continueAnimation = false,
                 nextRange, elapsedTime;
 
             // If we haven't reached the maximum altitude, then step-wise increase it. Otherwise step-wise change
             // the range towards the target altitude.
             if (this.maxAltitudeReachedTime < 0) {
+                progress =  Power4.easeIn.getRatio(progress/100)*100
                 elapsedTime = progress;
                 nextRange = Math.min(this.startPosition.altitude + this.rangeVelocity * elapsedTime, this.maxAltitude);
                 // We're done if we get withing 1 meter of the desired range.
@@ -238,6 +236,7 @@ Vec3 = WorldWind.Vec3
                 this.wwd.navigator.range = nextRange;
                 continueAnimation = true;
             } else {
+                progress =  Power4.easeOut.getRatio(progress/100)*100
                 elapsedTime = progress  - this.maxAltitudeReachedTime;;
                 if (this.maxAltitude > this.targetPosition.altitude) {
                     nextRange = this.maxAltitude - (this.rangeVelocity * elapsedTime);
@@ -257,7 +256,7 @@ Vec3 = WorldWind.Vec3
         // Intentionally not documented.
         CustomGoToAnimator.prototype.updateLocation = function (currentPosition, progress) {
             // This function animates the pan to the desired location.
-            var elapsedTime = progress,
+            var elapsedTime = Power4.easeInOut.getRatio(progress/100)*100,
                 distanceTravelled = Location.greatCircleDistance(this.startPosition, currentPosition),
                 distanceRemaining = Location.greatCircleDistance(currentPosition, this.targetPosition),
                 azimuthToTarget = Location.greatCircleAzimuth(currentPosition, this.targetPosition),
