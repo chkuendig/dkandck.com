@@ -1,9 +1,10 @@
 var globePositions = {
-    "-1": { latitude: 80, longitude: 8.55, altitude: 0.7e7, tilt: 60 }, // start, nord pole 
-    0: { latitude: 50, longitude: 8.55, altitude: 2e7, tilt: 0 }, // whole world
-    1: { latitude: 47.36667, longitude: 8.545, altitude: 3100, tilt: 55 }, // zurich
-    2: { latitude:37.85358,  longitude:15.28851, altitude:2000,tilt:55}, // taormina
-    3: { latitude: -3.065653, longitude: 37.35201, altitude: 50, tilt: 0 },
+    "-1": { latitude: 80.00, longitude: 8.55, altitude: 0.7e7, tilt: 60 }, // start, nord pole 
+    0: { latitude: 50.00000, longitude: 8.55, altitude: 1e7, tilt: 0 }, // whole world
+    1: { latitude: 47.36667, longitude: 8.54500, altitude: 3100, tilt: 55 }, // zurich
+    2: { latitude: 37.85358, longitude: 15.28851, altitude: 2000, tilt: 55 }, // taormina
+    3: { latitude: 47.92040, longitude: 8.10523, altitude: 161044, tilt: 26 }, // alsace
+    4: { latitude: -3.065653, longitude: 37.35201, altitude: 5000, tilt: 0 }, // kilimanjaro
 }
 document.addEventListener('DOMContentLoaded', function () {
     // init globe
@@ -41,13 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
         .addIndicators() // add indicators (requires plugin)
         .addTo(controller)
         .on("progress", function (e) {
-            loop(1, e.progress)
+            loop(2, e.progress)
         });;
 
-    
-    
+
+
     // photo scrolling
-    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock,blockIdx) {
+    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock, blockIdx) {
         var tl = new TimelineMax();
         var igPictures = pinnedBlock.querySelectorAll("section.igPicture")
         igPictures.forEach(function (igPicture, pictureidx) {
@@ -63,26 +64,26 @@ document.addEventListener('DOMContentLoaded', function () {
             .setPin(pinnedBlock)
             .setTween(tl)
             .addIndicators()
-           
-      
+
+
             .addTo(controller)
             .on("progress", function (e) {
-               if(blockIdx == 0) { //2016
-                var progress = e.progress
-                ratioPerPic = 1/(igPictures.length-1)
-                pictureIdx = Math.floor(progress/ratioPerPic)+1
-                pictureProg = (progress-ratioPerPic*(pictureIdx-1))/ratioPerPic;
-                
-                console.log({pictureIdx:pictureIdx,pictureProg:pictureProg,progress:progress});
-                if(pictureIdx==2){
+                if (blockIdx == 0) { //2016
+                    var progress = e.progress
+                    ratioPerPic = 1 / (igPictures.length - 1)
+                    pictureIdx = Math.floor(progress / ratioPerPic) + 1
+                    pictureProg = (progress - ratioPerPic * (pictureIdx - 1)) / ratioPerPic;
 
-            loop(2, pictureProg)
+                    console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
+                    if (pictureIdx == 2) {
+
+                        loop(1, pictureProg)
+                    }
                 }
-               }
-              });;
+            });;
 
     })
-    
+
 
 });
 
@@ -97,27 +98,32 @@ var adjustRestingRange = function (progress) {
 }
 function loop(page, pageProgress) {
 
-    requestAnimationFrame(function () {
+    // requestAnimationFrame(function () {
 
-        var nextPage = parseInt(page) + 1
-        if (globePositions[page] && globePositions[nextPage]) { // animate globe
-            if (animatorPage != page) {
-                animatorPage = page
-                animator = wwd.goToAnimator.goTo(globePositions[page], globePositions[nextPage]);
-                /*
-                if (page == -1) {
-                    startSun()
-                } else {
-                   stopSun()
-                }
-                */
-                console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage })
+    var nextPage = parseInt(page) + 1
+    if (globePositions[page] && globePositions[nextPage]) { // animate globe
+        if (animatorPage != page) {
+
+            // console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage, nextPage:nextPage })
+            animatorPage = page
+            animator = wwd.goToAnimator.goTo(globePositions[page], globePositions[nextPage]);
+            /*
+            if (page == -1) {
+                startSun()
+            } else {
+               stopSun()
             }
-            wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
-            animator(pageProgress * 100)
-           // console.log({ latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
+            */
         }
-    });
+        var compressFactor = 0.8 //rest for 0.1 on both sides
+        pageProgress = Math.max(0, Math.min(1, pageProgress / compressFactor - (1 - compressFactor) / (compressFactor * 2)))
+        wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
+        //console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage, nextPage:nextPage })
+
+        animator(pageProgress * 100)
+        console.log({ page: page, pageProgress: pageProgress, latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
+    }
+    // });
 
 
 };
@@ -150,9 +156,6 @@ function stopSun() {
 function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
     htmlCanvas = document.getElementById('canvasOne');
-    //  htmlCanvas.width = window.innerWidth;
-    //  htmlCanvas.height = window.innerHeight/2;
-    //  htmlCanvas.background = "black";
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_DEBUG);
     var wwd = new WorldWind.WorldWindow("canvasOne", new WorldWind.EarthElevationModel());
@@ -168,53 +171,15 @@ function launchGlobe() {
     wwd.addLayer(layerBMNGOneImage);
     var layerBMNGLandsat = new WorldWind.BMNGLandsatLayer()
     layerBMNGLandsat.maxActiveAltitude = 4000000
-    layerBMNGLandsat.minActiveAltitude = 5000
+    layerBMNGLandsat.minActiveAltitude = 10000
     wwd.addLayer(layerBMNGLandsat);
     var layerBingAerial = new WorldWind.BingAerialLayer(null);
-    layerBingAerial.maxActiveAltitude = 5000;
+    layerBingAerial.maxActiveAltitude = 10000;
     wwd.addLayer(layerBingAerial);
     // The Sun simulation is a feature of Atmosphere layer. We'll create and add the layer.
     atmosphereLayer = new WorldWind.AtmosphereLayer();
     atmosphereLayer.minActiveAltitude = 10000;
     wwd.addLayer(atmosphereLayer);
 
-
-    //wwd.addLayer(new WorldWind.CompassLayer());
-    //  wwd.addLayer(new WorldWind.CoordinatesDisplayLayer(wwd));
-    //wwd.addLayer(new WorldWind.ViewControlsLayer(wwd));
-    /*
-    var nullListener = function (event) {
-        if (!event.defaultPrevented) {
-        event.preventDefault();
-        } 
-        var worldWindow =  window.wwd.navigator.worldWindow
-        Object.keys(     worldWindow.eventListeners).forEach(function (key) {
-          var listeners =     worldWindow.eventListeners[key].listeners;
-          if(listeners.length >0 ) {
-            listeners.forEach(function(listener){
-              worldWindow.removeEventListener(key,listener)
-          })}
-        });
-        return true
-    }
-    wwd.addEventListener("mousemove", nullListener);
-    wwd.addEventListener("contextmenu", nullListener);
-    wwd.addEventListener("mousedown", nullListener);
-    wwd.addEventListener("pointerdown", nullListener);
-    wwd.addEventListener("touchstart", nullListener);
-    wwd.addEventListener("wheel", nullListener);
-    */
-
-    /*
-    wwd.navigator.handleWheelEvent = function() {
-      // nothing
-      var self = this
-      if(self.worldWindow.eventListeners.wheel.listeners.length >0 ) {
-        self.worldWindow.eventListeners.wheel.listeners.forEach(function(listener){
-          self.worldWindow.removeEventListener("wheel",listener)
-      })}
-      console.log("wheel")
-      }
-      */
     return wwd;
 }
