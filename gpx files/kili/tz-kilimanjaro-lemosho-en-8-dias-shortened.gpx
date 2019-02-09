@@ -20,7 +20,14 @@
 <wpt lat="-3.099918" lon="37.379064"><name>Barafu Camp 4.673 m</name><ele>4630.7</ele><time>2016-10-26T15:34:35Z</time></wpt>
 <wpt lat="-3.156072" lon="37.367325"><name>Mweka Camp 3.100 m</name><ele>3088</ele><time>2016-10-26T15:34:35Z</time></wpt>
 <wpt lat="-3.219358" lon="37.341642"><name>Meweka Gate 1.689 m</name><ele>1639.1</ele><time>2016-10-26T15:34:35Z</time></wpt>
-<trk><name>Wikiloc - TZ KILIMANJARO 5* - Ruta Lemosho en 8 dias</name>
+
+  <wpt lat="-3.0764084" lon="37.3539987">
+    <ele>5895.000000</ele>
+    <time>2016-10-26T15:34:35Z</time>
+    <name>Uhuru Peak 5.895m</name>
+   
+  </wpt>
+<trk><name>Day 1</name>
   <trkseg>
     <trkpt lat="-3.003147" lon="37.146823"><ele>2378.563</ele><time>2016-10-09T11:52:07Z</time></trkpt>
     <trkpt lat="-3.003049" lon="37.146892"><ele>2382.544</ele><time>2016-10-09T11:57:55Z</time></trkpt>
