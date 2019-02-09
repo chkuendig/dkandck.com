@@ -1,1047 +1,482 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
-<Document id="root_doc">
-<Schema name="waypoints" id="waypoints">
-	<SimpleField name="ele" type="float"></SimpleField>
-	<SimpleField name="time" type="string"></SimpleField>
-	<SimpleField name="magvar" type="float"></SimpleField>
-	<SimpleField name="geoidheight" type="float"></SimpleField>
-	<SimpleField name="cmt" type="string"></SimpleField>
-	<SimpleField name="desc" type="string"></SimpleField>
-	<SimpleField name="src" type="string"></SimpleField>
-	<SimpleField name="link1_href" type="string"></SimpleField>
-	<SimpleField name="link1_text" type="string"></SimpleField>
-	<SimpleField name="link1_type" type="string"></SimpleField>
-	<SimpleField name="link2_href" type="string"></SimpleField>
-	<SimpleField name="link2_text" type="string"></SimpleField>
-	<SimpleField name="link2_type" type="string"></SimpleField>
-	<SimpleField name="sym" type="string"></SimpleField>
-	<SimpleField name="type" type="string"></SimpleField>
-	<SimpleField name="fix" type="string"></SimpleField>
-	<SimpleField name="sat" type="int"></SimpleField>
-	<SimpleField name="hdop" type="float"></SimpleField>
-	<SimpleField name="vdop" type="float"></SimpleField>
-	<SimpleField name="pdop" type="float"></SimpleField>
-	<SimpleField name="ageofdgpsdata" type="float"></SimpleField>
-	<SimpleField name="dgpsid" type="int"></SimpleField>
-</Schema>
-<Folder><name>waypoints</name>
-  <Placemark>
-	<name>Lemosho Gate 2.100 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">2378.5</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.146823,-3.003147</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>MTI Mkubwa Camp 2.650 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">2782.5</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.175177,-2.996928</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Shira I Camp 3.610 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">3507.1</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.228867,-3.013343</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Shira II Camp 3.850 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">3898</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.276246,-3.054776</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Barranco camp 3.900 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">3974.4</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.329086,-3.095171</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Karanga Camp 3.995 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">4007.5</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.353652,-3.113086</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Barafu Camp 4.673 m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">4630.7</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.379064,-3.099918</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<name>Uhuru Peak 5.895m</name>
-	<ExtendedData><SchemaData schemaUrl="#waypoints">
-		<SimpleData name="ele">5895</SimpleData>
-		<SimpleData name="time">2016/10/26 15:34:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.3539987,-3.0764084</coordinates></Point>
-  </Placemark>
-</Folder>
-<Folder><name>routes</name>
-</Folder>
-<Folder><name>tracks</name>
-  <Placemark>
-	<name>Day 1</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.146823,-3.003147 37.1516,-3.003613 37.156208,-3.004324 37.160786,-3.005137 37.162957,-3.001176 37.16577,-2.997321 37.17033,-2.998351 37.174854,-2.997383 37.175177,-2.996928</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 2</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.17549,-2.996924 37.179743,-2.998799 37.185837,-3.001221 37.19026,-3.000236 37.19495,-3.000879 37.199066,-2.999034 37.20366,-2.999135 37.206171,-3.003019 37.209662,-3.005898 37.214195,-3.005472 37.218737,-3.004745 37.222386,-3.007507 37.226197,-3.010324 37.228867,-3.013343</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 3</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.229161,-3.013271 37.232736,-3.016153 37.236217,-3.019289 37.239634,-3.022346 37.241125,-3.026602 37.241902,-3.031124 37.242761,-3.035608 37.243513,-3.04005 37.244216,-3.044674 37.24441,-3.049354 37.245036,-3.053857 37.249174,-3.055761 37.253741,-3.055458 37.257888,-3.053306 37.262508,-3.052585 37.26688,-3.053673 37.271388,-3.054472 37.276076,-3.054776 37.276246,-3.054776</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 4</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.276244,-3.054867 37.280951,-3.054503 37.285485,-3.054373 37.290149,-3.054564 37.294655,-3.055005 37.299185,-3.055906 37.303755,-3.056808 37.308295,-3.058035 37.312007,-3.061071 37.316191,-3.062954 37.320575,-3.06493 37.324878,-3.066508 37.327845,-3.070042 37.327004,-3.074591 37.325503,-3.078975 37.325122,-3.083609 37.32708,-3.08789 37.328887,-3.092153 37.329086,-3.095171</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 5</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.329198,-3.095378 37.333874,-3.095287 37.336639,-3.098924 37.340692,-3.101289 37.345346,-3.102162 37.346797,-3.10662 37.350098,-3.109731 37.353847,-3.112487 37.353652,-3.113086</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 6</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.353652,-3.113086 37.358328,-3.109714 37.362552,-3.107521 37.366716,-3.105597 37.370859,-3.10354 37.375399,-3.102431 37.379064,-3.099918</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>Day 7</name>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-      <MultiGeometry><LineString><coordinates>37.379064,-3.099918 37.377276,-3.09561 37.375719,-3.091338 37.371963,-3.08852 37.368976,-3.0851 37.365956,-3.081743 37.363006,-3.078256 37.358574,-3.079363 37.354566,-3.077054 37.354093,-3.07647</coordinates></LineString></MultiGeometry>
-  </Placemark>
-</Folder>
-<Folder><name>route_points</name>
-</Folder>
-<Folder><name>track_points</name>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">2378.563</SimpleData>
-		<SimpleData name="time">2016/10/09 11:52:07+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.146823,-3.003147</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">2498.136</SimpleData>
-		<SimpleData name="time">2016/10/09 12:23:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.1516,-3.003613</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">2530.614</SimpleData>
-		<SimpleData name="time">2016/10/09 12:33:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.156208,-3.004324</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">2594.652</SimpleData>
-		<SimpleData name="time">2016/10/09 12:46:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.160786,-3.005137</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">2659.273</SimpleData>
-		<SimpleData name="time">2016/10/09 13:02:25+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.162957,-3.001176</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">2670.541</SimpleData>
-		<SimpleData name="time">2016/10/09 13:13:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.16577,-2.997321</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">2690.121</SimpleData>
-		<SimpleData name="time">2016/10/09 13:24:25+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.17033,-2.998351</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">2775.555</SimpleData>
-		<SimpleData name="time">2016/10/09 13:38:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.174854,-2.997383</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">0</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">2782.581</SimpleData>
-		<SimpleData name="time">2016/10/09 13:40:55+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.175177,-2.996928</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">2797.919</SimpleData>
-		<SimpleData name="time">2016/10/10 04:44:35+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.17549,-2.996924</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">2818.196</SimpleData>
-		<SimpleData name="time">2016/10/10 05:00:48+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.179743,-2.998799</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">2939.777</SimpleData>
-		<SimpleData name="time">2016/10/10 05:20:09+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.185837,-3.001221</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">3035.671</SimpleData>
-		<SimpleData name="time">2016/10/10 05:42:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.19026,-3.000236</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">3058.463</SimpleData>
-		<SimpleData name="time">2016/10/10 05:56:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.19495,-3.000879</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">3045.151</SimpleData>
-		<SimpleData name="time">2016/10/10 06:11:59+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.199066,-2.999034</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">3192.439</SimpleData>
-		<SimpleData name="time">2016/10/10 06:40:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.20366,-2.999135</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">3300.408</SimpleData>
-		<SimpleData name="time">2016/10/10 06:57:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.206171,-3.003019</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">3444.671</SimpleData>
-		<SimpleData name="time">2016/10/10 07:17:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.209662,-3.005898</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">9</SimpleData>
-		<SimpleData name="ele">3511.01</SimpleData>
-		<SimpleData name="time">2016/10/10 07:34:59+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.214195,-3.005472</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">10</SimpleData>
-		<SimpleData name="ele">3534.243</SimpleData>
-		<SimpleData name="time">2016/10/10 07:45:59+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.218737,-3.004745</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">11</SimpleData>
-		<SimpleData name="ele">3495.222</SimpleData>
-		<SimpleData name="time">2016/10/10 07:59:59+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.222386,-3.007507</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">12</SimpleData>
-		<SimpleData name="ele">3503.015</SimpleData>
-		<SimpleData name="time">2016/10/10 08:08:29+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.226197,-3.010324</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">1</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">13</SimpleData>
-		<SimpleData name="ele">3507.154</SimpleData>
-		<SimpleData name="time">2016/10/10 08:21:41+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.228867,-3.013343</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">3513.187</SimpleData>
-		<SimpleData name="time">2016/10/11 05:10:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.229161,-3.013271</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">3542.544</SimpleData>
-		<SimpleData name="time">2016/10/11 05:21:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.232736,-3.016153</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">3562.987</SimpleData>
-		<SimpleData name="time">2016/10/11 05:31:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.236217,-3.019289</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">3570.108</SimpleData>
-		<SimpleData name="time">2016/10/11 05:43:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.239634,-3.022346</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">3590.126</SimpleData>
-		<SimpleData name="time">2016/10/11 05:53:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.241125,-3.026602</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">3595.475</SimpleData>
-		<SimpleData name="time">2016/10/11 06:02:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.241902,-3.031124</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">3605.547</SimpleData>
-		<SimpleData name="time">2016/10/11 06:14:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.242761,-3.035608</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">3616.768</SimpleData>
-		<SimpleData name="time">2016/10/11 06:21:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.243513,-3.04005</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">3626.079</SimpleData>
-		<SimpleData name="time">2016/10/11 06:29:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.244216,-3.044674</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">9</SimpleData>
-		<SimpleData name="ele">3667.352</SimpleData>
-		<SimpleData name="time">2016/10/11 06:38:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.24441,-3.049354</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">10</SimpleData>
-		<SimpleData name="ele">3731.163</SimpleData>
-		<SimpleData name="time">2016/10/11 06:49:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.245036,-3.053857</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">11</SimpleData>
-		<SimpleData name="ele">3772.839</SimpleData>
-		<SimpleData name="time">2016/10/11 08:17:46+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.249174,-3.055761</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">12</SimpleData>
-		<SimpleData name="ele">3765.808</SimpleData>
-		<SimpleData name="time">2016/10/11 08:27:16+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.253741,-3.055458</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">13</SimpleData>
-		<SimpleData name="ele">3754.358</SimpleData>
-		<SimpleData name="time">2016/10/11 08:41:46+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.257888,-3.053306</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">14</SimpleData>
-		<SimpleData name="ele">3762.008</SimpleData>
-		<SimpleData name="time">2016/10/11 08:54:46+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.262508,-3.052585</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">15</SimpleData>
-		<SimpleData name="ele">3810.13</SimpleData>
-		<SimpleData name="time">2016/10/11 09:07:16+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.26688,-3.053673</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">16</SimpleData>
-		<SimpleData name="ele">3838.381</SimpleData>
-		<SimpleData name="time">2016/10/11 09:16:16+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.271388,-3.054472</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">17</SimpleData>
-		<SimpleData name="ele">3896.78</SimpleData>
-		<SimpleData name="time">2016/10/11 09:39:16+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.276076,-3.054776</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">2</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">18</SimpleData>
-		<SimpleData name="ele">3898.095</SimpleData>
-		<SimpleData name="time">2016/10/11 10:21:16+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.276246,-3.054776</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">3899.949</SimpleData>
-		<SimpleData name="time">2016/10/12 04:51:01+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.276244,-3.054867</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">3969.167</SimpleData>
-		<SimpleData name="time">2016/10/12 05:08:31+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.280951,-3.054503</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">4034.153</SimpleData>
-		<SimpleData name="time">2016/10/12 05:23:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.285485,-3.054373</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">4105.36</SimpleData>
-		<SimpleData name="time">2016/10/12 05:36:32+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.290149,-3.054564</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">4185.184</SimpleData>
-		<SimpleData name="time">2016/10/12 05:50:32+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.294655,-3.055005</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">4263.708</SimpleData>
-		<SimpleData name="time">2016/10/12 06:07:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.299185,-3.055906</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">4357.015</SimpleData>
-		<SimpleData name="time">2016/10/12 06:29:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.303755,-3.056808</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">4363.239</SimpleData>
-		<SimpleData name="time">2016/10/12 06:40:32+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.308295,-3.058035</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">4428.14</SimpleData>
-		<SimpleData name="time">2016/10/12 07:01:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.312007,-3.061071</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">9</SimpleData>
-		<SimpleData name="ele">4485.037</SimpleData>
-		<SimpleData name="time">2016/10/12 07:16:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.316191,-3.062954</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">10</SimpleData>
-		<SimpleData name="ele">4550.096</SimpleData>
-		<SimpleData name="time">2016/10/12 07:31:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.320575,-3.06493</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">11</SimpleData>
-		<SimpleData name="ele">4589.74</SimpleData>
-		<SimpleData name="time">2016/10/12 07:42:02+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.324878,-3.066508</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">12</SimpleData>
-		<SimpleData name="ele">4565.178</SimpleData>
-		<SimpleData name="time">2016/10/12 08:31:33+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.327845,-3.070042</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">13</SimpleData>
-		<SimpleData name="ele">4524.826</SimpleData>
-		<SimpleData name="time">2016/10/12 08:43:33+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.327004,-3.074591</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">14</SimpleData>
-		<SimpleData name="ele">4424.059</SimpleData>
-		<SimpleData name="time">2016/10/12 08:55:03+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.325503,-3.078975</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">15</SimpleData>
-		<SimpleData name="ele">4307.017</SimpleData>
-		<SimpleData name="time">2016/10/12 09:15:06+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.325122,-3.083609</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">16</SimpleData>
-		<SimpleData name="ele">4165.082</SimpleData>
-		<SimpleData name="time">2016/10/12 09:36:36+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.32708,-3.08789</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">17</SimpleData>
-		<SimpleData name="ele">4028.011</SimpleData>
-		<SimpleData name="time">2016/10/12 09:52:36+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.328887,-3.092153</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">3</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">18</SimpleData>
-		<SimpleData name="ele">3974.498</SimpleData>
-		<SimpleData name="time">2016/10/12 10:05:36+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.329086,-3.095171</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">3978.342</SimpleData>
-		<SimpleData name="time">2016/10/13 05:37:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.329198,-3.095378</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">4093.908</SimpleData>
-		<SimpleData name="time">2016/10/13 06:32:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.333874,-3.095287</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">4211.438</SimpleData>
-		<SimpleData name="time">2016/10/13 06:57:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.336639,-3.098924</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">4110.163</SimpleData>
-		<SimpleData name="time">2016/10/13 07:28:52+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.340692,-3.101289</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">4101.863</SimpleData>
-		<SimpleData name="time">2016/10/13 07:46:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.345346,-3.102162</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">4110.422</SimpleData>
-		<SimpleData name="time">2016/10/13 08:01:52+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.346797,-3.10662</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">4035.957</SimpleData>
-		<SimpleData name="time">2016/10/13 08:16:52+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.350098,-3.109731</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">4024.136</SimpleData>
-		<SimpleData name="time">2016/10/13 08:53:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.353847,-3.112487</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">4</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">4007.504</SimpleData>
-		<SimpleData name="time">2016/10/13 08:58:22+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.353652,-3.113086</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">4007.504</SimpleData>
-		<SimpleData name="time">2016/10/14 05:59:43+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.353652,-3.113086</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">4166.114</SimpleData>
-		<SimpleData name="time">2016/10/14 05:59:43+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.358328,-3.109714</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">4307.067</SimpleData>
-		<SimpleData name="time">2016/10/14 06:25:13+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.362552,-3.107521</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">4388.83</SimpleData>
-		<SimpleData name="time">2016/10/14 06:42:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.366716,-3.105597</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">4437.669</SimpleData>
-		<SimpleData name="time">2016/10/14 06:57:15+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.370859,-3.10354</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">4479.084</SimpleData>
-		<SimpleData name="time">2016/10/14 07:10:45+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.375399,-3.102431</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">5</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">4630.752</SimpleData>
-		<SimpleData name="time">2016/10/14 08:19:46+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.379064,-3.099918</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">0</SimpleData>
-		<SimpleData name="ele">4630.752</SimpleData>
-		<SimpleData name="time">2016/10/14 20:26:09+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.379064,-3.099918</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">1</SimpleData>
-		<SimpleData name="ele">4808.961</SimpleData>
-		<SimpleData name="time">2016/10/14 21:40:39+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.377276,-3.09561</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">2</SimpleData>
-		<SimpleData name="ele">4896.857</SimpleData>
-		<SimpleData name="time">2016/10/14 21:58:39+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.375719,-3.091338</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">3</SimpleData>
-		<SimpleData name="ele">5080.419</SimpleData>
-		<SimpleData name="time">2016/10/14 22:41:39+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.371963,-3.08852</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">4</SimpleData>
-		<SimpleData name="ele">5268.031</SimpleData>
-		<SimpleData name="time">2016/10/14 23:27:39+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.368976,-3.0851</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">5</SimpleData>
-		<SimpleData name="ele">5509.853</SimpleData>
-		<SimpleData name="time">2016/10/15 00:36:39+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.365956,-3.081743</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">6</SimpleData>
-		<SimpleData name="ele">5731.764</SimpleData>
-		<SimpleData name="time">2016/10/15 01:47:09+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.363006,-3.078256</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">7</SimpleData>
-		<SimpleData name="ele">5841.583</SimpleData>
-		<SimpleData name="time">2016/10/15 02:23:09+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.358574,-3.079363</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">8</SimpleData>
-		<SimpleData name="ele">5887.664</SimpleData>
-		<SimpleData name="time">2016/10/15 02:38:09+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.354566,-3.077054</coordinates></Point>
-  </Placemark>
-  <Placemark>
-	<ExtendedData><SchemaData schemaUrl="#track_points">
-		<SimpleData name="track_fid">6</SimpleData>
-		<SimpleData name="track_seg_id">0</SimpleData>
-		<SimpleData name="track_seg_point_id">9</SimpleData>
-		<SimpleData name="ele">5893.791</SimpleData>
-		<SimpleData name="time">2016/10/15 03:00:00+00</SimpleData>
-	</SchemaData></ExtendedData>
-      <Point><coordinates>37.354093,-3.07647</coordinates></Point>
-  </Placemark>
-</Folder>
-<Schema name="tracks" id="tracks">
-	<SimpleField name="cmt" type="string"></SimpleField>
-	<SimpleField name="desc" type="string"></SimpleField>
-	<SimpleField name="src" type="string"></SimpleField>
-	<SimpleField name="link1_href" type="string"></SimpleField>
-	<SimpleField name="link1_text" type="string"></SimpleField>
-	<SimpleField name="link1_type" type="string"></SimpleField>
-	<SimpleField name="link2_href" type="string"></SimpleField>
-	<SimpleField name="link2_text" type="string"></SimpleField>
-	<SimpleField name="link2_type" type="string"></SimpleField>
-	<SimpleField name="number" type="int"></SimpleField>
-	<SimpleField name="type" type="string"></SimpleField>
-</Schema>
-<Schema name="track_points" id="track_points">
-	<SimpleField name="track_fid" type="int"></SimpleField>
-	<SimpleField name="track_seg_id" type="int"></SimpleField>
-	<SimpleField name="track_seg_point_id" type="int"></SimpleField>
-	<SimpleField name="ele" type="float"></SimpleField>
-	<SimpleField name="time" type="string"></SimpleField>
-	<SimpleField name="magvar" type="float"></SimpleField>
-	<SimpleField name="geoidheight" type="float"></SimpleField>
-	<SimpleField name="cmt" type="string"></SimpleField>
-	<SimpleField name="desc" type="string"></SimpleField>
-	<SimpleField name="src" type="string"></SimpleField>
-	<SimpleField name="link1_href" type="string"></SimpleField>
-	<SimpleField name="link1_text" type="string"></SimpleField>
-	<SimpleField name="link1_type" type="string"></SimpleField>
-	<SimpleField name="link2_href" type="string"></SimpleField>
-	<SimpleField name="link2_text" type="string"></SimpleField>
-	<SimpleField name="link2_type" type="string"></SimpleField>
-	<SimpleField name="sym" type="string"></SimpleField>
-	<SimpleField name="type" type="string"></SimpleField>
-	<SimpleField name="fix" type="string"></SimpleField>
-	<SimpleField name="sat" type="int"></SimpleField>
-	<SimpleField name="hdop" type="float"></SimpleField>
-	<SimpleField name="vdop" type="float"></SimpleField>
-	<SimpleField name="pdop" type="float"></SimpleField>
-	<SimpleField name="ageofdgpsdata" type="float"></SimpleField>
-	<SimpleField name="dgpsid" type="int"></SimpleField>
-</Schema>
-</Document></kml>
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"  xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2"    
+     xmlns:atom="http://www.w3.org/2005/Atom">
+    <Document>
+        <name><![CDATA[kili_500m]]></name>
+        
+                                    
+        <description><![CDATA[<br/><p> </p><p><br/>Converted using <b><a href='http://gpx2kml.com' title='Go to gpx2kml.com'>gpx2kml.com</a></b></p><br/>]]></description>
+        <visibility>1</visibility>
+        <open>1</open>
+        
+                <Style id="red">
+            <LineStyle>
+            <color>C81400FF</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_red">
+            <LineStyle>
+            <color>961400FF</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="green">
+            <LineStyle>
+            <color>C878FF00</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_green">
+            <LineStyle>
+            <color>9678FF00</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="blue">
+            <LineStyle>
+            <color>C8FF7800</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_blue">
+            <LineStyle>
+            <color>96FF7800</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="cyan">
+            <LineStyle>
+            <color>C8F0FF14</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_cyan">
+            <LineStyle>
+            <color>96F0FF14</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="orange">
+            <LineStyle>
+            <color>C81478FF</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_orange">
+            <LineStyle>
+            <color>961478FF</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="dark_green">
+            <LineStyle>
+            <color>C8008C14</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_dark_green">
+            <LineStyle>
+            <color>96008C14</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="purple">
+            <LineStyle>
+            <color>C8FF7878</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_purple">
+            <LineStyle>
+            <color>96FF7878</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="pink">
+            <LineStyle>
+            <color>C8A078F0</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_pink">
+            <LineStyle>
+            <color>96A078F0</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="brown">
+            <LineStyle>
+            <color>C8143C96</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_brown">
+            <LineStyle>
+            <color>96143C96</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+                <Style id="dark_blue">
+            <LineStyle>
+            <color>C8F01414</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        <Style id="route_dark_blue">
+            <LineStyle>
+            <color>96F01414</color>
+            <width>4</width>
+            </LineStyle>
+        </Style>
+        
+                
+        <Folder>
+            <name>Waypoints</name>
+            <description>A list of waypoints</description>
+            <visibility>1</visibility>
+            <open>0</open>
+                                                                                
+            
+            <Placemark>
+                <name>Lemosho Gate 2.100 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.146823</longitude>
+                    <latitude>-3.003147</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.146823,-3.003147,2378.5                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>MTI Mkubwa Camp 2.650 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.175177</longitude>
+                    <latitude>-2.996928</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.175177,-2.996928,2782.5                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Shira I Camp 3.610 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.228867</longitude>
+                    <latitude>-3.013343</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.228867,-3.013343,3507.1                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Shira II Camp 3.850 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.276246</longitude>
+                    <latitude>-3.054776</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.276246,-3.054776,3898.0                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Barranco camp 3.900 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.329086</longitude>
+                    <latitude>-3.095171</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.329086,-3.095171,3974.4                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Karanga Camp 3.995 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.353652</longitude>
+                    <latitude>-3.113086</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.353652,-3.113086,4007.5                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Barafu Camp 4.673 m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.379064</longitude>
+                    <latitude>-3.099918</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.379064,-3.099918,4630.7                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                                                                        
+            
+            <Placemark>
+                <name>Uhuru Peak 5.895m</name>                      
+                <visibility>1</visibility>            
+                <open>0</open>                        
+                                                    
+                <TimeStamp>
+                    <when>2016-10-26T15:34:35Z</when>
+                </TimeStamp> 
+                                
+                <description>
+                    No info available                </description>       
+                <LookAt>
+                    <longitude>37.3539987</longitude>
+                    <latitude>-3.0764084</latitude>
+                    <range>500</range>
+                    <tilt>45</tilt>
+                    <heading>0</heading>
+                </LookAt>
+                <Point>
+                    <coordinates>
+                        37.3539987,-3.0764084,5895.0                        
+                    </coordinates>
+                </Point>
+            </Placemark>
+                            
+        </Folder>
+        
+                
+                
+        <Folder>
+            <name>Tracks</name>
+            <description>A list of tracks</description>
+            <visibility>1</visibility>            
+            <open>0</open>
+                                                            
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#red</styleUrl>
+                    <name>Day 1</name>
+                    <description>Track no. 1</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.146823,-3.003147,2378.563 37.1516,-3.003613,2498.136 37.156208,-3.004324,2530.614 37.160786,-3.005137,2594.652 37.162957,-3.001176,2659.273 37.16577,-2.997321,2670.541 37.17033,-2.998351,2690.121 37.174854,-2.997383,2775.555 37.175177,-2.996928,2782.581                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#green</styleUrl>
+                    <name>Day 2</name>
+                    <description>Track no. 2</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.17549,-2.996924,2797.919 37.179743,-2.998799,2818.196 37.185837,-3.001221,2939.777 37.19026,-3.000236,3035.671 37.19495,-3.000879,3058.463 37.199066,-2.999034,3045.151 37.20366,-2.999135,3192.439 37.206171,-3.003019,3300.408 37.209662,-3.005898,3444.671 37.214195,-3.005472,3511.01 37.218737,-3.004745,3534.243 37.222386,-3.007507,3495.222 37.226197,-3.010324,3503.015 37.228867,-3.013343,3507.154                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#blue</styleUrl>
+                    <name>Day 3</name>
+                    <description>Track no. 3</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.229161,-3.013271,3513.187 37.232736,-3.016153,3542.544 37.236217,-3.019289,3562.987 37.239634,-3.022346,3570.108 37.241125,-3.026602,3590.126 37.241902,-3.031124,3595.475 37.242761,-3.035608,3605.547 37.243513,-3.04005,3616.768 37.244216,-3.044674,3626.079 37.24441,-3.049354,3667.352 37.245036,-3.053857,3731.163 37.249174,-3.055761,3772.839 37.253741,-3.055458,3765.808 37.257888,-3.053306,3754.358 37.262508,-3.052585,3762.008 37.26688,-3.053673,3810.13 37.271388,-3.054472,3838.381 37.276076,-3.054776,3896.78 37.276246,-3.054776,3898.095                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#cyan</styleUrl>
+                    <name>Day 4</name>
+                    <description>Track no. 4</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.276244,-3.054867,3899.949 37.280951,-3.054503,3969.167 37.285485,-3.054373,4034.153 37.290149,-3.054564,4105.36 37.294655,-3.055005,4185.184 37.299185,-3.055906,4263.708 37.303755,-3.056808,4357.015 37.308295,-3.058035,4363.239 37.312007,-3.061071,4428.14 37.316191,-3.062954,4485.037 37.320575,-3.06493,4550.096 37.324878,-3.066508,4589.74 37.327845,-3.070042,4565.178 37.327004,-3.074591,4524.826 37.325503,-3.078975,4424.059 37.325122,-3.083609,4307.017 37.32708,-3.08789,4165.082 37.328887,-3.092153,4028.011 37.329086,-3.095171,3974.498                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#orange</styleUrl>
+                    <name>Day 5</name>
+                    <description>Track no. 5</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.329198,-3.095378,3978.342 37.333874,-3.095287,4093.908 37.336639,-3.098924,4211.438 37.340692,-3.101289,4110.163 37.345346,-3.102162,4101.863 37.346797,-3.10662,4110.422 37.350098,-3.109731,4035.957 37.353847,-3.112487,4024.136 37.353652,-3.113086,4007.504                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#dark_green</styleUrl>
+                    <name>Day 6</name>
+                    <description>Track no. 6</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.353652,-3.113086,4007.504 37.358328,-3.109714,4166.114 37.362552,-3.107521,4307.067 37.366716,-3.105597,4388.83 37.370859,-3.10354,4437.669 37.375399,-3.102431,4479.084 37.379064,-3.099918,4630.752                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                                    
+                <Placemark>
+                    <visibility>1</visibility>            
+                    <open>0</open> 
+                    <styleUrl>#purple</styleUrl>
+                    <name>Day 7</name>
+                    <description>Track no. 7</description>
+                    <LineString>
+                        <extrude>true</extrude>
+                        <tessellate>true</tessellate>
+                        <altitudeMode>clampToGround</altitudeMode> 
+                        <coordinates>
+                            37.379064,-3.099918,4630.752 37.377276,-3.09561,4808.961 37.375719,-3.091338,4896.857 37.371963,-3.08852,5080.419 37.368976,-3.0851,5268.031 37.365956,-3.081743,5509.853 37.363006,-3.078256,5731.764 37.358574,-3.079363,5841.583 37.354566,-3.077054,5887.664 37.354093,-3.07647,5893.791                             
+                        </coordinates>
+                    </LineString>
+                </Placemark>
+                                        
+        </Folder>
+                
+        <LookAt>
+            <longitude>37.2629435</longitude>            
+            <latitude>-3.055005</latitude>             
+            <altitude>0</altitude>               
+            <heading>0</heading>               
+            <tilt>45</tilt>
+            <range>13382</range>                    
+            <altitudeMode>clampToGround</altitudeMode> 
+        </LookAt>
+    </Document>
+</kml>
