@@ -6,6 +6,15 @@ var globePositions = {
     3: { latitude: 47.92040, longitude: 8.10523, altitude: 161044, tilt: 26 }, // alsace
     4: { latitude: -3.065653, longitude: 37.35201, altitude: 5000, tilt: 0 }, // kilimanjaro
 }
+
+var kmlFiles = {
+    "3": "gpx/cycling/cycle_500m.kml",
+    "4": "./gpx/kili/kili_500m.kml"
+}
+
+var kmlLayers = {
+
+}
 document.addEventListener('DOMContentLoaded', function () {
     // init globe
     window.wwd = launchGlobe();
@@ -13,8 +22,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // init controller
     TweenMax.defaultEase = Linear.easeNone;
     var controller = new ScrollMagic.Controller();
+    var kmlController = new WorldWind.KmlControls();
+    kmlController.hook = function (node, options) {
+        if (options.isFeature) {
+            var name = node.kmlName || node.id || WWUtil.guid();
+            var enabled = node.enabled && node.kmlVisibility === true;
+            if (!enabled) {
+                console.log(name)
+                console.log(enabled)
+            }
 
+            //TODO: Check kmlStyleUrl on node to remove name on routes (the labels look ugly)
+        }
+    };
+    // build kmlLayers
+    Object.keys(kmlFiles).forEach(function (key) {
+        var kmlFilePromise = new WorldWind.KmlFile(kmlFiles[key], [kmlController]);
+        kmlFilePromise.then(function (kmlFile) {
+            kmlLayers[key] = new WorldWind.RenderableLayer("Surface Shapes");
 
+            kmlLayers[key].addRenderable(kmlFile);
+            kmlLayers[key].enabled = false
+            console.log("add layer: " + key + ":" + kmlFile)
+            wwd.addLayer(kmlLayers[key]);
+        });
+    });
 
     // build scenes
     var tweenBigGlobe = new TweenMax("#canvasContainer", 1, { className: "globe" });
@@ -103,6 +135,11 @@ function loop(page, pageProgress) {
     var nextPage = parseInt(page) + 1
     if (globePositions[page] && globePositions[nextPage]) { // animate globe
         if (animatorPage != page) {
+            if (kmlLayers[nextPage]) {
+                kmlLayers[nextPage].enabled = true
+            } else if (kmlLayers[page - 1]) {
+                kmlLayers[page - 1].enabled = false
+            }
 
             // console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage, nextPage:nextPage })
             animatorPage = page
