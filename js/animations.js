@@ -194,8 +194,9 @@ function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
     htmlCanvas = document.getElementById('canvasOne');
 
-    WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_DEBUG);
     var wwd = new WorldWind.WorldWindow("canvasOne", new WorldWind.EarthElevationModel());
+
+    WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
     wwd.goToAnimator = new CustomGoToAnimator(wwd.goToAnimator.wwd)
     wwd.navigator.lookAtLocation.latitude = globePositions["-1"].latitude;
     wwd.navigator.lookAtLocation.longitude = globePositions["-1"].longitude;
