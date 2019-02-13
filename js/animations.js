@@ -7,12 +7,14 @@ var globePositions = {
     4: { latitude: -3.065653, longitude: 37.35201, altitude: 5000, tilt: 0 }, // kilimanjaro
 }
 
-var kmlFiles = {
-    "3": "gpx/cycling/cycle_500m.kml",
-    "4": "./gpx/kili/kili_500m.kml"
+var overlayInputs = {
+    "1": {label:"Zürich", latitude: 47.36667, longitude: 8.54500},
+    "2": {label:"Taormina, Sicily", latitude: 37.85358, longitude: 15.28851},
+    "3": {kmlFile:"gpx/cycling/cycle_500m.kml"},
+    "4": {kmlFile:"./gpx/kili/kili_500m.kml"}
 }
 
-var kmlLayers = {
+var overlayLayers = {
 
 }
 document.addEventListener('DOMContentLoaded', function () {
@@ -35,17 +37,27 @@ document.addEventListener('DOMContentLoaded', function () {
             //TODO: Check kmlStyleUrl on node to remove name on routes (the labels look ugly)
         }
     };
-    // build kmlLayers
-    Object.keys(kmlFiles).forEach(function (key) {
-        var kmlFilePromise = new WorldWind.KmlFile(kmlFiles[key], [kmlController]);
-        kmlFilePromise.then(function (kmlFile) {
-            kmlLayers[key] = new WorldWind.RenderableLayer("Surface Shapes");
 
-            kmlLayers[key].addRenderable(kmlFile);
-            kmlLayers[key].enabled = false
-            console.log("add layer: " + key + ":" + kmlFile)
-            wwd.addLayer(kmlLayers[key]);
-        });
+    // build overlayLayers
+    Object.keys(overlayInputs).forEach(function (key) {
+        var position = overlayInputs[key]
+        if (position.kmlFile) {
+            var kmlFilePromise = new WorldWind.KmlFile(position.kmlFile, [kmlController]);
+            kmlFilePromise.then(function (kmlFile) {
+                overlayLayers[key] = new WorldWind.RenderableLayer("Surface Shapes");
+                overlayLayers[key].addRenderable(kmlFile);
+                overlayLayers[key].enabled = false
+                wwd.addLayer(overlayLayers[key]);
+            });
+        } else if (position.label) {
+            var placemark = new WorldWind.Placemark(new WorldWind.Position(position.latitude, position.longitude, 1e2), true, null);
+            placemark.label = position.label;
+            placemark.altitudeMode = WorldWind.CLAMP_TO_GROUND;
+            overlayLayers[key] = new WorldWind.RenderableLayer("Placemarks")
+            overlayLayers[key].addRenderable(placemark);
+            overlayLayers[key].enabled = false
+            wwd.addLayer(overlayLayers[key]);
+        }
     });
 
     // build scenes
@@ -130,50 +142,57 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
 var timeStamp = Date.now();
 var animator = null
-var animatorPage = null
+var navigatorPosition = null
 var restingRange = 0.2
 var adjustRestingRange = function (progress) {
     return Math.max(0.001, Math.min(1, progress * 1 / (1 - restingRange * 2) - restingRange / (1 - restingRange * 2)));
 }
-function loop(page, pageProgress) {
+function loop(travelPosition, travelProgress) {
 
-    // requestAnimationFrame(function () {
+    //requestAnimationFrame(function () {
 
-    var nextPage = parseInt(page) + 1
-    if (globePositions[page] && globePositions[nextPage]) { // animate globe
-        if (animatorPage != page) {
-            if (kmlLayers[nextPage]) {
-                kmlLayers[nextPage].enabled = true
-            } else if (kmlLayers[page - 1]) {
-                kmlLayers[page - 1].enabled = false
-            }
-
-            // console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage, nextPage:nextPage })
-            animatorPage = page
-            animator = wwd.goToAnimator.goTo(globePositions[page], globePositions[nextPage]);
+    var nextTravelPosition = parseInt(travelPosition) + 1
+    if (globePositions[travelPosition] && globePositions[nextTravelPosition]) { // animate globe
+        if (navigatorPosition != travelPosition) {
+            navigatorPosition = travelPosition
+            animator = wwd.goToAnimator.goTo(globePositions[travelPosition], globePositions[nextTravelPosition]);
             /*
-            if (page == -1) {
+            if (travelPosition == -1) {
                 startSun()
             } else {
                stopSun()
             }
             */
         }
+
+        // squeeze travel progress
         var compressFactor = 0.8 //rest for 0.1 on both sides
-        pageProgress = Math.max(0, Math.min(1, pageProgress / compressFactor - (1 - compressFactor) / (compressFactor * 2)))
-        wwd.navigator.tilt = globePositions[page].tilt + (globePositions[nextPage].tilt - globePositions[page].tilt) * pageProgress
-        //console.log({ page: page, pageProgress: pageProgress, animatorPage: animatorPage, nextPage:nextPage })
+        travelProgress = Math.max(0, Math.min(1, travelProgress / compressFactor - (1 - compressFactor) / (compressFactor * 2)))
 
-        animator(pageProgress * 100)
-        console.log({ page: page, pageProgress: pageProgress, latitude: wwd.navigator.lookAtLocation.latitude, longitude: wwd.navigator.lookAtLocation.longitude, range: wwd.navigator.range, tilt: wwd.navigator.tilt });
+        // display/hide overlays ahead
+        if (overlayLayers[nextTravelPosition] && travelProgress > 0.5) {
+            overlayLayers[nextTravelPosition].enabled = true
+        } else if (overlayLayers[nextTravelPosition] && travelProgress < 0.5) {
+            overlayLayers[nextTravelPosition].enabled = false
+        }
+
+        //  display/hide overlays behind
+        if (overlayLayers[travelPosition] && travelProgress > 0.5) {
+            overlayLayers[travelPosition].enabled = false
+        } else if (overlayLayers[travelPosition] && travelProgress < 0.5) {
+            overlayLayers[travelPosition].enabled = true
+        }
+
+        // move globe
+        wwd.navigator.tilt = globePositions[travelPosition].tilt + (globePositions[nextTravelPosition].tilt - globePositions[travelPosition].tilt) * travelProgress
+        animator(travelProgress * 100)
+        console.log({ travelPosition: travelPosition, travelProgress: travelProgress.toFixed(2), lat: wwd.navigator.lookAtLocation.latitude.toFixed(2), long: wwd.navigator.lookAtLocation.longitude.toFixed(2), range: wwd.navigator.range.toFixed(2), tilt: wwd.navigator.tilt.toFixed(2) });
     }
-    // });
-
-
+    //});
 };
+
 var atmosphereLayer = null
 var atmosphereLayerInterval = null
 function startSun() {
