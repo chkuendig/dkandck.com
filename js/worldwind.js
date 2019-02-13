@@ -62056,10 +62056,12 @@ define('formats/kml/styles/KmlIconStyle',[
  * limitations under the License.
  */
 define('formats/kml/styles/KmlLabelStyle',[
+    '../../../util/Color',
     './KmlColorStyle',
     '../KmlElements',
     '../util/KmlNodeTransformers'
 ], function (
+    Color,
     KmlColorStyle,
     KmlElements,
     NodeTransformers
@@ -62098,8 +62100,16 @@ define('formats/kml/styles/KmlLabelStyle',[
     });
 
 
-    KmlLabelStyle.update = function () {
+    KmlLabelStyle.update = function (style, options) {
+        var labelOptions = options || {};
+        style = style || {};
 
+        labelOptions._labelAttributes = {
+
+        _color : style.kmlColor && Color.colorFromKmlHex(style.kmlColor) || Color.YELLOW,
+        _scale : typeof style.kmlScale == 'number' ? style.kmlScale : null
+        }
+        return labelOptions;
     };
 
     /**
@@ -62677,7 +62687,7 @@ define('formats/kml/styles/KmlStyle',[
         attributes._color = attributes._color || new Color(1, 1, 1, 1);
         attributes._font = attributes._font || new Font(14);
         attributes._offset = attributes._offset || new Offset(WorldWind.OFFSET_FRACTION, 0.5, WorldWind.OFFSET_FRACTION, 0.0);
-        attributes._scale = attributes._scale || 1;
+        attributes._scale = typeof attributes._scale == 'number' ? attributes._scale : 1;
         attributes._depthTest = attributes._depthTest || false;
         attributes._outlineColor = attributes._outlineColor || Color.RED;
 
@@ -67941,19 +67951,18 @@ define('formats/kml/features/KmlPlacemark',[
      * @returns {PlacemarkAttributes} Attributes representing the current Placemark.
      */
     KmlPlacemark.prototype.prepareAttributes = function (style, fileCache) {
-        var options = style && style.generate({}, fileCache) || {normal: {}, highlight:{}};
+        var options = style && style.generate({}, fileCache) || { normal: {}, highlight: {} };
         var placemarkAttributes = new PlacemarkAttributes(KmlStyle.placemarkAttributes(options));
+        options._labelAttributes._offset = new Offset(
+            WorldWind.OFFSET_FRACTION, 0.5,
+            WorldWind.OFFSET_FRACTION, 1.0)
 
         placemarkAttributes.imageOffset = new Offset(
             WorldWind.OFFSET_FRACTION, 0.3,
             WorldWind.OFFSET_FRACTION, 0.0);
         placemarkAttributes.imageColor = Color.WHITE;
-        placemarkAttributes.labelAttributes = new TextAttributes(KmlStyle.textAttributes({
-            _offset: new Offset(
-                WorldWind.OFFSET_FRACTION, 0.5,
-                WorldWind.OFFSET_FRACTION, 1.0),
-            _color: Color.YELLOW
-        }));
+        placemarkAttributes.labelAttributes = new TextAttributes(
+            KmlStyle.textAttributes(options._labelAttributes));
         placemarkAttributes.drawLeaderLine = true;
         placemarkAttributes.leaderLineAttributes = new ShapeAttributes(KmlStyle.shapeAttributes({
             _outlineColor: Color.RED

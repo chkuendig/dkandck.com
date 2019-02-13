@@ -9,45 +9,39 @@
         <visibility>1</visibility>
         <open>1</open>
         
-                <Style id="red">
-            <LineStyle>
-            <color>C81400FF</color>
-            <width>4</width>
-            </LineStyle>
+        <Style id="red">
+            
         </Style>
         <Style id="route_red">
             <LineStyle>
-            <color>961400FF</color>
-            <width>4</width>
+                <color>C81400FF</color>
+                <width>4</width>
             </LineStyle>
+            <LabelStyle>
+                <scale>0</scale>
+            </LabelStyle>
         </Style>
-                <Style id="green">
+       
+
+        <Style id="route_white">
             <LineStyle>
-            <color>C878FF00</color>
-            <width>4</width>
+                <color>FFFFFFFF</color>
+                <width>4</width>
             </LineStyle>
+            <LabelStyle>
+                <scale>0</scale>
+            </LabelStyle>
         </Style>
-        <Style id="route_green">
-            <LineStyle>
-            <color>9678FF00</color>
-            <width>4</width>
-            </LineStyle>
-        </Style>
-                <Style id="blue">
-            <LineStyle>
-            <color>C8FF7800</color>
-            <width>4</width>
-            </LineStyle>
-        </Style>
-        <Style id="route_blue">
-            <LineStyle>
-            <color>96FF7800</color>
-            <width>4</width>
-            </LineStyle>
+
+        <Style id="label_white">
+            <LabelStyle>
+               
+                <color>FFFFFFFF</color>
+            </LabelStyle>
         </Style>
                 <Style id="cyan">
             <LineStyle>
-            <color>C8F0FF14</color>
+            <color>FFFFFFFF</color>
             <width>4</width>
             </LineStyle>
         </Style>
@@ -59,23 +53,26 @@
         </Style>
                 <Style id="orange">
             <LineStyle>
-            <color>C81478FF</color>
+            <color>C81400FF</color>
             <width>4</width>
             </LineStyle>
         </Style>
         <Style id="route_orange">
             <LineStyle>
-            <color>961478FF</color>
+            <color>96F0FF14</color>
             <width>4</width>
             </LineStyle>
         </Style>
-                <Style id="dark_green">
+                <Style id="dark_red">
             <LineStyle>
-            <color>C8008C14</color>
+            <color>FFFFFFFF</color>
             <width>4</width>
             </LineStyle>
+              <LabelStyle>
+                <scale>0</scale>
+            </LabelStyle>
         </Style>
-        <Style id="route_dark_green">
+        <Style id="route_dark_red">
             <LineStyle>
             <color>96008C14</color>
             <width>4</width>
@@ -83,7 +80,7 @@
         </Style>
                 <Style id="purple">
             <LineStyle>
-            <color>C8FF7878</color>
+            <color>C81400FF</color>
             <width>4</width>
             </LineStyle>
         </Style>
@@ -117,13 +114,13 @@
             <width>4</width>
             </LineStyle>
         </Style>
-                <Style id="dark_blue">
+                <Style id="dark_red">
             <LineStyle>
             <color>C8F01414</color>
             <width>4</width>
             </LineStyle>
         </Style>
-        <Style id="route_dark_blue">
+        <Style id="route_dark_red">
             <LineStyle>
             <color>96F01414</color>
             <width>4</width>
@@ -142,7 +139,8 @@
                 <name>Zürich</name>                      
                 <visibility>1</visibility>            
                 <open>0</open>                        
-                                                    
+                         
+                <styleUrl>#label_white</styleUrl>                           
                 <TimeStamp>
                     <when>2017-07-29T07:53:15Z</when>
                 </TimeStamp> 
@@ -168,7 +166,8 @@
                 <name>Basel</name>                      
                 <visibility>1</visibility>            
                 <open>0</open>                        
-                                                    
+                          
+                <styleUrl>#label_white</styleUrl>                         
                 <TimeStamp>
                     <when>2017-07-30T07:42:38Z</when>
                 </TimeStamp> 
@@ -198,7 +197,8 @@
                 <TimeStamp>
                     <when>2017-07-31T07:29:49Z</when>
                 </TimeStamp> 
-                                
+                         
+                    <styleUrl>#label_white</styleUrl>       
                 <description>
                     No info available                </description>       
                 <LookAt>
@@ -358,7 +358,7 @@
                 <Placemark>
                     <visibility>1</visibility>            
                     <open>0</open> 
-                    <styleUrl>#red</styleUrl>
+                    <styleUrl>#route_red</styleUrl>
                     <name>Day 1</name>
                     <description>Track no. 1</description>
                     <LineString>
@@ -374,7 +374,7 @@
                 <Placemark>
                     <visibility>1</visibility>            
                     <open>0</open> 
-                    <styleUrl>#green</styleUrl>
+                    <styleUrl>#route_white</styleUrl>
                     <name>Day 2</name>
                     <description>Track no. 2</description>
                     <LineString>
@@ -390,7 +390,7 @@
                 <Placemark>
                     <visibility>1</visibility>            
                     <open>0</open> 
-                    <styleUrl>#blue</styleUrl>
+                    <styleUrl>#route_red</styleUrl>
                     <name>Day 3</name>
                     <description>Track no. 3</description>
                     <LineString>
@@ -438,7 +438,7 @@
                 <Placemark>
                     <visibility>1</visibility>            
                     <open>0</open> 
-                    <styleUrl>#dark_green</styleUrl>
+                    <styleUrl>#dark_red</styleUrl>
                     <name>Day 6</name>
                     <description>Track no. 6</description>
                     <LineString>
