@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
     var section2016 = new ScrollMagic.Scene({ triggerElement: "#section2016", duration: "100%", triggerHook: 1 })
         .addIndicators() // add indicators (requires plugin)
-        .setTween(tweenSmallGlobe)
+        .setTween(tweenSmallGlobe) // first year, let's resize the globe
         .addTo(controller)
         .on("progress", function (e) {
             loop(0, e.progress)
@@ -70,11 +70,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var section2017 = new ScrollMagic.Scene({
         triggerElement: "#section2017", duration: "100%", triggerHook: 1
-    })
+        })
         .addIndicators() // add indicators (requires plugin)
         .addTo(controller)
         .on("progress", function (e) {
             loop(2, e.progress)
+        });;
+
+
+    var section2018 = new ScrollMagic.Scene({
+        triggerElement: "#section2018", duration: "100%", triggerHook: 1
+        })
+        .addIndicators() // add indicators (requires plugin)
+        .addTo(controller)
+        .on("progress", function (e) {
+            loop(3, e.progress)
         });;
 
 
