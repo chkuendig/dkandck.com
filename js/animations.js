@@ -1,22 +1,18 @@
 var globePositions = {
-    "-1": { latitude: 80.00, longitude: 8.55, altitude: 0.7e7, tilt: 60 }, // start, nord pole 
-    0: { latitude: 50.00000, longitude: 8.55, altitude: 1e7, tilt: 0 }, // whole world
-    1: { latitude: 47.36667, longitude: 8.54500, altitude: 3100, tilt: 55 }, // zurich
-    2: { latitude: 37.85358, longitude: 15.28851, altitude: 2000, tilt: 55 }, // taormina
-    3: { latitude: 47.92040, longitude: 8.10523, altitude: 161044, tilt: 26 }, // alsace
-    4: { latitude: -3.065653, longitude: 37.35201, altitude: 5000, tilt: 0 }, // kilimanjaro
-}
-
-var overlayInputs = {
-    "1": {label:"Zürich", latitude: 47.36667, longitude: 8.54500},
-    "2": {label:"Taormina, Sicily", latitude: 37.85358, longitude: 15.28851},
-    "3": {kmlFile:"gpx/cycling/cycle_500m.kml"},
-    "4": {kmlFile:"./gpx/kili/kili_500m.kml"}
+    "-1": { latitude: 80.00, longitude: 8.55, altitude: 0.7e7, tilt: 60, heading: 0 }, // start, nord pole 
+    0: { latitude: 50.00000, longitude: 8.55, altitude: 1e7, tilt: 0, heading: 0 }, // whole world
+    1: { latitude: 47.36667, longitude: 8.54500, altitude: 3100, tilt: 55, heading: 0, overlay: { label: "Zürich", latitude: 47.36667, longitude: 8.54500 } }, // zurich
+    2: { latitude: 46.93639, longitude: 6.72383, altitude: 3100, tilt: 10, heading: 0, overlay: { label: "Creux du Van" } },// creux du van
+    3: { latitude: 37.85358, longitude: 15.28851, altitude: 2000, tilt: 55, heading: 0, overlay: { label: "Taormina, Sicily", latitude: 37.85358, longitude: 15.28851 } }, // taormina
+    4: { latitude: 47.92040, longitude: 8.10523, altitude: 161044, tilt: 26, heading: 0, overlay: { kmlFile: "gpx/cycling/cycle_500m.kml" } }, // alsace
+    //   5: { latitude: -3.065653, longitude: 37.35201, altitude: 15000, tilt: 60, overlay: { kmlFile: "./gpx/kili/kili_500m.kml" } }, // kilimanjaro
+    5: { latitude: -3.065653, longitude: 37.3, altitude: 26000, tilt: 63, heading: -15, overlay: { kmlFile: "./gpx/kili/kili_500m.kml" } }, // kilimanjaro
 }
 
 var overlayLayers = {
 
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     // init globe
     window.wwd = launchGlobe();
@@ -33,25 +29,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(name)
                 console.log(enabled)
             }
-
-            //TODO: Check kmlStyleUrl on node to remove name on routes (the labels look ugly)
         }
     };
 
     // build overlayLayers
-    Object.keys(overlayInputs).forEach(function (key) {
-        var position = overlayInputs[key]
-        if (position.kmlFile) {
-            var kmlFilePromise = new WorldWind.KmlFile(position.kmlFile, [kmlController]);
+    Object.keys(globePositions).forEach(function (key) {
+        var overlay = globePositions[key].overlay
+        if (overlay && overlay.kmlFile) {
+            var kmlFilePromise = new WorldWind.KmlFile(overlay.kmlFile, [kmlController]);
             kmlFilePromise.then(function (kmlFile) {
                 overlayLayers[key] = new WorldWind.RenderableLayer("Surface Shapes");
                 overlayLayers[key].addRenderable(kmlFile);
                 overlayLayers[key].enabled = false
                 wwd.addLayer(overlayLayers[key]);
             });
-        } else if (position.label) {
-            var placemark = new WorldWind.Placemark(new WorldWind.Position(position.latitude, position.longitude, 1e2), true, null);
-            placemark.label = position.label;
+        } else if (overlay && overlay.label) {
+            if (!overlay.latitude) {
+                overlay.latitude = globePositions[key].latitude
+                overlay.longitude = globePositions[key].longitude
+            }
+            var placemark = new WorldWind.Placemark(new WorldWind.Position(overlay.latitude, overlay.longitude, 1e2), true, null);
+            placemark.label = overlay.label;
             placemark.altitudeMode = WorldWind.CLAMP_TO_GROUND;
             overlayLayers[key] = new WorldWind.RenderableLayer("Placemarks")
             overlayLayers[key].addRenderable(placemark);
@@ -71,76 +69,91 @@ document.addEventListener('DOMContentLoaded', function () {
         });;
 
 
-    var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
-    var section2016 = new ScrollMagic.Scene({ triggerElement: "#section2016", duration: "100%", triggerHook: 1 })
-        .addIndicators() // add indicators (requires plugin)
-        .setTween(tweenSmallGlobe) // first year, let's resize the globe
-        .addTo(controller)
-        .on("progress", function (e) {
-            loop(0, e.progress)
-        });;
+    let myRequest = new Request('photos.json');
 
-    var section2017 = new ScrollMagic.Scene({
-        triggerElement: "#section2017", duration: "100%", triggerHook: 1
+    fetch(myRequest)
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('HTTP error, status = ' + response.status);
+            }
+            return response.json();
         })
-        .addIndicators() // add indicators (requires plugin)
-        .addTo(controller)
-        .on("progress", function (e) {
-            loop(2, e.progress)
-        });;
+        .then(function (obj) {
+            console.log(obj)
+            setUpPhotoSlides(controller, obj);
+        });
 
+});
 
-    var section2018 = new ScrollMagic.Scene({
-        triggerElement: "#section2018", duration: "100%", triggerHook: 1
-        })
-        .addIndicators() // add indicators (requires plugin)
-        .addTo(controller)
-        .on("progress", function (e) {
-            loop(3, e.progress)
-        });;
-
-
+function setUpPhotoSlides(controller, photos) {
 
     // photo scrolling
     document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock, blockIdx) {
-        var tl = new TimelineMax();
-        var igPictures = pinnedBlock.querySelectorAll("section.igPicture")
-        igPictures.forEach(function (igPicture, pictureidx) {
-            if (pictureidx > 0) {
-                tl.from(igPicture, 1, { yPercent: 100 });
+
+        if (photos[pinnedBlock.id]) {
+            var blockScene = new ScrollMagic.Scene({
+                triggerElement: pinnedBlock, duration: "100%", triggerHook: 1
+            })
+                .addIndicators() // add indicators (requires plugin)
+                .addTo(controller)
+                .on("progress", function (e) {
+                    loop(photos[pinnedBlock.id][0].position - 1, e.progress)
+                });;
+            if (blockIdx == 0) {
+                var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
+                blockScene.setTween(tweenSmallGlobe) // first year, let's resize the globe    
             }
-        });
-        new ScrollMagic.Scene({
-            triggerElement: pinnedBlock,
-            triggerHook: "onLeave",
-            duration: "200%"
-        })
-            .setPin(pinnedBlock)
-            .setTween(tl)
-            .addIndicators()
+            var igPictures = photos[pinnedBlock.id]
+            var tl = new TimelineMax();
+            var igLocationDesc = pinnedBlock.querySelector("div.igHeader > p").childNodes[2]
+            console.log(igLocationDesc);
+            var igFrame = pinnedBlock.querySelector("div.igFrame")
+            var igFooterDesc = pinnedBlock.querySelector("div.igFooter > p:first-child").childNodes[1]
+            var igFooterDate = pinnedBlock.querySelectorAll("div.igFooter > p.date")
+            igPictures.forEach(function (igPicture, pictureidx) {
+                var igPictureSection = document.createElement("section");
+                igPictureSection.className = "igPicture"
 
-
-            .addTo(controller)
-            .on("progress", function (e) {
-                if (blockIdx == 0) { //2016
+                var igPictureImg = document.createElement("img");
+                igPictureImg.src = "pictures/" + igPicture.file
+                igPictureImg.style.width = "100%"
+                igPictureSection.appendChild(igPictureImg)
+                igFrame.appendChild(igPictureSection)
+                if (pictureidx > 0) {
+                    tl.from(igPictureSection, 1, { yPercent: 100 });
+                    tl.set(igLocationDesc, { nodeValue: igPicture.locationText }, "-=0.5");
+                    tl.set(igFooterDesc, { nodeValue: igPicture.text }, "-=0.5");
+                    tl.set(igFooterDate, { textContent: igPicture.date }, "-=0.5");
+                } else {
+                    igLocationDesc.nodeValue = igPicture.locationText
+                    igFooterDesc.nodeValue = " " + igPicture.text;
+                    igFooterDate.textContent = igPicture.date;
+                }
+            });
+            var pictureScene = new ScrollMagic.Scene({
+                triggerElement: pinnedBlock,
+                triggerHook: "onLeave",
+                duration: "200%"
+            })
+                .setPin(pinnedBlock)
+                .setTween(tl)
+                .addIndicators()
+                .addTo(controller)
+                .on("progress", function (e) {
                     var progress = e.progress
                     ratioPerPic = 1 / (igPictures.length - 1)
                     pictureIdx = Math.floor(progress / ratioPerPic) + 1
                     pictureProg = (progress - ratioPerPic * (pictureIdx - 1)) / ratioPerPic;
 
                     console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
-                    if (pictureIdx == 2) {
-
-                        loop(1, pictureProg)
+                    if (photos[pinnedBlock.id][pictureIdx] && photos[pinnedBlock.id][pictureIdx].position) {
+                        loop(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
                     }
-                }
-            });;
 
+                });;
+        }
     })
-
-
-});
-
+}
 
 var timeStamp = Date.now();
 var animator = null
@@ -186,6 +199,8 @@ function loop(travelPosition, travelProgress) {
         }
 
         // move globe
+        wwd.navigator.heading = globePositions[travelPosition].heading + (globePositions[nextTravelPosition].heading - globePositions[travelPosition].heading) * travelProgress
+
         wwd.navigator.tilt = globePositions[travelPosition].tilt + (globePositions[nextTravelPosition].tilt - globePositions[travelPosition].tilt) * travelProgress
         animator(travelProgress * 100)
         console.log({ travelPosition: travelPosition, travelProgress: travelProgress.toFixed(2), lat: wwd.navigator.lookAtLocation.latitude.toFixed(2), long: wwd.navigator.lookAtLocation.longitude.toFixed(2), range: wwd.navigator.range.toFixed(2), tilt: wwd.navigator.tilt.toFixed(2) });
