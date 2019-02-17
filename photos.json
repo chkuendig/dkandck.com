@@ -1,49 +1,72 @@
 {
     "section2016": [
-      {
-        "file": "IMG_4239.JPG",
-        "date": "Sept 2016",
-        "position": 1,
-        "locationText": "Zürich, Switzerland",
-        "text": "Deepthi's 31. Birthday Party"
-      },
-      {
-        "file": "IMG_4405.JPG",
-        "date": "Oct 2016",
-        "position": 2,
-        "locationText": "Creux du Vin, Vaudt",
-        "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
-      },
-      {
-        "file": "IMG_4405.JPG",
-        "date": "Oct 2016",
-        "locationText": "Creux du Vin, Vaudt",
-        "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
-      },
-      {
-        "file": "IMG_5583.JPG",
-        "date": "Nov 2016",
-        "position": 3,
-        "locationText": "Taormina, Italy",
-        "text": "Deepthi and Christian go on their first weekend trip. They hoped to escape the cold of Zürich, turns out it also rains and is chilly in the south of Italy."
-      }
+        {
+            "file": "IMG_4239.JPG",
+            "date": "Sept 2016",
+            "position": 1,
+            "locationText": "Zürich, Switzerland",
+            "text": "Deepthi's 31. Birthday Party"
+        },
+        {
+            "file": "IMG_4405.JPG",
+            "date": "Oct 2016",
+            "position": 2,
+            "locationText": "Creux du Vin, Vaudt",
+            "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
+        },
+        {
+            "file": "IMG_4405.JPG",
+            "date": "Oct 2016",
+            "locationText": "Creux du Vin, Vaudt",
+            "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
+        },
+        {
+            "file": "IMG_5583.JPG",
+            "date": "Nov 2016",
+            "locationText": "Taormina, Italy",
+            "text": "Deepthi and Christian go on their first weekend trip. They hoped to escape the cold of Zürich, turns out it also rains and is chilly in the south of Italy."
+        }
     ],
     "section2017": [
-      {
-        "file": "IMG_4239.JPG",
-        "date": "Sept 2016",
-        "position": 4,
-        "locationText": "Zürich, Switzerland",
-        "text": "Deepthi's 31. Birthday Party"
-      }
+        {
+            "file": "IMG_6984.JPG",
+            "date": "Jan 2017",
+            "position": 4,
+            "locationText": "Zermatt, Switzerland",
+            "text": "Time to explore some Ski Ressorts (and have strangers take pictures of us)"
+        },
+        {
+            "file": "IMG_8155.JPG",
+            "date": "July 2017",
+            "locationText": "Elsass",
+            "text": "First day of our first big adventure (It was Christian's fault)"
+        },
+        {
+            "file": "IMG_8254.JPG",
+            "date": "July 2017",
+            "locationText": "Elsass",
+            "text": "2nd dayOur first big adventure (It was Christian's fault)"
+        },
+        {
+            "file": "IMG_8299.JPG",
+            "date": "August 2017",
+            "locationText": "Elsass",
+            "text": "Lasy day of Our first big adventure (It was Christian's fault)"
+        },
+        {
+            "file": "IMG_8410.JPG",
+            "date": "August 2017",
+            "locationText": "Elsass",
+            "text": "Our first big adventure (It was Christian's fault)"
+        }
     ],
     "section2018": [
-      {
-        "file": "IMG_4239.JPG",
-        "date": "Sept 2016",
-        "position": 5,
-        "locationText": "Zürich, Switzerland",
-        "text": "Deepthi's 31. Birthday Party"
-      }
+        {
+            "file": "IMG_4239.JPG",
+            "date": "Sept 2016",
+            "position": 5,
+            "locationText": "Zürich, Switzerland",
+            "text": "Deepthi's 31. Birthday Party"
+        }
     ]
-  }
+}
