@@ -106,10 +106,11 @@ function setUpPhotoSlides(controller, photos) {
             var igPictures = photos[pinnedBlock.id]
             var tl = new TimelineMax();
             var igLocationDesc = pinnedBlock.querySelector("div.igHeader > p").childNodes[2]
-            console.log(igLocationDesc);
+
             var igFrame = pinnedBlock.querySelector("div.igFrame")
             var igFooterDesc = pinnedBlock.querySelector("div.igFooter > p:first-child").childNodes[1]
             var igFooterDate = pinnedBlock.querySelectorAll("div.igFooter > p.date")
+            var tl = new TimelineMax();
             igPictures.forEach(function (igPicture, pictureidx) {
                 var igPictureSection = document.createElement("section");
                 igPictureSection.className = "igPicture"
@@ -136,8 +137,9 @@ function setUpPhotoSlides(controller, photos) {
                 duration: "200%"
             })
                 .setPin(pinnedBlock)
+                .setClassToggle(pinnedBlock.querySelector("div.blockDescription"), "scaleDownIn")
                 .setTween(tl)
-                .addIndicators()
+                .addIndicators("pictureScene " + pinnedBlock.id)
                 .addTo(controller)
                 .on("progress", function (e) {
                     var progress = e.progress

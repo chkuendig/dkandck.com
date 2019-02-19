@@ -5,7 +5,11 @@
 html,
 body {
     margin: 0;
-	padding: 0;
+    padding: 0;
+    background: #FFFFFF;
+    color: #2e2e2eaa;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
 }
 
 #sectionTitle {
@@ -28,8 +32,8 @@ body {
     position: relative;
     z-index: 99;
     font-size: 3em;
-	letter-spacing: 0 default;
-	margin-bottom:5%;
+    letter-spacing: 0 default;
+    margin-bottom: 5%;
     color: #3A407E;
     text-transform: uppercase;
 }
@@ -76,23 +80,22 @@ body {
 
 #canvasContainer.globe.small {
     position: fixed;
-    top: 2vh;
+    bottom: 2vh;
     right: 2vh;
     width: 45vh;
     height: 45vh;
     z-index: 99;
 }
 
-
 div.block {
     height: 100vh;
-	text-align: center;
+    text-align: center;
 }
 
 div.blockDescription {
     position: absolute;
     top: 2vh;
-    left: 2vh;
+    right: 2vh;
     width: 45vh;
     height: 45vh;
     padding: 0px;
@@ -117,31 +120,72 @@ div.blockDescription>h2 {
     text-transform: uppercase;
 }
 
+.scaleDownIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(1.0, 1.0);
+    opacity: 1.0;
+}
+
+div.blockDescription:not(.scaleDownIn) {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(0.7, 0.7);
+    opacity: 0.0;
+}
+
+/* igContainer:
+
+-----------------------------
+| 60x614 // 8%
+-----------------------------
+|614x614
+|80%
+|
+|
+-----------------------------
+| 65x614
+| 12
+-----------------------------
+
+total: 740x614
+
+1.25x1
+
+*/
+
 .block>div.igContainer {
     position: relative;
-    border-radius: 5px;
+    border-radius: 0.5%;
     border: 1px solid #e6e6e6;
     background: white;
     overflow: hidden;
-    width: 614px;
-	text-align: left;
-	
-	display: inline-block;
-
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+    height: 95vh;
+    width: 76vh;
+    text-align: left;
+    display: inline-block;
+    position: absolute;
+    left: calc(50% - 23vh);
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .igHeader,
 .igFooter {
     padding: 16px;
+    box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: black;
     font-size: 1em;
     text-transform: none;
+    overflow: hidden;
+}
+
+.igHeader {
+    height: 8%;
+}
+
+.Footer {
+    height: 12%;
 }
 
 .igHeader p {
@@ -149,8 +193,8 @@ div.blockDescription>h2 {
 }
 
 .igFrame {
-    width: 614px;
-    height: 614px;
+    width: 100%;
+    height: 80%;
     overflow: hidden;
     position: relative;
 }
@@ -166,8 +210,6 @@ img.igAvatar {
 }
 
 .igPicture {
-    height: 614px;
-    width: 614px;
     position: absolute;
 }
 
@@ -210,7 +252,6 @@ h1 {
     -webkit-font-smoothing: subpixel-antialiased;
 }
 
-
 div.block svg {
     position: absolute;
     top: 90vh;
@@ -219,18 +260,17 @@ div.block svg {
 }
 
 div.block.goa {
-	background: url("/bg_home.jpg") repeat;
+    background: url("/bg_home.jpg") repeat;
 }
 
-div.block.goa > .layer{
-	width:70vw;
-	height:80vh;
-	background-color:rgba(255,255,255, 0.7);
-
-	display: inline-block;
-margin:10vh auto;
-
+div.block.goa>.layer {
+    width: 70vw;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    margin: 10vh auto;
 }
+
 div.block.goa h1 {
     font-family: 'GFS Didot', serif;
     font-size: 3.5em;
@@ -239,6 +279,7 @@ div.block.goa h1 {
     font-weight: normal;
     color: #000;
 }
+
 /*
 div.block.goa h1::before {
     background-position: center right;
