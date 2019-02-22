@@ -10,18 +10,18 @@ body {
     color: #2e2e2eaa;
     font-family: 'Lato', sans-serif;
     text-align: center;
-    font-size:16px;
+    font-size: 16px;
 }
 
 * {
     box-sizing: border-box;
-  }
-
+}
 
 #sectionTitle {
     position: relative;
-    height: 100vh;
-    padding: 10vh 15vw 0 15vw;
+    height: 101vh;
+    width: 100%;
+    padding: 10vh 0;
     /*       background:url("./img/stars.jpg") repeat;*/
     background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
 }
@@ -37,11 +37,13 @@ body {
     top: 0.2vh;
     position: relative;
     z-index: 99;
-    font-size: 3em;
+    font-size: 5vw;
     letter-spacing: 0 default;
+    margin: 0;
     margin-bottom: 5%;
     color: #3A407E;
     text-transform: uppercase;
+    width: 100%;
 }
 
 #sectionTitle h2 {
@@ -111,13 +113,13 @@ div.blockDescription {
 
 div.blockDescription>h1 {
     box-align: center;
-   position: absolute;
+    position: absolute;
     color: #eac782;
     left: 0px;
-    margin:0px;
-    padding:0px;
-    top:5%;
-    width:100%;
+    margin: 0px;
+    padding: 0px;
+    top: 5%;
+    width: 100%;
     font-size: 7vh
 }
 
@@ -127,12 +129,11 @@ div.blockDescription>h2 {
     font-weight: 300;
     color: #fff;
     font-size: 2vh;
-    padding:0px;
-    margin:0px;
-
+    padding: 0px;
+    margin: 0px;
     position: absolute;
-    top:80%;
-    width:100%;
+    top: 80%;
+    width: 100%;
     text-transform: uppercase;
 }
 
@@ -337,7 +338,6 @@ div.block.goa h1::after {
     }
 }
 
-
 /* fonts */
 
 @font-face {
@@ -355,26 +355,44 @@ div.block.goa h1::after {
     font-weight: normal;
     font-style: normal
 }
+
 /* responsiveness */
-  @media only screen and (orientation: portrait) {
 
-    #canvasContainer.globe, #canvasContainer.globe.small  {
-
+@media only screen and (orientation: portrait) {
+    #canvasContainer.globe,
+    #canvasContainer.globe.small {
         position: fixed;
-        width: 45vw;
-        height: 45vw;
-        left: 2vw;
+        width: 33.333vw;
+        height: 33.333vw;
+        left: 10vw;
     }
-
-    #canvasContainer.globe  {
+    #canvasContainer.globe {
         position: fixed;
         top: 53vh;
         z-index: 99;
     }
-    
     #canvasContainer.globe.small {
         position: fixed;
         top: 2vw;
         z-index: 99;
     }
-  }
+    div.blockDescription {
+        position: absolute;
+        top: 2vh;
+        right: 10vw;
+        width: 33.333vw;
+        height: 33.333vw;
+    }
+    .block>div.igContainer {
+        position: relative;
+        height: 100vw;
+        width: 80vw;
+        text-align: left;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: calc(50% + 15vw);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
