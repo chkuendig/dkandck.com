@@ -5,27 +5,21 @@
             "date": "Sept 2016",
             "position": 1,
             "locationText": "Zürich, Switzerland",
-            "text": "Deepthi's 31. Birthday Party"
+            "text": "Deepthi's Birthday Party, our First Picture together."
         },
         {
             "file": "IMG_4405.JPG",
             "date": "Oct 2016",
             "position": 2,
-            "locationText": "Creux du Vin, Vaudt",
-            "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
-        },
-        {
-            "file": "IMG_4405.JPG",
-            "date": "Oct 2016",
-            "locationText": "Creux du Vin, Vaudt",
-            "text": "Christian takes Deepthi on their first hike. It was muddy. There will be more of these to come."
+            "locationText": "Creux du Van, Vaudt",
+            "text": "Our first hike. There will be more of these to come."
         },
         {
             "file": "IMG_5583.JPG",
             "date": "Nov 2016",
             "position": 3,
             "locationText": "Taormina, Italy",
-            "text": "Deepthi and Christian go on their first weekend trip. They hoped to escape the cold of Zürich, turns out it also rains and is chilly in the south of Italy."
+            "text": "Our first weekend trip, to the windy & rainy days in Southern Italy."
         }
     ],
     "section2017": [
@@ -39,35 +33,74 @@
         {
             "file": "IMG_8155.JPG",
             "date": "July 2017",
-            "locationText": "Elsass",
-            "text": "First day of our first big adventure (It was Christian's fault)"
+            "locationText": "Petit-Landau (Alsace), France",
+            "text": "Day 2 of our first big adventure together (Cycling from Zurich to Strasbourg)"
         },
         {
             "file": "IMG_8254.JPG",
             "date": "July 2017",
-            "locationText": "Elsass",
-            "text": "2nd dayOur first big adventure (It was Christian's fault)"
+            "locationText": "Freiburg im Breisgau, Germany",
+            "text": "Day 3: Exploring Freiburg after a long day on the bike (and a few well deserved drinks)"
         },
         {
             "file": "IMG_8299.JPG",
             "date": "August 2017",
-            "locationText": "Elsass",
-            "text": "Lasy day of Our first big adventure (It was Christian's fault)"
+            "locationText": "Colmar, France ",
+            "text": "Day 4: Stopping for some selfies in a field outside of Colmar in Alsace"
         },
         {
-            "file": "IMG_8410.JPG",
-            "date": "August 2017",
-            "locationText": "Elsass",
-            "text": "Our first big adventure (It was Christian's fault)"
+            "file": "IMG_8585.JPG",
+            "date": "October 2017",
+            "locationText": "Lisbon, Portugal",
+            "text": "Selfie time in Lisbon!"
+        },
+        {
+            "file": "IMG_9151.JPG",
+            "date": "December 2017",
+            "locationText": "Hyderabad, India",
+            "text": "Christmas trip to India, Christian's first time to the subcontinent."
+        },
+        {
+            "file": "IMG_9219.JPG",
+            "date": "December 2017",
+            "locationText": "Aggra, India",
+            "text": "Time for Christian to see the sights - here at the Taj Mahal"
+        },
+        {
+            "file": "IMG_9612.JPG",
+            "date": "December 2017",
+            "locationText": "Chandra Mahal, Jaipur, India",
+            "text": "Christmas Day in Rajastan"
         }
     ],
     "section2018": [
         {
-            "file": "IMG_4239.JPG",
-            "date": "Sept 2016",
+            "file": "IMG_0032.JPG",
+            "date": "April 2018",
             "position": 5,
-            "locationText": "Zürich, Switzerland",
-            "text": "Deepthi's 31. Birthday Party"
+            "locationText": "Granada, Spain",
+            "text": "Exploring Andalusia over Easter 2018. Here at the Alhambra in Granada."
+        },
+        {
+            "file": "IMG_0862.JPG",
+            "date": "April 2018",
+            "position": 5,
+            "locationText": "Córdoba, Spain",
+            "text": "Another selfie, this time in Córdoba."
+        },
+        {
+            "file": "IMG_0765.JPG",
+            "date": "May 2018",
+            "position": 5,
+            "locationText": "Paris, France",
+            "text": "Living it up with a glass of champagne on the Eiffel Tower."
+        },
+        {
+            "file": "IMG_2069.JPG",
+            "date": "September 2018",
+            "position": 5,
+            "locationText": "Zanzibar, Tanzania",
+            "text": "Recovering from the struggles at the beach"
         }
     ]
 }

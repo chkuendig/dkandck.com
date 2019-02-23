@@ -1,25 +1,55 @@
-var globePositions = {
-    "-1": { latitude: 80.00, longitude: 8.55, altitude: 0.7e7, tilt: 60, heading: 0 }, // start, nord pole 
-    0: { latitude: 50.00000, longitude: 8.55, altitude: 1e7, tilt: 0, heading: 0 }, // whole world
-    1: { latitude: 47.36667, longitude: 8.54500, altitude: 3100, tilt: 55, heading: 0, overlay: { label: "Zürich", latitude: 47.36667, longitude: 8.54500 } }, // zurich
-    2: { latitude: 46.93639, longitude: 6.72383, altitude: 3100, tilt: 10, heading: 0, overlay: { label: "Creux du Van" } },// creux du van
-    3: { latitude: 37.85358, longitude: 15.28851, altitude: 2000, tilt: 55, heading: 0, overlay: { label: "Taormina, Sicily", latitude: 37.85358, longitude: 15.28851 } }, // taormina
-    4: { latitude: 47.92040, longitude: 8.10523, altitude: 161044, tilt: 26, heading: 0, overlay: { kmlFile: "gpx/cycling/cycle_500m.kml" } }, // alsace
-    //   5: { latitude: -3.065653, longitude: 37.35201, altitude: 15000, tilt: 60, overlay: { kmlFile: "./gpx/kili/kili_500m.kml" } }, // kilimanjaro
-    5: { latitude: -3.065653, longitude: 37.3, altitude: 26000, tilt: 63, heading: -15, overlay: { kmlFile: "./gpx/kili/kili_500m.kml" } }, // kilimanjaro
-}
+var globePositions = {}
 
 var overlayLayers = {
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    // init globe
-    window.wwd = launchGlobe();
 
     // init controller
     TweenMax.defaultEase = Linear.easeNone;
     var controller = new ScrollMagic.Controller();
+
+    let reqPositionsJson = new Request('positions.json');
+
+    let reqPhotosJson = new Request('photos.json');
+
+    fetch(reqPositionsJson)
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('HTTP error, status = ' + response.status);
+            }
+            return response.json();
+        })
+        .then(function (argGlobePositions) {
+            console.log(argGlobePositions)
+            setUpSections(controller, argGlobePositions);
+            return argGlobePositions
+        }).then(function (argGlobePositions) {
+            return fetch(reqPhotosJson);
+        })
+
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('HTTP error, status = ' + response.status);
+            }
+            return response.json();
+        })
+        .then(function (obj) {
+            console.log(obj)
+            setUpPhotoSlides(controller, obj);
+        });
+
+});
+
+function setUpSections(controller, argGlobePositions) {
+
+
+    globePositions = argGlobePositions;
+    // init globe
+    window.wwd = launchGlobe();
+
+
     var kmlController = new WorldWind.KmlControls();
     kmlController.hook = function (node, options) {
         if (options.isFeature) {
@@ -31,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     };
-
     // build overlayLayers
     Object.keys(globePositions).forEach(function (key) {
         var overlay = globePositions[key].overlay
@@ -69,21 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });;
 
 
-    let myRequest = new Request('photos.json');
-
-    fetch(myRequest)
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('HTTP error, status = ' + response.status);
-            }
-            return response.json();
-        })
-        .then(function (obj) {
-            console.log(obj)
-            setUpPhotoSlides(controller, obj);
-        });
-
-});
+}
 
 function setUpPhotoSlides(controller, photos) {
 
