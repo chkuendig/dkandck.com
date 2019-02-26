@@ -167,7 +167,8 @@ function setUpPhotoSlides(controller, photos) {
                         loop(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
                     }
 
-                });;
+                });
+            pinnedBlock.querySelector(".igContainer").style.display = ""
         }
     })
 }
