@@ -37,6 +37,11 @@ body {
     z-index: 99;
 }
 
+div#globeContainer.hidden {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(0.7, 0.7);
+    opacity: 0.0;
+}
 /* all sections */
 
 div.section {
@@ -63,8 +68,8 @@ div.section.grey {
     padding: 10vh 15vw;
 }
 
-#sectionTitle h2,
-#sectionTitle h1 {
+ h2,
+ h1 {
     font-weight: normal;
     font-family: 'Didot-Bold', serif;
     color: #3A407E;
@@ -72,7 +77,6 @@ div.section.grey {
     padding: 0;
     z-index: 99;
     letter-spacing: 0 default;
-    text-transform: uppercase;
     text-align: center;
 }
 
@@ -87,6 +91,7 @@ div.section.grey {
     letter-spacing: 0 default;
     margin: 0;
     margin-top: 2vh;
+    text-transform: uppercase;
     margin-bottom: 2vh;
     width: 100%;
 }
@@ -242,23 +247,11 @@ div#sectionGoa {
     background: url("/bg_home.jpg") repeat;
 }
 
-div#sectionGoa>.layer {
-    width: 70vw;
-    height: 80vh;
-    background-color: rgba(255, 255, 255, 0.7);
-    display: inline-section;
-    margin: 10vh auto;
-}
 
-div#sectionGoa h1 {
-    font-family: 'GFS Didot', serif;
-    font-size: 3.5em;
-    text-transform: none;
-    letter-spacing: 0 default;
-    font-weight: normal;
-    color: #000;
-}
+ #sectionGoa h1{
 
+    text-transform: uppercase;
+ }
 /*
 div.section.goa h1::before {
     background-position: center right;

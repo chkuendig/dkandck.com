@@ -98,6 +98,16 @@ function setUpSections(controller, argGlobePositions) {
         });;
 
 
+    // build scenes
+    
+    var sectionGoa = new ScrollMagic.Scene({ triggerElement: "#sectionGoa", duration: "0", triggerHook: "onEnter" })
+        .setClassToggle("#globeContainer", "hidden")
+        .addIndicators() // add indicators (requires plugin)
+        .addTo(controller)        
+        .on("progress", function (e) {
+          console.log( e.progress)
+        });;
+
 }
 
 function setUpPhotoSlides(controller, photos) {
