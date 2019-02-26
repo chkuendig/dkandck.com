@@ -6,73 +6,21 @@ html,
 body {
     margin: 0;
     padding: 0;
-    background: #FFFFFF;
-    color: #2e2e2eaa;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-    font-size: 3vw;
+    font-size: 3vh;
 }
 
 * {
     box-sizing: border-box;
 }
 
-#sectionTitle {
-    position: relative;
-    height: 101vh;
-    width: 100%;
-    padding: 10vh 0;
-    /*       background:url("./img/stars.jpg") repeat;*/
-    background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
-    background-size: 10vw;
-}
+/* globe */
 
-#sectionTitle h1 {
-    font-weight: normal;
-    /*font-family: 'Lato', sans-serif;*/
-    font-family: 'Didot-Bold', serif;
-    color: #fff;
-    margin: 0;
-    text-transform: uppercase;
-    padding: 0;
-    position: relative;
-    z-index: 99;
-    font-size: 3vw;
-    letter-spacing: 0 default;
-    margin: 0;
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    color: #3A407E;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-#sectionTitle h2 {
-    font-size: 5vw;
-    font-weight: normal;
-    /*font-family: 'Lato', sans-serif;*/
-    color: #fff;
-    margin: 0;
-    text-transform: uppercase;
-    padding: 0;
-    z-index: 99;
-    font-family: 'Didot-Bold', serif;
-    text-transform: none;
-    letter-spacing: 0 default;
-    font-weight: normal;
-    color: #3A407E;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 5vw;
-    text-align: center;
-}
-
-#canvasOne {
+#globeCanvas {
     width: 100%;
     height: 100%;
 }
 
-#canvasContainer {
+#globeContainer {
     position: fixed;
     top: 50%;
     right: 0px;
@@ -81,8 +29,7 @@ body {
     height: 50%;
 }
 
-#canvasContainer.globe {
-    position: fixed;
+#globeContainer.big {
     top: 53vh;
     right: 2vh;
     width: 45vh;
@@ -90,32 +37,105 @@ body {
     z-index: 99;
 }
 
-#canvasContainer.globe.small {
-    position: fixed;
-    bottom: 2vh;
-    right: 2vh;
-    width: 45vh;
-    height: 45vh;
-    z-index: 99;
+/* all sections */
+
+div.section {
+    height: 100vh;
+    text-align: center;
+    background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
+    background-size: 10vh;
 }
 
-div.block {
-    height: 100vh;
+div.section.white {
+    background-color: rgb(255, 255, 255);
+}
+
+div.section.grey {
+    background-color: rgb(245, 245, 245);
+}
+
+/* first section */
+
+#sectionTitle {
+    position: relative;
+    height: 101vh;
+    width: 100%;
+    padding: 10vh 15vw;
+}
+
+#sectionTitle h2,
+#sectionTitle h1 {
+    font-weight: normal;
+    font-family: 'Didot-Bold', serif;
+    color: #3A407E;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+    letter-spacing: 0 default;
+    text-transform: uppercase;
     text-align: center;
 }
 
-div.blockDescription {
+#sectionTitle h1 {
+    font-size: 7vh;
+    width: 100%;
+    padding: 5vw;
+}
+
+#sectionTitle h2 {
+    font-size: 3vh;
+    letter-spacing: 0 default;
+    margin: 0;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+
+#sectionTitle svg {
     position: absolute;
+    top: 90vh;
+    width: 30px;
+    animation: chevronAnimation 4s ease-in-out 0s infinite;
+}
+
+/* in-section positioning */
+
+div.section>div.igContainer {
+    width: 76vh;
+    height: 96vh;
+    position: absolute;
+    left: calc(31% - 38vh);
     top: 2vh;
-    right: 2vh;
-    width: 45vh;
-    height: 45vh;
+}
+
+div.sectionCard {
+    width: 47vh;
+    height: 47vh;
+    position: absolute;
+    right: calc(25% - 30.75vh);
+    /* right: calc(19% - 23.5vh);*/
+    top: 2vh;
+}
+
+div#globeContainer.small {
+    width: 47vh;
+    height: 47vh;
+    right: calc(25% - 30.75vh);
+    top: auto;
+    bottom: 2vh;
+    z-index: 99;
+}
+
+/* section cards */
+
+div.sectionCard {
     padding: 0px;
     background: #2e344a url("../img/globelogo.png") no-repeat center;
     background-size: 50%;
 }
 
-div.blockDescription>h1 {
+div.sectionCard>h1 {
+    font-family: 'Lato', sans-serif;
     box-align: center;
     position: absolute;
     color: #eac782;
@@ -127,7 +147,8 @@ div.blockDescription>h1 {
     font-size: 7vh
 }
 
-div.blockDescription>h2 {
+div.sectionCard>h2 {
+    font-family: 'Lato', sans-serif;
     box-align: center;
     bottom: 0px;
     font-weight: 300;
@@ -141,53 +162,21 @@ div.blockDescription>h2 {
     text-transform: uppercase;
 }
 
-.scaleDownIn {
-    transition: transform 1.0s ease, opacity 1.0s ease;
-    transform: scale(1.0, 1.0);
-    opacity: 1.0;
-}
-
-div.blockDescription:not(.scaleDownIn) {
+div.sectionCard:not(.scaleDownIn) {
     transition: transform 1.0s ease, opacity 1.0s ease;
     transform: scale(0.7, 0.7);
     opacity: 0.0;
 }
 
-/* igContainer:
+/* fake instagram posts */
 
------------------------------
-| 60x614 // 8%
------------------------------
-|614x614
-|80%
-|
-|
------------------------------
-| 65x614
-| 12
------------------------------
-
-total: 740x614
-
-1.25x1
-
-*/
-
-.block>div.igContainer {
-    position: relative;
+.section>div.igContainer {
     border-radius: 0.5%;
     border: 1px solid #e6e6e6;
+    box-sizing: border-box;
     background: white;
     overflow: hidden;
-    height: 95vh;
-    width: 76vh;
     text-align: left;
-    display: inline-block;
-    position: absolute;
-    left: calc(50% - 23vh);
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 
 .igHeader,
@@ -247,59 +236,21 @@ img.igAvatar {
     font-size: 0.7em;
 }
 
-div.block.white {
-    background-color: rgb(255, 255, 255);
-}
+/* last section */
 
-div.block.grey {
-    background-color: rgb(245, 245, 245);
-}
-
-body {
-    background: #FFFFFF;
-    color: #2e2e2eaa;
-    font-family: 'Lato', sans-serif;
-    /*	font-size: 22px;
-	line-height: 33px;*/
-    text-align: center;
-}
-
-a {
-    color: #2e2e2eaa;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.25s ease;
-}
-
-a:hover {
-    color: #fff;
-}
-
-h1 {
-    font-family: 'Lato', sans-serif;
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-
-div.block svg {
-    position: absolute;
-    top: 90vh;
-    width: 30px;
-    animation: chevronAnimation 4s ease-in-out 0s infinite;
-}
-
-div.block.goa {
+div#sectionGoa {
     background: url("/bg_home.jpg") repeat;
 }
 
-div.block.goa>.layer {
+div#sectionGoa>.layer {
     width: 70vw;
     height: 80vh;
     background-color: rgba(255, 255, 255, 0.7);
-    display: inline-block;
+    display: inline-section;
     margin: 10vh auto;
 }
 
-div.block.goa h1 {
+div#sectionGoa h1 {
     font-family: 'GFS Didot', serif;
     font-size: 3.5em;
     text-transform: none;
@@ -309,7 +260,7 @@ div.block.goa h1 {
 }
 
 /*
-div.block.goa h1::before {
+div.section.goa h1::before {
     background-position: center right;
     left: -45px;
     background-image: url(../star.jpg);
@@ -321,7 +272,7 @@ div.block.goa h1::before {
     background-repeat: no-repeat;
 }
 
-div.block.goa h1::after {
+div.section.goa h1::after {
     background-position: center left;
     right: -45px;
     background-image: url(../star.jpg);
@@ -332,22 +283,6 @@ div.block.goa h1::after {
     top: 0;
     background-repeat: no-repeat;
 }*/
-
-/**
- * Simple keyframes animation for the chevron on the first slide
- */
-
-@keyframes chevronAnimation {
-    0% {
-        transform: translate(0, 0) scale(1.0, 1.0);
-    }
-    50% {
-        transform: translate(0, 5px) scale(0.8, 0.8);
-    }
-    100% {
-        transform: translate(0, 0) scale(1.0, 1.0);
-    }
-}
 
 /* fonts */
 
@@ -367,81 +302,180 @@ div.block.goa h1::after {
     font-style: normal
 }
 
-@media only screen and (orientation: portrait) {
-    #canvasContainer.globe,
-    #canvasContainer.globe.small {
-        position: fixed;
-        width: 33.333vw;
-        height: 33.333vw;
-        left: 10vw;
+/* responsiveness */
+
+@media only screen and (max-aspect-ratio: 4/3) {
+    body {
+        font-size: 3vh;
     }
-    #canvasContainer.globe {
+    div.section {
+        background-size: 10vw;
+    }
+    #sectionTitle h2 {
+        font-size: 3vw;
+    }
+    #sectionTitle h1 {
+        font-size: 5vw;
+    }
+    div#globeContainer.big,
+    div#globeContainer.small {
+        width: 28vh;
+        height: 28vh;
+        position: fixed;
+        left: calc(50% - 28.125vh);
+    }
+    div#globeContainer.big {
         position: fixed;
         top: 53vh;
         z-index: 99;
     }
-    #canvasContainer.globe.small {
+    div#globeContainer.small {
         position: fixed;
-        top: 1vh;
+        top: 0.666vh;
         z-index: 99;
     }
-    div.blockDescription {
+    div.sectionCard {
+        width: 28vh;
+        height: 28vh;
         position: absolute;
-        top: 1vh;
-        right: 10vw;
-        width: 33.333vw;
-        height: 33.333vw;
+        top: 0.666vh;
+        left: calc(50% + 0.125vh);
     }
-    .block>div.igContainer {
-        position: relative;
-        height: 100vw;
-        width: 80vw;
-        text-align: left;
-        display: inline-block;
+    div.section>div.igContainer {
+        width: 56.25vh;
+        height: 70vh;
         position: absolute;
-        left: 50%;
-        top: calc(50% + 15vw);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        right: auto;
+        left: calc(50% - 28.125vh);
+        top: auto;
+        bottom: 0.666vh;
     }
-    div.blockDescription>h1 {
+    div.sectionCard>h1 {
         font-size: 2em;
     }
-    div.blockDescription>h2 {
+    div.sectionCard>h2 {
         font-size: 0.6em;
+    }
+    .igHeader,
+    .igFooter {
+        font-size: 0.5em;
     }
 }
 
-/* responsiveness */
-
-/* Maximum aspect ratio */
-
-@media only screen and (min-aspect-ratio: 16/9) {
-    #canvasContainer.globe,
-    #canvasContainer.globe.small {
+@media only screen and (max-aspect-ratio: 9/16) {
+    div#globeContainer.big,
+    div#globeContainer.small {
+        width: 48vw;
+        height: 48vw;
         position: fixed;
-        width: 45vw;
-        height: 45vw;
-        top: 1vh;
-        left: 3vw;
+        top: calc(14.14% - 24vw);
+        left: 1.33vw;
     }
-    div.blockDescription {
+    div.sectionCard {
+        width: 48vw;
+        height: 48vw;
         position: absolute;
         top: 1vh;
-        right: 3vw;
-        width: 45vw;
-        height: 45vw;
+        right: 1.33vw;
     }
-    .block>div.igContainer {
-        position: relative;
-        height: 120vw;
-        width: 96vw;
-        text-align: left;
-        display: inline-block;
+    div.section>div.igContainer {
+        width: 97.333vw;
+        height: 121.666vw;
         position: absolute;
-        left: 50%;
-        top: calc(50% + 23vw);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        left: 1.333vw;
+        top: auto;
+        bottom: calc(35.78% - 60.8333vw)
     }
+}
+
+/**
+ * Simple keyframes animation for the chevron on the first slide
+ */
+
+@keyframes chevronAnimation {
+    0% {
+        transform: translate(0, 0) scale(1.0, 1.0);
+    }
+    50% {
+        transform: translate(0, 5px) scale(0.8, 0.8);
+    }
+    100% {
+        transform: translate(0, 0) scale(1.0, 1.0);
+    }
+}
+
+/**
+ * Animations
+ */
+
+.fromTopIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, 0);
+    opacity: 1.0;
+}
+
+.fromTopOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, -10px);
+    opacity: 0.0;
+}
+
+.fromBottomIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, 0);
+    opacity: 1.0;
+}
+
+.fromBottomOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, 10px);
+    opacity: 0.0;
+}
+
+.fromLeftIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, 0);
+    opacity: 1.0;
+}
+
+.fromLeftOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(-10px, 0);
+    opacity: 0.0;
+}
+
+.fromRightIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(0, 0);
+    opacity: 1.0;
+}
+
+.fromRightOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: translate(10px, 0);
+    opacity: 0.0;
+}
+
+.scaleUpIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(1.0, 1.0);
+    opacity: 1.0;
+}
+
+.scaleUpOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(1.3, 1.3);
+    opacity: 0.0;
+}
+
+.scaleDownIn {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(1.0, 1.0);
+    opacity: 1.0;
+}
+
+.scaleDownOut {
+    transition: transform 1.0s ease, opacity 1.0s ease;
+    transform: scale(0.7, 0.7);
+    opacity: 0.0;
 }

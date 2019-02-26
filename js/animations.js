@@ -88,7 +88,7 @@ function setUpSections(controller, argGlobePositions) {
     });
 
     // build scenes
-    var tweenBigGlobe = new TweenMax("#canvasContainer", 1, { className: "globe" });
+    var tweenBigGlobe = new TweenMax("#globeContainer", 1, { className: "big" });
     var sectionTitle = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "50%", triggerHook: "0" })
         .addIndicators() // add indicators (requires plugin)
         .setTween(tweenBigGlobe)
@@ -103,7 +103,7 @@ function setUpSections(controller, argGlobePositions) {
 function setUpPhotoSlides(controller, photos) {
 
     // photo scrolling
-    document.querySelectorAll("div.block.pinned").forEach(function (pinnedBlock, blockIdx) {
+    document.querySelectorAll("div.section.pinned").forEach(function (pinnedBlock, blockIdx) {
 
         if (photos[pinnedBlock.id]) {
             var blockScene = new ScrollMagic.Scene({
@@ -115,7 +115,7 @@ function setUpPhotoSlides(controller, photos) {
                     loop(photos[pinnedBlock.id][0].position - 1, e.progress)
                 });;
             if (blockIdx == 0) {
-                var tweenSmallGlobe = new TweenMax("#canvasContainer", 1, { className: "globe small" });
+                var tweenSmallGlobe = new TweenMax("#globeContainer", 1, { className: "small" });
                 blockScene.setTween(tweenSmallGlobe) // first year, let's resize the globe    
             }
             var igPictures = photos[pinnedBlock.id]
@@ -152,7 +152,7 @@ function setUpPhotoSlides(controller, photos) {
                 duration: "200%"
             })
                 .setPin(pinnedBlock)
-                .setClassToggle(pinnedBlock.querySelector("div.blockDescription"), "scaleDownIn")
+                .setClassToggle(pinnedBlock.querySelector("div.sectionCard"), "scaleDownIn")
                 .setTween(tl)
                 .addIndicators("pictureScene " + pinnedBlock.id)
                 .addTo(controller)
@@ -253,9 +253,9 @@ function stopSun() {
 }
 function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
-    htmlCanvas = document.getElementById('canvasOne');
+    htmlCanvas = document.getElementById('globeCanvas');
 
-    var wwd = new WorldWind.WorldWindow("canvasOne", new WorldWind.EarthElevationModel());
+    var wwd = new WorldWind.WorldWindow("globeCanvas", new WorldWind.EarthElevationModel());
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
     wwd.goToAnimator = new CustomGoToAnimator(wwd.goToAnimator.wwd)
