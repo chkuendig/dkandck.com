@@ -88,24 +88,30 @@ function setUpSections(controller, argGlobePositions) {
     });
 
     // build scenes
-    var tweenBigGlobe = new TweenMax("#globeContainer", 1, { className: "big" });
-    var sectionTitle = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "50%", triggerHook: "0" })
-        .addIndicators() // add indicators (requires plugin)
+    var tweenBigGlobe = new TweenMax("#globeContainer", 1, { className: "small" });
+    var sectionTitle = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "100%", triggerHook: "onLeave" })
+        .addIndicators({ name: "sectionTitle " }) // add indicators (requires plugin)
         .setTween(tweenBigGlobe)
         .addTo(controller)
         .on("progress", function (e) {
-            loop(-1, e.progress)
+            if (e.progress < 0.5) {
+
+                loop(-1, e.progress * 2)
+            } else {
+
+                loop(0, (e.progress - 0.5) * 2)
+            }
         });;
 
 
     // build scenes
-    
+
     var sectionGoa = new ScrollMagic.Scene({ triggerElement: "#sectionGoa", duration: "0", triggerHook: "onEnter" })
         .setClassToggle("#globeContainer", "hidden")
-        .addIndicators() // add indicators (requires plugin)
-        .addTo(controller)        
+        .addIndicators({ name: "sectionGoa" }) // add indicators (requires plugin)
+        .addTo(controller)
         .on("progress", function (e) {
-          console.log( e.progress)
+            console.log(e.progress)
         });;
 
 }
@@ -116,17 +122,17 @@ function setUpPhotoSlides(controller, photos) {
     document.querySelectorAll("div.section.pinned").forEach(function (pinnedBlock, blockIdx) {
 
         if (photos[pinnedBlock.id]) {
-            var blockScene = new ScrollMagic.Scene({
-                triggerElement: pinnedBlock, duration: "100%", triggerHook: 1
-            })
-                .addIndicators() // add indicators (requires plugin)
-                .addTo(controller)
-                .on("progress", function (e) {
-                    loop(photos[pinnedBlock.id][0].position - 1, e.progress)
-                });;
-            if (blockIdx == 0) {
-                var tweenSmallGlobe = new TweenMax("#globeContainer", 1, { className: "small" });
-                blockScene.setTween(tweenSmallGlobe) // first year, let's resize the globe    
+            if (blockIdx > 0) {
+                // initial scene before pictures start
+                var blockScene = new ScrollMagic.Scene({
+                    triggerElement: pinnedBlock, duration: "100%", triggerHook: "onEnter"
+                })
+
+                    .addIndicators({ name: pinnedBlock.id })// add indicators (requires plugin)
+                    .addTo(controller)
+                    .on("progress", function (e) {
+                        loop(photos[pinnedBlock.id][0].position - 1, e.progress)
+                    });;
             }
             var igPictures = photos[pinnedBlock.id]
             var tl = new TimelineMax();
@@ -156,15 +162,18 @@ function setUpPhotoSlides(controller, photos) {
                     igFooterDate.textContent = igPicture.date;
                 }
             });
+            var igContainerStyle = window.getComputedStyle(pinnedBlock.querySelector("div.igContainer"), null);
+            var igFrameHeight = parseInt(igContainerStyle.getPropertyValue('height')) * 0.8;
+            var duration = igPictures.length * parseInt(igFrameHeight);
             var pictureScene = new ScrollMagic.Scene({
                 triggerElement: pinnedBlock,
                 triggerHook: "onLeave",
-                duration: "200%"
+                duration: duration
             })
                 .setPin(pinnedBlock)
                 .setClassToggle(pinnedBlock.querySelector("div.sectionCard"), "scaleDownIn")
                 .setTween(tl)
-                .addIndicators("pictureScene " + pinnedBlock.id)
+                .addIndicators({ name: pinnedBlock.id, indent: 100 })
                 .addTo(controller)
                 .on("progress", function (e) {
                     var progress = e.progress
