@@ -1,51 +1,73 @@
-var globePositions = {}
+var initialGlobePositions = {
+    "-1": {
+        "latitude": 80,
+        "longitude": 8.55,
+        "altitude": 7000000,
+        "tilt": 60,
+        "heading": 0
+    },
+    "0": {
+        "latitude": 50,
+        "longitude": 8.55,
+        "altitude": 10000000,
+        "tilt": 0,
+        "heading": 0
+    }
+}
 
 var overlayLayers = {
 
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
-    // init controller
+    // init ScrollMagic controller
     TweenMax.defaultEase = Linear.easeNone;
     var controller = new ScrollMagic.Controller();
 
-    let reqPositionsJson = new Request('positions.json');
-
+    // fetch photos 
     let reqPhotosJson = new Request('photos.json');
-
-    fetch(reqPositionsJson)
+    fetch(reqPhotosJson)
         .then(function (response) {
             if (!response.ok) {
                 throw new Error('HTTP error, status = ' + response.status);
             }
             return response.json();
         })
-        .then(function (argGlobePositions) {
-            console.log(argGlobePositions)
-            setUpSections(controller, argGlobePositions);
-            return argGlobePositions
-        }).then(function (argGlobePositions) {
-            return fetch(reqPhotosJson);
+        .then(function (rawPhotoData) {
+            var parsed = setupGlobePositions(rawPhotoData)
+            setUpSections(controller, parsed.globePositions);
+            return parsed.photos
         })
-
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('HTTP error, status = ' + response.status);
-            }
-            return response.json();
-        })
-        .then(function (obj) {
-            console.log(obj)
-            setUpPhotoSlides(controller, obj);
+        .then(function (argPhotos) {
+            setUpPhotoSlides(controller, argPhotos);
         });
 
 });
 
+function setupGlobePositions(rawData) {
+    var photos = {};
+    var globePositions = initialGlobePositions;
+    var posIdx = 0;
+    Object.keys(rawData).forEach(function (sectionKey) {
+        var section = rawData[sectionKey]
+        photos[sectionKey] = []
+        Object.keys(section).forEach(function (photoKey) {
+            var photo = section[photoKey]
+            if (typeof photo.position == "object") {
+                posIdx++;
+                globePositions[posIdx] = photo.position;
+                photo.position = posIdx;
+            }
+            photos[sectionKey][photoKey] = photo
+        });
+    });
+    return { "globePositions": globePositions, "photos": photos };
+}
 function setUpSections(controller, argGlobePositions) {
 
-
-    globePositions = argGlobePositions;
+    window.globePositions = argGlobePositions;
     // init globe
     window.wwd = launchGlobe();
 
@@ -96,16 +118,15 @@ function setUpSections(controller, argGlobePositions) {
         .on("progress", function (e) {
             if (e.progress < 0.5) {
 
-                loop(-1, e.progress * 2)
+                animateGlobe(-1, e.progress * 2)
             } else {
 
-                loop(0, (e.progress - 0.5) * 2)
+                animateGlobe(0, (e.progress - 0.5) * 2)
             }
         });;
 
 
     // build scenes
-
     var sectionGoa = new ScrollMagic.Scene({ triggerElement: "#sectionGoa", duration: "0", triggerHook: "onEnter" })
         .setClassToggle("#globeContainer", "hidden")
         .addIndicators({ name: "sectionGoa" }) // add indicators (requires plugin)
@@ -131,7 +152,7 @@ function setUpPhotoSlides(controller, photos) {
                     .addIndicators({ name: pinnedBlock.id })// add indicators (requires plugin)
                     .addTo(controller)
                     .on("progress", function (e) {
-                        loop(photos[pinnedBlock.id][0].position - 1, e.progress)
+                        animateGlobe(photos[pinnedBlock.id][0].position - 1, e.progress)
                     });;
             }
             var igPictures = photos[pinnedBlock.id]
@@ -183,7 +204,7 @@ function setUpPhotoSlides(controller, photos) {
 
                     console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
                     if (photos[pinnedBlock.id][pictureIdx] && photos[pinnedBlock.id][pictureIdx].position) {
-                        loop(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
+                        animateGlobe(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
                     }
 
                 });
@@ -199,7 +220,7 @@ var restingRange = 0.2
 var adjustRestingRange = function (progress) {
     return Math.max(0.001, Math.min(1, progress * 1 / (1 - restingRange * 2) - restingRange / (1 - restingRange * 2)));
 }
-function loop(travelPosition, travelProgress) {
+function animateGlobe(travelPosition, travelProgress) {
 
     //requestAnimationFrame(function () {
 
