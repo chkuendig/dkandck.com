@@ -109,7 +109,7 @@ div.section>div.igContainer {
     width: 76vh;
     height: 96vh;
     position: absolute;
-    left: calc(31% - 38vh);
+    right: calc(31% - 38vh);
     top: 2vh;
 }
 
@@ -117,7 +117,7 @@ div.sectionCard {
     width: 47vh;
     height: 47vh;
     position: absolute;
-    right: calc(25% - 30.75vh);
+    left: calc(25% - 30.75vh);
     /* right: calc(19% - 23.5vh);*/
     top: 2vh;
 }
@@ -125,7 +125,7 @@ div.sectionCard {
 div#globeContainer.small {
     width: 47vh;
     height: 47vh;
-    right: calc(25% - 30.75vh);
+    left: calc(25% - 30.75vh);
     top: auto;
     bottom: 2vh;
     z-index: 99;
@@ -242,10 +242,6 @@ img.igAvatar {
 }
 
 /* last section */
-
-div#sectionGoa {
-    background: url("/bg_home.jpg") repeat;
-}
 
 
  #sectionGoa h1{
