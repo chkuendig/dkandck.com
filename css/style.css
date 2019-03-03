@@ -67,7 +67,6 @@ div.section.grey {
 #sectionTitle {
     position: relative;
     height: 101vh;
-    width: 100%;
     padding: 10vh 15vw;
 }
 
@@ -252,36 +251,79 @@ img.igAvatar {
     font-size: 0.7em;
 }
 
-/* last section */
+/* goa section */
 
-#sectionGoa h1 {
-    text-transform: uppercase;
+#sectionGoa>div.videoContainer {
+    position: absolute;
+    height: 95vh;
+    width: 100%;
+    overflow: hidden;
 }
 
-/*
-div.section.goa h1::before {
-    background-position: center right;
-    left: -45px;
-    background-image: url(../star.jpg);
-    content: '';
+#sectionGoa>div.videoContainer>video {
     position: absolute;
-    width: 35px;
-    height: 35px;
+    right: 0;
+    bottom: 0;
     top: 0;
-    background-repeat: no-repeat;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-color: black;
+    background-position: center center;
+    background-size: contain;
+    object-fit: cover;
 }
 
-div.section.goa h1::after {
-    background-position: center left;
-    right: -45px;
-    background-image: url(../star.jpg);
-    content: '';
-    position: absolute;
-    width: 35px;
-    height: 35px;
+#sectionGoa>div.goaTitle {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: auto;
+    padding: 1vh
+}
+
+#sectionGoa>div.goaTitle h1 {
+    text-transform: none;
+}
+
+#sectionGoa>div.goaContent {
+    display: block;
+    position: relative;
+    width: 70%;
+    left: 15%;
+    top: 20vh;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-top: 2vh;
+}
+
+#sectionGoa>div.goaContent img {
+    height: 5vh;
+}
+
+#sectionGoa>div.goaFooter {
+    display: block;
+    position: relative;
+    top: 35vh;
+    height: 5vh;
+    background: url('/bg_home.jpg') repeat;
+    text-align: center;
+    padding-top: 0.5vh;
+}
+
+#sectionGoa>div.goaFooter>span {
+    right: 0;
+    left: 0;
     top: 0;
-    background-repeat: no-repeat;
-}*/
+    bottom: 0;
+    padding: 0 5vw;
+    margin: auto;
+    background-color: white;
+    font-size: 2vh;
+    color: rgba(0, 0, 0, 0.7)
+}
 
 /* fonts */
 
@@ -362,6 +404,37 @@ div.section.goa h1::after {
     .igFooter {
         font-size: 0.5em;
     }
+    #sectionGoa>div.goaTitle {
+        font-size: 0.5em
+    }
+    #sectionGoa>div.goaContent img {
+        height: 5vw
+    }
+    #sectionGoa>div.goaContent {
+        display: block;
+        position: relative;
+        width: 85%;
+        left: 7.5%;
+        top: 20vh;
+        height: 50vh;
+        padding-top: 10vh;
+        font-size: 0.5em;
+    }
+    #sectionGoa>div.goaFooter {
+        display: block;
+        position: relative;
+        top: 40vh;
+        height: 5vh;
+        background: url('/bg_home.jpg') repeat;
+        text-align: center;
+        padding-top: 0.5vh;
+    }
+    #sectionGoa>div.videoContainer {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
 }
 
 @media only screen and (max-aspect-ratio: 9/16) {
@@ -379,15 +452,25 @@ div.section.goa h1::after {
         position: absolute;
         top: 1vh;
         right: 1.33vw;
+        z-index: 99;
     }
     div.section>div.igContainer {
-        height: 121.666vw;
-        position: absolute;
-        left: 1.333vw;
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-left: 1.333vw;
         top: auto;
     }
     div.igContainer>div.igPicture {
+        height: 121.666vw;
         width: 97.333vw;
+        margin-top: 2vh;
+    }
+    div.sectionCard>h1 {
+        font-size: 2em;
+    }
+    div.sectionCard>h2 {
+        font-size: 0.6em;
     }
 }
 
