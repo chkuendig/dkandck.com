@@ -229,6 +229,9 @@ function animateGlobe(travelPosition, travelProgress) {
         if (navigatorPosition != travelPosition) {
             navigatorPosition = travelPosition
             animator = wwd.goToAnimator.goTo(globePositions[travelPosition], globePositions[nextTravelPosition]);
+            if (!animator) {
+                throw "no animator"
+            }
             /*
             if (travelPosition == -1) {
                 startSun()
@@ -315,6 +318,7 @@ function launchGlobe() {
     wwd.addLayer(layerBMNGLandsat);
     var layerBingAerial = new WorldWind.BingAerialLayer(null);
     layerBingAerial.maxActiveAltitude = 10000;
+    layerBingAerial.detailControl = 1.0
     wwd.addLayer(layerBingAerial);
     // The Sun simulation is a feature of Atmosphere layer. We'll create and add the layer.
     atmosphereLayer = new WorldWind.AtmosphereLayer();
