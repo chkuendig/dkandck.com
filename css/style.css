@@ -46,6 +46,7 @@ div#globeContainer.hidden {
 
 div.section {
     height: 100vh;
+    width:100vw;
     text-align: center;
     background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
     background-size: 10vh;
