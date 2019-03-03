@@ -21,6 +21,7 @@ var overlayLayers = {
 
 var scrollIndicators = false;
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // init ScrollMagic controller
@@ -117,10 +118,8 @@ function setUpSections(controller, argGlobePositions) {
         .addTo(controller)
         .on("progress", function (e) {
             if (e.progress < 0.5) {
-
                 animateGlobe(-1, e.progress * 2)
             } else {
-
                 animateGlobe(0, (e.progress - 0.5) * 2)
             }
         });
@@ -144,78 +143,72 @@ function setUpSections(controller, argGlobePositions) {
 function setUpPhotoSlides(controller, photos) {
 
     // photo scrolling
-    document.querySelectorAll("div.section.pinned").forEach(function (pinnedBlock, blockIdx) {
-
-        if (photos[pinnedBlock.id]) {
-            if (blockIdx > 0) {
-                // initial scene before pictures start
-                var blockScene = new ScrollMagic.Scene({
-                    triggerElement: pinnedBlock, duration: "100%", triggerHook: "onEnter"
-                })
-                    .addTo(controller)
-                    .on("progress", function (e) {
-                        animateGlobe(photos[pinnedBlock.id][0].position - 1, e.progress)
-                    });
-                if (scrollIndicators) {
-                    blockScene.addIndicators({ name: pinnedBlock.id })// add indicators (requires plugin)
-                }
-            }
-            var igPictures = photos[pinnedBlock.id]
-            var tl = new TimelineMax();
-            var igLocationDesc = pinnedBlock.querySelector("div.igHeader > p").childNodes[2]
-
-            var igFrame = pinnedBlock.querySelector("div.igFrame")
-            var igFooterDesc = pinnedBlock.querySelector("div.igFooter > p:first-child").childNodes[1]
-            var igFooterDate = pinnedBlock.querySelectorAll("div.igFooter > p.date")
-            var tl = new TimelineMax();
-            igPictures.forEach(function (igPicture, pictureidx) {
-                var igPictureSection = document.createElement("section");
-                igPictureSection.className = "igPicture"
-
-                var igPictureImg = document.createElement("img");
-                igPictureImg.src = "pictures/" + igPicture.file
-                igPictureImg.style.width = "100%"
-                igPictureSection.appendChild(igPictureImg)
-                igFrame.appendChild(igPictureSection)
-                if (pictureidx > 0) {
-                    tl.from(igPictureSection, 1, { yPercent: 100 });
-                    tl.set(igLocationDesc, { nodeValue: igPicture.locationText }, "-=0.5");
-                    tl.set(igFooterDesc, { nodeValue: igPicture.text }, "-=0.5");
-                    tl.set(igFooterDate, { textContent: igPicture.date }, "-=0.5");
-                } else {
-                    igLocationDesc.nodeValue = igPicture.locationText
-                    igFooterDesc.nodeValue = " " + igPicture.text;
-                    igFooterDate.textContent = igPicture.date;
-                }
-            });
-            var igContainerStyle = window.getComputedStyle(pinnedBlock.querySelector("div.igContainer"), null);
-            var igFrameHeight = parseInt(igContainerStyle.getPropertyValue('height')) * 0.8;
-            var duration = igPictures.length * parseInt(igFrameHeight);
-            var pictureScene = new ScrollMagic.Scene({
-                triggerElement: pinnedBlock,
-                triggerHook: "onLeave",
-                duration: duration
+    document.querySelectorAll("div.section.pinned").forEach(function (sectionDiv, blockIdx) {
+        if (blockIdx > 0) {
+            // initial scene before pictures start
+            var blockScene = new ScrollMagic.Scene({
+                triggerElement: sectionDiv, duration: "100%", triggerHook: "onEnter"
             })
-                .setPin(pinnedBlock)
-                .setClassToggle(pinnedBlock.querySelector("div.sectionCard"), "scaleDownIn")
-                .setTween(tl)
                 .addTo(controller)
                 .on("progress", function (e) {
-                    var progress = e.progress
-                    ratioPerPic = 1 / (igPictures.length - 1)
-                    pictureIdx = Math.floor(progress / ratioPerPic) + 1
-                    pictureProg = (progress - ratioPerPic * (pictureIdx - 1)) / ratioPerPic;
-
-                    //console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
-                    if (photos[pinnedBlock.id][pictureIdx] && photos[pinnedBlock.id][pictureIdx].position) {
-                        animateGlobe(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
-                    }
-
+                    animateGlobe(photos[sectionDiv.id][0].position - 1, e.progress)
                 });
             if (scrollIndicators) {
-                pictureScene.addIndicators({ name: "igPicture." + pinnedBlock.id, indent: 100 })// add indicators (requires plugin)
+                blockScene.addIndicators({ name: sectionDiv.id })// add indicators (requires plugin)
             }
-            pinnedBlock.querySelector(".igContainer").style.display = ""
+        }
+        if (photos[sectionDiv.id]) {
+
+            var igPictures = photos[sectionDiv.id]
+            var igContainer = sectionDiv.querySelector("div.igContainer")
+            var igPictureDiv = igContainer.querySelector("div.igPicture")
+            igPictureDiv.parentElement.removeChild(igPictureDiv); //remove sample post
+
+            igPictures.forEach(function (igPicture, pictureidx) {
+                if (pictureidx > 0) {
+                    igPictureDiv = igPictureDiv.cloneNode(true);
+                }
+
+                var igFrame = igPictureDiv.querySelector("div.igFrame")
+                var igPictureImg = document.createElement("img");
+                if (pictureidx > 0) {
+                    igPictureImg = igFrame.firstChild;
+                }
+                igPictureImg.src = "pictures/" + igPicture.file
+                igPictureImg.style.width = "100%"
+
+                igFrame.appendChild(igPictureImg)
+
+                var igLocationDesc = igPictureDiv.querySelector("div.igHeader > p").childNodes[2]
+                igLocationDesc.nodeValue = igPicture.locationText
+                var igFooterDesc = igPictureDiv.querySelector("div.igFooter > p:first-child").childNodes[1]
+                igFooterDesc.nodeValue = " " + igPicture.text;
+                var igFooterDate = igPictureDiv.querySelector("div.igFooter > p.date")
+                igFooterDate.textContent = igPicture.date;
+                igContainer.appendChild(igPictureDiv)
+            });
+            igContainer.style.display = ""
+            var igContainerStyle = window.getComputedStyle(igContainer, null);
+            var igContainerHeight = parseInt(igContainerStyle.getPropertyValue('height'));
+            var pictureScene = new ScrollMagic.Scene({
+                triggerElement: sectionDiv,
+                triggerHook: "onEnter",
+                duration: igContainerHeight
+            })
+                .addTo(controller).setClassToggle(sectionDiv.querySelector("div.sectionCard"), "scaleDownIn")
+                .on("progress", function (e) {
+                    var progress = e.progress
+                    ratioPerPic = 1 / (igPictures.length)
+                    pictureIdx = Math.floor(progress / ratioPerPic)
+                    pictureProg = (progress - ratioPerPic * (pictureIdx)) / ratioPerPic;
+                    //   console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
+                    if (photos[sectionDiv.id][pictureIdx] && photos[sectionDiv.id][pictureIdx].position) {
+                        animateGlobe(photos[sectionDiv.id][pictureIdx].position - 1, pictureProg)
+                    }
+                });
+            if (scrollIndicators) {
+                pictureScene.addIndicators({ name: "igPicture." + sectionDiv.id, indent: 100 })// add indicators (requires plugin)
+            }
         }
     })
 }

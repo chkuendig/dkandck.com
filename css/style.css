@@ -42,11 +42,13 @@ div#globeContainer.hidden {
     transform: scale(0.7, 0.7);
     opacity: 0.0;
 }
+
 /* all sections */
 
 div.section {
-    height: 100vh;
-    width:100vw;
+    padding-bottom: 2vh;
+    width: 100vw;
+    min-height: 100vh;
     text-align: center;
     background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
     background-size: 10vh;
@@ -69,8 +71,8 @@ div.section.grey {
     padding: 10vh 15vw;
 }
 
- h2,
- h1 {
+h2,
+h1 {
     font-weight: normal;
     font-family: 'Didot-Bold', serif;
     color: #3A407E;
@@ -107,17 +109,24 @@ div.section.grey {
 /* in-section positioning */
 
 div.section>div.igContainer {
+    position: relative;
     width: 76vh;
+    margin-left: calc(66vw - 38vh);
+}
+
+div.igContainer>div.igPicture {
+    margin-top: 2vh;
     height: 96vh;
-    position: absolute;
-    right: calc(31% - 38vh);
-    top: 2vh;
+}
+
+div.section>div.igContainer {
+    padding-top: 2vh;
 }
 
 div.sectionCard {
     width: 47vh;
     height: 47vh;
-    position: absolute;
+    position: fixed;
     left: calc(25% - 30.75vh);
     /* right: calc(19% - 23.5vh);*/
     top: 2vh;
@@ -176,7 +185,7 @@ div.sectionCard:not(.scaleDownIn) {
 
 /* fake instagram posts */
 
-.section>div.igContainer {
+.igContainer>div.igPicture {
     border-radius: 0.5%;
     border: 1px solid #e6e6e6;
     box-sizing: border-box;
@@ -198,6 +207,7 @@ div.sectionCard:not(.scaleDownIn) {
 
 .igHeader {
     height: 8%;
+    position: relative;
 }
 
 .igFooter {
@@ -226,7 +236,7 @@ img.igAvatar {
 }
 
 .igPicture {
-    position: absolute;
+    height: 100%
 }
 
 .igFooter>p {
@@ -244,11 +254,10 @@ img.igAvatar {
 
 /* last section */
 
-
- #sectionGoa h1{
-
+#sectionGoa h1 {
     text-transform: uppercase;
- }
+}
+
 /*
 div.section.goa h1::before {
     background-position: center right;
@@ -327,18 +336,21 @@ div.section.goa h1::after {
     div.sectionCard {
         width: 28vh;
         height: 28vh;
-        position: absolute;
         top: 0.666vh;
         left: calc(50% + 0.125vh);
+        z-index: 99;
     }
     div.section>div.igContainer {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-bottom: 0.666vh;
+        margin-left: calc(50vw - 28.125vh);
+    }
+    div.igContainer>div.igPicture {
+        margin-top: 2vh;
         width: 56.25vh;
         height: 70vh;
-        position: absolute;
-        right: auto;
-        left: calc(50% - 28.125vh);
-        top: auto;
-        bottom: 0.666vh;
     }
     div.sectionCard>h1 {
         font-size: 2em;
@@ -369,12 +381,13 @@ div.section.goa h1::after {
         right: 1.33vw;
     }
     div.section>div.igContainer {
-        width: 97.333vw;
         height: 121.666vw;
         position: absolute;
         left: 1.333vw;
         top: auto;
-        bottom: calc(35.78% - 60.8333vw)
+    }
+    div.igContainer>div.igPicture {
+        width: 97.333vw;
     }
 }
 
