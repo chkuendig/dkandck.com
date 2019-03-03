@@ -60,8 +60,8 @@
             "position": {
                 "latitude": 46.0167,
                 "longitude": 7.75,
-                "altitude": 5000,
-                "tilt": 55,
+                "altitude": 10000,
+                "tilt": 20,
                 "heading": 0,
                 "overlay": {
                     "label": "Gornergrat"
@@ -120,7 +120,7 @@
             "position": {
                 "latitude": 17.330955,
                 "longitude": 78.467504,
-                "altitude": 2000,
+                "altitude": 1000,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
@@ -133,11 +133,11 @@
         {
             "file": "IMG_9219.JPG",
             "date": "December 2017",
-            "locationText": "Taj Mahal",
+            "locationText": "Taj Mahal, Agra, India",
             "position": {
-                "latitude": 27.176670,
-                "longitude": 78.008072,
-                "altitude": 2000,
+                "latitude": 27.173891,
+                "longitude": 78.042068,
+                "altitude": 800,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
@@ -150,6 +150,16 @@
             "file": "IMG_9612.JPG",
             "date": "December 2017",
             "locationText": "Chandra Mahal, Jaipur, India",
+            "position": {
+                "latitude": 26.9255,
+                "longitude": 75.8236,
+                "altitude": 800,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Jaipur"
+                }
+            },
             "text": "Christmas Day in Rajastan"
         }
     ],
@@ -192,7 +202,7 @@
             "position": {
                 "latitude": 48.858222,
                 "longitude": 2.2945,
-                "altitude": 2000,
+                "altitude": 1200,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
@@ -208,10 +218,12 @@
             "position": {
                 "latitude": 47.039719,
                 "longitude": 8.782218,
-                "altitude": 2000,
+                "altitude": 3000,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
+                    "latitude": 47.029519,
+                    "longitude": 8.762218,
                     "label": "Schwyz"
                 }
             },
@@ -221,8 +233,6 @@
         {
             "file": "IMG_2095.jpg",
             "date": "August 2018",
-           
-            
             "locationText": "Oberiberg, Schwyz, Switzerland",
             "text": "Another friend's wedding (Day 2)"
         },
@@ -245,21 +255,18 @@
         {
             "file": "P1000293.jpg",
             "date": "September 2018",
-      
             "locationText": "Mt. Kilimanjaro, Tanzania",
             "text": "Day 6: On our way to the last camp before the peak. "
         },
         {
             "file": "P1000362.jpg",
             "date": "September 2018",
-           
             "locationText": "Mt. Kilimanjaro, Tanzania",
             "text": "Day 7: Almost at the peak!. "
         },
         {
             "file": "P1000410.jpg",
             "date": "September 2018",
-            
             "locationText": "Ururu Peak, Mt. Kilimanjaro, Tanzania",
             "text": "Day 7: We made it! "
         },
@@ -268,9 +275,9 @@
             "date": "September 2018",
             "position": {
                 "latitude": -3.2,
-                "longitude": 35.45,
-                "altitude": 2000,
-                "tilt": 55,
+                "longitude": 35.55,
+                "altitude": 25000,
+                "tilt": 0,
                 "heading": 0,
                 "overlay": {
                     "label": "Ngorongoro Crater"
@@ -283,9 +290,9 @@
             "file": "P1010286.jpg",
             "date": "September 2018",
             "position": {
-                "latitude": -3.5,
+                "latitude": -3.40,
                 "longitude": 35.833333,
-                "altitude": 2000,
+                "altitude": 3500,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
@@ -298,7 +305,6 @@
         {
             "file": "IMG_2069.JPG",
             "date": "September 2018",
-           
             "locationText": "Zanzibar, Tanzania",
             "text": "Recovering from the struggles at the beach"
         }
