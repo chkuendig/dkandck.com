@@ -71,7 +71,7 @@
             "text": "Time to explore some Ski Ressorts (and have strangers take pictures of us)"
         },
         {
-            "file": "IMG_8155.JPG",
+            "file": "IMG_8254.JPG",
             "date": "July 2017",
             "position": {
                 "latitude": 47.9204,
@@ -83,20 +83,8 @@
                     "kmlFile": "gpx/cycling/cycle_500m.kml"
                 }
             },
-            "locationText": "Petit-Landau (Alsace), France",
-            "text": "Day 2 of our first big adventure together (Cycling from Zurich to Strasbourg)"
-        },
-        {
-            "file": "IMG_8254.JPG",
-            "date": "July 2017",
             "locationText": "Freiburg im Breisgau, Germany",
             "text": "Day 3: Exploring Freiburg after a long day on the bike (and a few well deserved drinks)"
-        },
-        {
-            "file": "IMG_8299.JPG",
-            "date": "August 2017",
-            "locationText": "Colmar, France ",
-            "text": "Day 4: Stopping for some selfies in a field outside of Colmar in Alsace"
         },
         {
             "file": "IMG_8745.JPG",
@@ -145,22 +133,6 @@
                 }
             },
             "text": "Time for Christian to see the sights - here at the Taj Mahal"
-        },
-        {
-            "file": "IMG_9612.JPG",
-            "date": "December 2017",
-            "locationText": "Chandra Mahal, Jaipur, India",
-            "position": {
-                "latitude": 26.9255,
-                "longitude": 75.8236,
-                "altitude": 800,
-                "tilt": 55,
-                "heading": 0,
-                "overlay": {
-                    "label": "Jaipur"
-                }
-            },
-            "text": "Christmas Day in Rajastan"
         }
     ],
     "section2018": [
@@ -213,32 +185,9 @@
             "text": "Living it up with a glass of champagne on the Eiffel Tower."
         },
         {
-            "file": "Hochzeit-795.jpg",
-            "date": "August 2018",
-            "position": {
-                "latitude": 47.039719,
-                "longitude": 8.782218,
-                "altitude": 3000,
-                "tilt": 55,
-                "heading": 0,
-                "overlay": {
-                    "latitude": 47.029519,
-                    "longitude": 8.762218,
-                    "label": "Schwyz"
-                }
-            },
-            "locationText": "Oberiberg, Schwyz, Switzerland",
-            "text": "Another friend's wedding"
-        },
-        {
-            "file": "IMG_2095.jpg",
-            "date": "August 2018",
-            "locationText": "Oberiberg, Schwyz, Switzerland",
-            "text": "Another friend's wedding (Day 2)"
-        },
-        {
-            "file": "P1000110.jpg",
+            "file": "P1000293.jpg",
             "date": "September 2018",
+            "locationText": "Mt. Kilimanjaro, Tanzania",
             "position": {
                 "latitude": -3.065653,
                 "longitude": 37.3,
@@ -249,14 +198,7 @@
                     "kmlFile": "./gpx/kili/kili_500m.kml"
                 }
             },
-            "locationText": "Shira 1 Camp, Mt. Kilimanjaro, Tanzania",
-            "text": "Day 2: Arrival at Shira 1 Camp"
-        },
-        {
-            "file": "P1000293.jpg",
-            "date": "September 2018",
-            "locationText": "Mt. Kilimanjaro, Tanzania",
-            "text": "Day 6: On our way to the last camp before the peak. "
+            "text": "Day 6: On our way up Mt. Kilimanjaro "
         },
         {
             "file": "P1000362.jpg",
@@ -269,44 +211,6 @@
             "date": "September 2018",
             "locationText": "Ururu Peak, Mt. Kilimanjaro, Tanzania",
             "text": "Day 7: We made it! "
-        },
-        {
-            "file": "P1000884.jpg",
-            "date": "September 2018",
-            "position": {
-                "latitude": -3.2,
-                "longitude": 35.55,
-                "altitude": 25000,
-                "tilt": 0,
-                "heading": 0,
-                "overlay": {
-                    "label": "Ngorongoro Crater"
-                }
-            },
-            "locationText": "Ngorongoro Conservation Area, Tanzania",
-            "text": "Day 2 of our post-Kilimanjaro safari: A lion looking at his buffet"
-        },
-        {
-            "file": "P1010286.jpg",
-            "date": "September 2018",
-            "position": {
-                "latitude": -3.40,
-                "longitude": 35.833333,
-                "altitude": 3500,
-                "tilt": 55,
-                "heading": 0,
-                "overlay": {
-                    "label": "Lake Manyara "
-                }
-            },
-            "locationText": "Lake Manyara National Park, Tanzania",
-            "text": "Lot's of monkeys on the 3rd day of our post-Kilimanjaro safari."
-        },
-        {
-            "file": "IMG_2069.JPG",
-            "date": "September 2018",
-            "locationText": "Zanzibar, Tanzania",
-            "text": "Recovering from the struggles at the beach"
         }
     ]
 }
