@@ -19,6 +19,7 @@ var overlayLayers = {
 
 }
 
+var scrollIndicators = false;
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -111,8 +112,7 @@ function setUpSections(controller, argGlobePositions) {
 
     // build scenes
     var tweenBigGlobe = new TweenMax("#globeContainer", 1, { className: "small" });
-    var sectionTitle = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "100%", triggerHook: "onLeave" })
-        .addIndicators({ name: "sectionTitle " }) // add indicators (requires plugin)
+    var sectionTitleScene = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "100%", triggerHook: "onLeave" })
         .setTween(tweenBigGlobe)
         .addTo(controller)
         .on("progress", function (e) {
@@ -123,18 +123,22 @@ function setUpSections(controller, argGlobePositions) {
 
                 animateGlobe(0, (e.progress - 0.5) * 2)
             }
-        });;
+        });
+    if (scrollIndicators) {
+        sectionTitleScene.addIndicators({ name: "sectionTitle " }) // add indicators (requires plugin)
+    }
 
 
     // build scenes
-    var sectionGoa = new ScrollMagic.Scene({ triggerElement: "#sectionGoa", duration: "0", triggerHook: "onEnter" })
+    var sectionGoaScene = new ScrollMagic.Scene({ triggerElement: "#sectionGoa", duration: "0", triggerHook: "onEnter" })
         .setClassToggle("#globeContainer", "hidden")
-        .addIndicators({ name: "sectionGoa" }) // add indicators (requires plugin)
         .addTo(controller)
         .on("progress", function (e) {
             console.log(e.progress)
-        });;
-
+        });
+    if (scrollIndicators) {
+        sectionGoaScene.addIndicators({ name: "sectionGoa" }) // add indicators (requires plugin)
+    }
 }
 
 function setUpPhotoSlides(controller, photos) {
@@ -148,12 +152,13 @@ function setUpPhotoSlides(controller, photos) {
                 var blockScene = new ScrollMagic.Scene({
                     triggerElement: pinnedBlock, duration: "100%", triggerHook: "onEnter"
                 })
-
-                    .addIndicators({ name: pinnedBlock.id })// add indicators (requires plugin)
                     .addTo(controller)
                     .on("progress", function (e) {
                         animateGlobe(photos[pinnedBlock.id][0].position - 1, e.progress)
-                    });;
+                    });
+                if (scrollIndicators) {
+                    blockScene.addIndicators({ name: pinnedBlock.id })// add indicators (requires plugin)
+                }
             }
             var igPictures = photos[pinnedBlock.id]
             var tl = new TimelineMax();
@@ -194,7 +199,6 @@ function setUpPhotoSlides(controller, photos) {
                 .setPin(pinnedBlock)
                 .setClassToggle(pinnedBlock.querySelector("div.sectionCard"), "scaleDownIn")
                 .setTween(tl)
-                .addIndicators({ name: pinnedBlock.id, indent: 100 })
                 .addTo(controller)
                 .on("progress", function (e) {
                     var progress = e.progress
@@ -202,12 +206,15 @@ function setUpPhotoSlides(controller, photos) {
                     pictureIdx = Math.floor(progress / ratioPerPic) + 1
                     pictureProg = (progress - ratioPerPic * (pictureIdx - 1)) / ratioPerPic;
 
-                    console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
+                    //console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
                     if (photos[pinnedBlock.id][pictureIdx] && photos[pinnedBlock.id][pictureIdx].position) {
                         animateGlobe(photos[pinnedBlock.id][pictureIdx].position - 1, pictureProg)
                     }
 
                 });
+            if (scrollIndicators) {
+                pictureScene.addIndicators({ name: "igPicture." + pinnedBlock.id, indent: 100 })// add indicators (requires plugin)
+            }
             pinnedBlock.querySelector(".igContainer").style.display = ""
         }
     })
