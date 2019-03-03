@@ -395,10 +395,11 @@ img.igAvatar {
         height: 70vh;
     }
     div.sectionCard>h1 {
-        font-size: 2em;
+        font-size: 5vh;
     }
     div.sectionCard>h2 {
-        font-size: 0.6em;
+        padding: 0vh 2vh;
+        font-size: 1.2vh;
     }
     .igHeader,
     .igFooter {
@@ -442,17 +443,22 @@ img.igAvatar {
     div#globeContainer.small {
         width: 48vw;
         height: 48vw;
-        position: fixed;
-        top: calc(14.14% - 24vw);
+        top: 1vh;
         left: 1.33vw;
     }
     div.sectionCard {
         width: 48vw;
         height: 48vw;
-        position: absolute;
         top: 1vh;
         right: 1.33vw;
         z-index: 99;
+    }
+    div.sectionCard>h1 {
+        font-size: 1.5em;
+    }
+    div.sectionCard>h2 {
+        padding: 0vh 2vh;
+        font-size: 1vh;
     }
     div.section>div.igContainer {
         position: relative;
@@ -465,12 +471,6 @@ img.igAvatar {
         height: 121.666vw;
         width: 97.333vw;
         margin-top: 2vh;
-    }
-    div.sectionCard>h1 {
-        font-size: 2em;
-    }
-    div.sectionCard>h2 {
-        font-size: 0.6em;
     }
 }
 
