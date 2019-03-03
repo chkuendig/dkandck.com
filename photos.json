@@ -157,23 +157,77 @@
         {
             "file": "IMG_0032.JPG",
             "date": "April 2018",
-            "locationText": "Granada, Spain",
+            "position": {
+                "latitude": 37.176944,
+                "longitude": -3.594722,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Granada"
+                }
+            },
+            "locationText": "Alhambra, Granada, Spain",
             "text": "Exploring Andalusia over Easter 2018. Here at the Alhambra in Granada."
         },
         {
             "file": "IMG_0862.JPG",
             "date": "April 2018",
+            "position": {
+                "latitude": 37.8868,
+                "longitude": -4.7787,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Córdoba"
+                }
+            },
             "locationText": "Córdoba, Spain",
             "text": "Another selfie, this time in Córdoba."
         },
         {
             "file": "IMG_0765.JPG",
             "date": "May 2018",
-            "locationText": "Paris, France",
+            "position": {
+                "latitude": 48.858222,
+                "longitude": 2.2945,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Paris"
+                }
+            },
+            "locationText": "Eiffel Tower, Paris, France",
             "text": "Living it up with a glass of champagne on the Eiffel Tower."
         },
         {
-            "file": "IMG_2069.JPG",
+            "file": "Hochzeit-795.jpg",
+            "date": "August 2018",
+            "position": {
+                "latitude": 47.039719,
+                "longitude": 8.782218,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Schwyz"
+                }
+            },
+            "locationText": "Oberiberg, Schwyz, Switzerland",
+            "text": "Another friend's wedding"
+        },
+        {
+            "file": "IMG_2095.jpg",
+            "date": "August 2018",
+           
+            
+            "locationText": "Oberiberg, Schwyz, Switzerland",
+            "text": "Another friend's wedding (Day 2)"
+        },
+        {
+            "file": "P1000110.jpg",
             "date": "September 2018",
             "position": {
                 "latitude": -3.065653,
@@ -185,6 +239,66 @@
                     "kmlFile": "./gpx/kili/kili_500m.kml"
                 }
             },
+            "locationText": "Shira 1 Camp, Mt. Kilimanjaro, Tanzania",
+            "text": "Day 2: Arrival at Shira 1 Camp"
+        },
+        {
+            "file": "P1000293.jpg",
+            "date": "September 2018",
+      
+            "locationText": "Mt. Kilimanjaro, Tanzania",
+            "text": "Day 6: On our way to the last camp before the peak. "
+        },
+        {
+            "file": "P1000362.jpg",
+            "date": "September 2018",
+           
+            "locationText": "Mt. Kilimanjaro, Tanzania",
+            "text": "Day 7: Almost at the peak!. "
+        },
+        {
+            "file": "P1000410.jpg",
+            "date": "September 2018",
+            
+            "locationText": "Ururu Peak, Mt. Kilimanjaro, Tanzania",
+            "text": "Day 7: We made it! "
+        },
+        {
+            "file": "P1000884.jpg",
+            "date": "September 2018",
+            "position": {
+                "latitude": -3.2,
+                "longitude": 35.45,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Ngorongoro Crater"
+                }
+            },
+            "locationText": "Ngorongoro Conservation Area, Tanzania",
+            "text": "Day 2 of our post-Kilimanjaro safari: A lion looking at his buffet"
+        },
+        {
+            "file": "P1010286.jpg",
+            "date": "September 2018",
+            "position": {
+                "latitude": -3.5,
+                "longitude": 35.833333,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Lake Manyara "
+                }
+            },
+            "locationText": "Lake Manyara National Park, Tanzania",
+            "text": "Lot's of monkeys on the 3rd day of our post-Kilimanjaro safari."
+        },
+        {
+            "file": "IMG_2069.JPG",
+            "date": "September 2018",
+           
             "locationText": "Zanzibar, Tanzania",
             "text": "Recovering from the struggles at the beach"
         }
