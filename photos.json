@@ -58,13 +58,15 @@
             "file": "IMG_6984.JPG",
             "date": "Jan 2017",
             "position": {
-                "latitude": 46.0167,
-                "longitude": 7.75,
-                "altitude": 10000,
-                "tilt": 20,
-                "heading": 0,
+                "latitude": 45.97249611, "longitude": 7.65499738,
+                "altitude": 18000,
+                "tilt": 68,
+                "heading": -100,
                 "overlay": {
-                    "label": "Gornergrat"
+                    "label": "Gornergrat",
+
+                "latitude": 45.983578,
+                "longitude": 7.783091
                 }
             },
             "locationText": "Zermatt, Switzerland",
