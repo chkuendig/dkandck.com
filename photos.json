@@ -16,7 +16,7 @@
                 }
             },
             "locationText": "Zürich, Switzerland",
-            "text": "Deepthi's Birthday Party, our First Picture together."
+            "text": "Deepthi's birthday party, our first picture together."
         },
         {
             "file": "IMG_4405.JPG",
@@ -50,7 +50,7 @@
                 }
             },
             "locationText": "Taormina, Italy",
-            "text": "Our first weekend trip, to the windy & rainy days in Southern Italy."
+            "text": "Our first trip away, to the windy & rainy Southern Italy."
         }
     ],
     "section2017": [
@@ -70,7 +70,7 @@
                 }
             },
             "locationText": "Zermatt, Switzerland",
-            "text": "Time to explore some Ski Ressorts (and have strangers take pictures of us)"
+            "text": "Our first winter adventure."
         },
         {
             "file": "IMG_8254.JPG",
@@ -86,7 +86,7 @@
                 }
             },
             "locationText": "Freiburg im Breisgau, Germany",
-            "text": "Day 3: Exploring Freiburg after a long day on the bike (and a few well deserved drinks)"
+            "text": "Our big cycling vacation - day 3: Exploring Freiburg after a few well deserved drinks."
         },
         {
             "file": "IMG_8745.JPG",
@@ -105,7 +105,7 @@
             "text": "Selfie time in Lisbon!"
         },
         {
-            "file": "IMG_9151.JPG",
+            "file": "IMG_0305.JPG",
             "date": "December 2017",
             "position": {
                 "latitude": 17.330955,
@@ -121,7 +121,7 @@
             "text": "Christmas trip to India, Christian's first time to the subcontinent."
         },
         {
-            "file": "IMG_9219.JPG",
+            "file": "IMG_1168.JPG",
             "date": "December 2017",
             "locationText": "Taj Mahal, Agra, India",
             "position": {
@@ -143,9 +143,9 @@
             "date": "April 2018",
             "position": {
                 "latitude": 37.176944,
-                "longitude": -3.594722,
-                "altitude": 2000,
-                "tilt": 55,
+                "longitude": -3.595722,
+                "altitude": 2500,
+                "tilt": 0,
                 "heading": 0,
                 "overlay": {
                     "label": "Granada"
@@ -175,8 +175,8 @@
             "date": "May 2018",
             "position": {
                 "latitude": 48.858222,
-                "longitude": 2.2945,
-                "altitude": 1200,
+                "longitude": 2.3345,
+                "altitude": 2200,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
