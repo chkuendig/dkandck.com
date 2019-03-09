@@ -24,6 +24,15 @@ var scrollIndicators = false;
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    // get email from hash
+    var str = window.location.hash ? window.location.hash.substr(1) : "";
+    var re = /.+\@.+\..+/i;
+    var email = str.match(re);
+    var link = document.querySelector('a[href="//rsvp.dkandck.com"]')
+    if (email) {
+        link.href = "//rsvp.dkandck.com?email=" + email
+    }
+
     // init ScrollMagic controller
     TweenMax.defaultEase = Linear.easeNone;
     var controller = new ScrollMagic.Controller();
