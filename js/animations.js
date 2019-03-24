@@ -308,7 +308,7 @@ function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
     htmlCanvas = document.getElementById('globeCanvas');
 
-    var wwd = new WorldWind.WorldWindow("globeCanvas", new WorldWind.EarthElevationModel());
+    var wwd = new WorldWind.WorldWindow("globeCanvas", new CustomEarthElevationModel());
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
     wwd.goToAnimator = new CustomGoToAnimator(wwd.goToAnimator.wwd)
@@ -317,19 +317,19 @@ function launchGlobe() {
     wwd.navigator.tilt = globePositions["-1"].tilt
     wwd.navigator.range = globePositions["-1"].altitude
 
-    //wwd.goToAnimator.travelTime = 700
     var layerBMNGOneImage = new WorldWind.BMNGOneImageLayer()
-    layerBMNGOneImage.minActiveAltitude = 4000000
+    layerBMNGOneImage.minActiveAltitude = 0
     wwd.addLayer(layerBMNGOneImage);
-    var layerBMNGLandsat = new WorldWind.BMNGLandsatLayer()
-    layerBMNGLandsat.maxActiveAltitude = 4000000
-    layerBMNGLandsat.minActiveAltitude = 10000
-    wwd.addLayer(layerBMNGLandsat);
-    var layerBingAerial = new WorldWind.BingAerialLayer(null);
+
+    var blueMarble = new WorldWind.BMNGRestLayer(null, "/tiles/BlueMarble256/");
+    blueMarble.minActiveAltitude = 10000
+    wwd.addLayer(blueMarble);
+
+    var layerBingAerial = new WorldWind.BingAerialLayer("Aja97SPGWwU2V3NBlnc_A5n0X8pguk8zIp5Z6SYRnk8cEhCwsBiotct2yyiygtq7");
     layerBingAerial.maxActiveAltitude = 10000;
-    layerBingAerial.detailControl = 1.0
+    layerBingAerial.detailControl = 1.2;
     wwd.addLayer(layerBingAerial);
-    // The Sun simulation is a feature of Atmosphere layer. We'll create and add the layer.
+
     atmosphereLayer = new WorldWind.AtmosphereLayer();
     atmosphereLayer.minActiveAltitude = 10000;
     wwd.addLayer(atmosphereLayer);

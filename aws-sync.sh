@@ -1,1 +1,1 @@
-aws s3 sync . s3://www.dkandck.com --exclude ".*"  --exclude "*.sh" --exclude "originals/*" 
+aws s3 sync . s3://www.dkandck.com --exclude ".*"  --exclude "*.sh" --exclude "originals/*"  --exclude "tiles/Landsat" 
