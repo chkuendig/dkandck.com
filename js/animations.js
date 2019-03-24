@@ -273,7 +273,7 @@ function animateGlobe(travelPosition, travelProgress) {
 
         wwd.navigator.tilt = globePositions[travelPosition].tilt + (globePositions[nextTravelPosition].tilt - globePositions[travelPosition].tilt) * travelProgress
         animator(travelProgress * 100)
-        console.log({ travelPosition: travelPosition, travelProgress: travelProgress.toFixed(2), lat: wwd.navigator.lookAtLocation.latitude.toFixed(2), long: wwd.navigator.lookAtLocation.longitude.toFixed(2), range: wwd.navigator.range.toFixed(2), tilt: wwd.navigator.tilt.toFixed(2) });
+        //  console.log({ travelPosition: travelPosition, travelProgress: travelProgress.toFixed(2), lat: wwd.navigator.lookAtLocation.latitude.toFixed(2), long: wwd.navigator.lookAtLocation.longitude.toFixed(2), range: wwd.navigator.range.toFixed(2), tilt: wwd.navigator.tilt.toFixed(2) });
     }
     //});
 };
