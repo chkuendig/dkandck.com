@@ -28789,6 +28789,7 @@ define('globe/TiledElevationCoverage',['../util/AbsentResourceList',
                         elevationCoverage.removeFromCurrentRetrievals(tile.tileKey);
 
                         var contentType = xhr.getResponseHeader("content-type");
+                        contentType = contentType.split(";")[0] // ignore charset
 
                         if (xhr.status === 200) {
                             if (contentType === elevationCoverage.retrievalImageFormat
@@ -34941,10 +34942,6 @@ define('layer/BingTiledImageLayer',[
 
         BingTiledImageLayer.prototype.doRender = function (dc) {
             MercatorTiledImageLayer.prototype.doRender.call(this, dc);
-
-            if (this.inCurrentFrame) {
-                this.renderLogo(dc);
-            }
         };
 
         // Overridden from TiledImageLayer.

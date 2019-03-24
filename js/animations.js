@@ -321,7 +321,7 @@ function launchGlobe() {
     layerBMNGOneImage.minActiveAltitude = 0
     wwd.addLayer(layerBMNGOneImage);
 
-    var blueMarble = new WorldWind.BMNGRestLayer(null, "/tiles/BlueMarble256/");
+    var blueMarble = new WorldWind.BMNGRestLayer(null, "tiles/BlueMarble256");
     blueMarble.minActiveAltitude = 10000
     wwd.addLayer(blueMarble);
 
