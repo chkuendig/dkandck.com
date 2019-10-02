@@ -251,6 +251,11 @@ function animateGlobe(travelPosition, travelProgress) {
                stopSun()
             }
             */
+            if (travelPosition > 1) {
+                showStars()
+            } else {
+                hideStars()
+            }
         }
 
         // squeeze travel progress
@@ -280,6 +285,24 @@ function animateGlobe(travelPosition, travelProgress) {
     }
     //});
 };
+
+
+var starFieldLayer = null
+function showStars() {
+    if (!starFieldLayer.enabled) {
+        starFieldLayer.enabled = true;
+
+        htmlCanvas = document.getElementById('globeCanvas').style.background = "black";
+
+    }
+    ;
+}
+function hideStars() {
+    if (starFieldLayer.enabled) {
+        starFieldLayer.enabled = false;
+        htmlCanvas = document.getElementById('globeCanvas').style.background = "none";
+    }
+}
 
 var atmosphereLayer = null
 var atmosphereLayerInterval = null
@@ -329,13 +352,18 @@ function launchGlobe() {
     wwd.addLayer(blueMarble);
 
     var layerBingAerial = new WorldWind.BingAerialLayer("Aja97SPGWwU2V3NBlnc_A5n0X8pguk8zIp5Z6SYRnk8cEhCwsBiotct2yyiygtq7");
-    layerBingAerial.maxActiveAltitude = 10000;
+    layerBingAerial.maxActiveAltitude = 20000;
     layerBingAerial.detailControl = 1.2;
     wwd.addLayer(layerBingAerial);
 
     atmosphereLayer = new WorldWind.AtmosphereLayer();
     atmosphereLayer.minActiveAltitude = 10000;
     wwd.addLayer(atmosphereLayer);
+
+    starFieldLayer = new WorldWind.StarFieldLayer();
+    starFieldLayer.minActiveAltitude = 10000;
+    starFieldLayer.enabled = false;
+    wwd.addLayer(starFieldLayer);
 
     return wwd;
 }
