@@ -160,7 +160,7 @@ function setUpPhotoSlides(controller, photos) {
             })
                 .addTo(controller)
                 .on("progress", function (e) {
-                    animateGlobe(photos[sectionDiv.id][0].position - 1, e.progress)
+                    //     animateGlobe(photos[sectionDiv.id][0].position - 1, e.progress)
                 });
             if (scrollIndicators) {
                 blockScene.addIndicators({ name: sectionDiv.id })// add indicators (requires plugin)
@@ -212,7 +212,10 @@ function setUpPhotoSlides(controller, photos) {
                     pictureProg = (progress - ratioPerPic * (pictureIdx)) / ratioPerPic;
                     //   console.log({ pictureIdx: pictureIdx, pictureProg: pictureProg, progress: progress });
                     if (photos[sectionDiv.id][pictureIdx] && photos[sectionDiv.id][pictureIdx].position) {
-                        animateGlobe(photos[sectionDiv.id][pictureIdx].position - 1, pictureProg)
+                        var travelPosition = photos[sectionDiv.id][pictureIdx].position;
+                        if (travelPosition > 1) {
+                            animateGlobe(photos[sectionDiv.id][pictureIdx].position - 1, pictureProg)
+                        }
                     }
                 });
             if (scrollIndicators) {
