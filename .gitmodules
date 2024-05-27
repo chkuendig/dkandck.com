@@ -1,0 +1,3 @@
+[submodule "WebWorldWind"]
+	path = WebWorldWind
+url=git@github.com:chkuendig/WebWorldWind.git
