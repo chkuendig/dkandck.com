@@ -29106,7 +29106,7 @@ define('globe/AsterV2ElevationCoverage',[
                 retrievalImageFormat: "application/bil16",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WmsUrlBuilder("https://worldwind26.arc.nasa.gov/elev", "aster_v2", "", "1.3.0")
+                urlBuilder: new WmsUrlBuilder("worldwind26.arc.nasa.gov/elev", "aster_v2", "", "1.3.0")
             });
 
             this.displayName = "ASTER V2 Earth Elevation Coverage";
@@ -35064,7 +35064,7 @@ define('util/BingImageryUrlBuilder',[
             if (!this.metadataRetrievalInProcess) {
                 this.metadataRetrievalInProcess = true;
 
-                var url = "https://dev.virtualearth.net/REST/V1/Imagery/Metadata/" + this.imagerySet + "/0,0?zl=1&uriScheme=https&key="
+                var url = "dev.virtualearth.net/REST/V1/Imagery/Metadata/" + this.imagerySet + "/0,0?zl=1&uriScheme=https&key="
                     + this.bingMapsKey;
 
                 // Use JSONP to request the metadata. Can't use XmlHTTPRequest because the virtual earth server doesn't
@@ -35409,7 +35409,7 @@ define('layer/BMNGLandsatLayer',[
             this.displayName = "Blue Marble & Landsat";
             this.pickEnabled = false;
 
-            this.urlBuilder = new WmsUrlBuilder("https://worldwind25.arc.nasa.gov/wms",
+            this.urlBuilder = new WmsUrlBuilder("worldwind25.arc.nasa.gov/wms",
                 "BlueMarble-200405,esat", "", "1.3.0");
         };
 
@@ -35466,7 +35466,7 @@ define('layer/BMNGLayer',[
             this.displayName = "Blue Marble";
             this.pickEnabled = false;
 
-            this.urlBuilder = new WmsUrlBuilder("https://worldwind25.arc.nasa.gov/wms",
+            this.urlBuilder = new WmsUrlBuilder("worldwind25.arc.nasa.gov/wms",
                 layerName || "BlueMarble-200405", "", "1.3.0");
         };
 
@@ -50513,7 +50513,7 @@ define('globe/GebcoElevationCoverage',[
                 retrievalImageFormat: "application/bil16",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WmsUrlBuilder("https://worldwind26.arc.nasa.gov/elev", "GEBCO", "", "1.3.0")
+                urlBuilder: new WmsUrlBuilder("worldwind26.arc.nasa.gov/elev", "GEBCO", "", "1.3.0")
             });
 
             this.displayName = "GEBCO Earth Elevation Coverage";
@@ -50570,7 +50570,7 @@ define('globe/UsgsNedElevationCoverage',[
                 retrievalImageFormat: "application/bil16",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WmsUrlBuilder("https://worldwind26.arc.nasa.gov/elev", "USGS-NED", "", "1.3.0")
+                urlBuilder: new WmsUrlBuilder("worldwind26.arc.nasa.gov/elev", "USGS-NED", "", "1.3.0")
             });
 
             this.displayName = "USGS NED Earth Elevation Coverage";
@@ -50627,7 +50627,7 @@ define('globe/UsgsNedHiElevationCoverage',[
                 retrievalImageFormat: "application/bil16",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WmsUrlBuilder("https://worldwind26.arc.nasa.gov/elev", "USGS-NED", "", "1.3.0")
+                urlBuilder: new WmsUrlBuilder("worldwind26.arc.nasa.gov/elev", "USGS-NED", "", "1.3.0")
             });
 
             this.displayName = "USGS NED Hawaii Elevation Coverage";
@@ -82815,7 +82815,7 @@ define('globe/WcsEarthElevationCoverage',[
                 retrievalImageFormat: "image/tiff",
                 minElevation: -11000,
                 maxElevation: 8850,
-                urlBuilder: new WcsTileUrlBuilder("https://worldwind26.arc.nasa.gov/wms2",
+                urlBuilder: new WcsTileUrlBuilder("worldwind26.arc.nasa.gov/wms2",
                     "NASA_SRTM30_900m_Tiled", "1.0.0")
             });
 
