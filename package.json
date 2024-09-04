@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "",
+  "type": "commonjs",
   "dependencies": {
     "http-server": "^0.11.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "http-proxy": "^1.18.1",
+    "mime-types": "^2.1.35",
+    "nodemon": "^3.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "local": "nodemon local-proxy.js --ignore node_modules/ --ignore tiles/"
   },
   "repository": {
     "type": "git",
