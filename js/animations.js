@@ -347,13 +347,10 @@ function launchGlobe() {
     layerBMNGOneImage.minActiveAltitude = 0
     wwd.addLayer(layerBMNGOneImage);
 
-    var blueMarble = new WorldWind.BMNGRestLayer(null, "tiles/BlueMarble256");
-    blueMarble.minActiveAltitude = 10000
-    wwd.addLayer(blueMarble);
 
     var layerBingAerial = new WorldWind.BingAerialLayer("Aja97SPGWwU2V3NBlnc_A5n0X8pguk8zIp5Z6SYRnk8cEhCwsBiotct2yyiygtq7");
-    layerBingAerial.maxActiveAltitude = 20000;
-    layerBingAerial.detailControl = 1.2;
+    layerBingAerial.maxActiveAltitude = 5000000;
+    layerBingAerial.detailControl = 0.85;
     wwd.addLayer(layerBingAerial);
 
     atmosphereLayer = new WorldWind.AtmosphereLayer();

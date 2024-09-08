@@ -110,8 +110,8 @@
             "position": {
                 "latitude": 17.330955,
                 "longitude": 78.467504,
-                "altitude": 1000,
-                "tilt": 55,
+                "altitude": 10000,
+                "tilt": 30,
                 "heading": 0,
                 "overlay": {
                     "label": "Hyderabad"
@@ -174,11 +174,11 @@
             "file": "IMG_0765.JPG",
             "date": "May 2018",
             "position": {
-                "latitude": 48.858222,
-                "longitude": 2.3345,
-                "altitude": 2200,
+                "latitude": 48.8559308,
+                "longitude": 2.2972761,
+                "altitude": 1200,
                 "tilt": 55,
-                "heading": 0,
+                "heading": -45,
                 "overlay": {
                     "label": "Paris"
                 }
