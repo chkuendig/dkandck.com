@@ -1,0 +1,47 @@
+name: Deploy Page
+permissions:
+  contents: write
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-22.04
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3.4.0
+        with:
+          submodules: true
+          lfs: true
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
+      - name: Install npm package 📦
+        run: npm install .
+      - name: Build Webpage ✍️
+        run: npm run dist
+      - name: Deploy Webpage 🚀
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch'  }}
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        with:
+          repository-name: chkuendig/dkandck.com
+          token: ${{ secrets.ACCESS_TOKEN }}
+          clean: true
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
