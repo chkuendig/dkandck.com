@@ -24,9 +24,9 @@
             "position": {
                 "latitude": 46.93639,
                 "longitude": 6.72383,
-                "altitude": 3100,
-                "tilt": 10,
-                "heading": 0,
+                "altitude": 4000,
+                "tilt": 60,
+                "heading": -150,
                 "overlay": {
                     "label": "Creux du Van"
                 }
@@ -59,7 +59,7 @@
             "date": "Jan 2017",
             "position": {
                 "latitude": 45.97249611, "longitude": 7.65499738,
-                "altitude": 18000,
+                "altitude": 20000,
                 "tilt": 68,
                 "heading": -100,
                 "overlay": {
@@ -127,7 +127,7 @@
             "position": {
                 "latitude": 27.173891,
                 "longitude": 78.042068,
-                "altitude": 800,
+                "altitude": 1000,
                 "tilt": 55,
                 "heading": 0,
                 "overlay": {
@@ -160,8 +160,8 @@
             "position": {
                 "latitude": 37.8868,
                 "longitude": -4.7787,
-                "altitude": 2000,
-                "tilt": 55,
+                "altitude": 5500,
+                "tilt": 75,
                 "heading": 0,
                 "overlay": {
                     "label": "Córdoba"

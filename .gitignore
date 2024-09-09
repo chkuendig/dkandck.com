@@ -1,3 +1,7 @@
 # Dependency directories
 node_modules/
-WebWorldWind-StandaloneData.tar.gz
+
+# Build artifacts
+dist/
+js/app.min.js
+js/app.min.js.map

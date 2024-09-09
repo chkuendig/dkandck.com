@@ -351,15 +351,15 @@ function launchGlobe() {
 
     var layerBingAerial = new WorldWind.BingAerialLayer("Aja97SPGWwU2V3NBlnc_A5n0X8pguk8zIp5Z6SYRnk8cEhCwsBiotct2yyiygtq7");
     layerBingAerial.maxActiveAltitude = 5000000;
-    layerBingAerial.detailControl = 0.85;
+    layerBingAerial.detailControl = 0.8;
     wwd.addLayer(layerBingAerial);
 
     atmosphereLayer = new WorldWind.AtmosphereLayer();
-    atmosphereLayer.minActiveAltitude = 10000;
+    atmosphereLayer.minActiveAltitude = 5000;
     wwd.addLayer(atmosphereLayer);
 
     starFieldLayer = new WorldWind.StarFieldLayer();
-    starFieldLayer.minActiveAltitude = 10000;
+    starFieldLayer.minAtiveAltitude = 10000;
     starFieldLayer.enabled = false;
     wwd.addLayer(starFieldLayer);
 

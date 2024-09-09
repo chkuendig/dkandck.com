@@ -38,7 +38,6 @@ const server = http.createServer(function (req, res) {
 
     let proxy = httpProxy.createProxyServer({});
     let domain = parsedUrl.pathname.split("/")[1];
-    // console.log(domain);
     if (
       [
         "worldwind26.arc.nasa.gov",
@@ -46,10 +45,8 @@ const server = http.createServer(function (req, res) {
         "ecn.t3.tiles.virtualearth.net",
       ].includes(domain)
     ) {
-      //console.log("Fetching remote asset"); // todo: this should use the proper url rewrite from https://www.npmjs.com/package/http-proxy
       // If the file doesn't exist, forward the request and cache the response
       req.url = req.url.slice(domain.length + 1);
-      // console.log(req.url);
       proxy.on("proxyRes", function (proxyRes, req, res) {
         var body = [];
         proxyRes.on("data", function (chunk) {
@@ -74,19 +71,12 @@ const server = http.createServer(function (req, res) {
         target: "https://" + domain,
         hostRewrite: true,
         protocolRewrite: true,
-        // selfHandleResponse : true,
         changeOrigin: true,
-      }); /*, function(e, req, res, target, cb) {
-                res.on('data', (data) => {
-                fs.writeFile(cachePath, data, (err) => {
-                  if (err) throw err;
-                });
-              });
-            });
-          */
+      });
     } else {
       console.log("can't proxy this domain: " + domain);
-      res.end();
+      res.writeHead(404);
+      res.end("File not found and unable to proxy the request.");
     }
   }
 });
