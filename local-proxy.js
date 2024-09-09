@@ -10,7 +10,7 @@ const mime = require("mime-types");
 // Create an HTTP server
 const server = http.createServer(function (req, res) {
   const parsedUrl = url.parse(req.url);
-  const localPath = req.url.slice(1);
+  const localPath = decodeURIComponent(req.url.slice(1));
 
   if (fs.existsSync(localPath)) {
     // If the file exists locally, serve it from disk
@@ -46,7 +46,7 @@ const server = http.createServer(function (req, res) {
       ].includes(domain)
     ) {
       // If the file doesn't exist, forward the request and cache the response
-      req.url = req.url.slice(domain.length + 1);
+      req.url = decodeURIComponent(req.url.slice(domain.length + 1));
       proxy.on("proxyRes", function (proxyRes, req, res) {
         var body = [];
         proxyRes.on("data", function (chunk) {
