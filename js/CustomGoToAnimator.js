@@ -275,3 +275,4 @@ CustomGoToAnimator.prototype.updateLocation = function (currentPosition, progres
     return !locationReached;
 };
 
+module.exports = CustomGoToAnimator;

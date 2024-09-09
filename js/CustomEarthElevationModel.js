@@ -17,3 +17,5 @@ CustomEarthElevationModel.prototype.elevationsForGrid = function (sector, numLat
 CustomEarthElevationModel.prototype.bestCoverageAtLocation = function (latitude, longitude, targetResolution) {
     return WorldWind.ElevationModel.prototype.bestCoverageAtLocation.call(this, latitude, longitude, targetResolution)
 }
+
+module.exports = CustomEarthElevationModel;

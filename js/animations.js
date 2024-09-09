@@ -334,6 +334,7 @@ function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
     htmlCanvas = document.getElementById('globeCanvas');
 
+    WorldWind.configuration.baseUrl = "wwd/"
     var wwd = new WorldWind.WorldWindow("globeCanvas", new CustomEarthElevationModel());
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);

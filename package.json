@@ -4,16 +4,19 @@
   "description": "",
   "main": "",
   "type": "commonjs",
-  "dependencies": {
-    "http-server": "^0.11.1"
-  },
   "devDependencies": {
+    "@nasaworldwind/worldwind": "file:WebWorldWind",
+    "esbuild": "0.23.1",
+    "gsap": "2.0.2",
     "http-proxy": "^1.18.1",
     "mime-types": "^2.1.35",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "scrollmagic": "2.0.6"
   },
   "scripts": {
-    "local": "nodemon local-proxy.js --ignore node_modules/ --ignore tiles/"
+    "local": "nodemon local-proxy.js --ignore node_modules/ --ignore tiles/",
+    "build": "esbuild js/app.js --bundle --minify --outfile=js/app.min.js --sourcemap --target=chrome58,firefox57,safari11,edge16 && cp -r node_modules/@nasaworldwind/worldwind/build/dist/images wwd/",
+    "dependencies": "npm explore @nasaworldwind/worldwind -- npm run build"
   },
   "repository": {
     "type": "git",
