@@ -122,7 +122,11 @@ function setUpSections(controller, argGlobePositions) {
 
     // build scenes
     var tweenBigGlobe = new TweenMax("#globeContainer", 1, { className: "small" });
-    var sectionTitleScene = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: "100%", triggerHook: "onLeave" })
+    var titleSceneDuration = "80%";
+    if(window.matchMedia("only screen and (max-aspect-ratio: 4/3)").matches) {
+        titleSceneDuration = "50%";
+    }
+    var sectionTitleScene = new ScrollMagic.Scene({ triggerElement: "#sectionTitle", duration: titleSceneDuration, triggerHook: "onLeave" })
         .setTween(tweenBigGlobe)
         .addTo(controller)
         .on("progress", function (e) {

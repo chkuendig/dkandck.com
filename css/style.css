@@ -7,7 +7,10 @@ body {
     margin: 0;
     padding: 0;
     font-size: 3vh;
+    max-width: 100%;
+    overflow-x: hidden;
 }
+
 
 * {
     box-sizing: border-box;
