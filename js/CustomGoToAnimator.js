@@ -200,7 +200,7 @@ CustomGoToAnimator.prototype.update = function (progress) {
     // This is the timer callback function. It invokes the range animator and the pan animator.
     if (!this.running) {
 
-        //     this.updateRange(this.startPosition, progress);
+        this.updateRange(this.startPosition, progress);
         this.updateLocation(this.startPosition, progress);
 
         this.running = true;
@@ -223,15 +223,15 @@ CustomGoToAnimator.prototype.updateRange = function (currentPosition, progress) 
     var continueAnimation = false,
         nextRange, elapsedTime;
 
+    // calculate maxAltitudeReachedTime so we also have it when traveling backwards
+    if(this.maxAltitudeReachedTime < 0) { 
+        this.maxAltitudeReachedTime = (this.maxAltitude - this.startPosition.altitude) / this.rangeVelocity 
+    }
     // If we haven't reached the maximum altitude, then step-wise increase it. Otherwise step-wise change
     // the range towards the target altitude.
-    if (this.maxAltitudeReachedTime < 0 || progress < this.maxAltitudeReachedTime) {
+    if (progress < this.maxAltitudeReachedTime) {
         elapsedTime = progress;
         nextRange = Math.min(this.startPosition.altitude + this.rangeVelocity * elapsedTime, this.maxAltitude);
-        // We're done if we get withing 100 meter of the desired range.
-        if (Math.abs(this.wwd.navigator.range - this.maxAltitude) < 100) {
-            this.maxAltitudeReachedTime = progress;
-        }
         this.wwd.navigator.range = nextRange;
         continueAnimation = true;
     } else {
@@ -275,3 +275,4 @@ CustomGoToAnimator.prototype.updateLocation = function (currentPosition, progres
     return !locationReached;
 };
 
+module.exports = CustomGoToAnimator;

@@ -1,8 +1,7 @@
 var CustomEarthElevationModel = function () {
     WorldWind.ElevationModel.call(this);
+    this.addCoverage(new WorldWind.AsterV2ElevationCoverage());
 
-    var dted0 = new WorldWind.EarthRestElevationCoverage(null, "tiles/DTED0");
-    this.addCoverage(dted0);
 };
 CustomEarthElevationModel.prototype = Object.create(WorldWind.ElevationModel.prototype);
 
@@ -17,3 +16,5 @@ CustomEarthElevationModel.prototype.elevationsForGrid = function (sector, numLat
 CustomEarthElevationModel.prototype.bestCoverageAtLocation = function (latitude, longitude, targetResolution) {
     return WorldWind.ElevationModel.prototype.bestCoverageAtLocation.call(this, latitude, longitude, targetResolution)
 }
+
+module.exports = CustomEarthElevationModel;

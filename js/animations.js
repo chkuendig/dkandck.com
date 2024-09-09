@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var controller = new ScrollMagic.Controller();
 
     // fetch photos 
-    let reqPhotosJson = new Request('photos.json');
+    let reqPhotosJson = new Request('photos/photos.json');
     fetch(reqPhotosJson)
         .then(function (response) {
             if (!response.ok) {
@@ -183,7 +183,7 @@ function setUpPhotoSlides(controller, photos) {
                 if (pictureidx > 0) {
                     igPictureImg = igFrame.firstChild;
                 }
-                igPictureImg.src = "pictures/" + igPicture.file
+                igPictureImg.src = "photos/" + igPicture.file
                 igPictureImg.style.width = "100%"
 
                 igFrame.appendChild(igPictureImg)
@@ -334,6 +334,7 @@ function launchGlobe() {
     // Obtain a reference to the canvas element using its id.
     htmlCanvas = document.getElementById('globeCanvas');
 
+    WorldWind.configuration.baseUrl = "wwd/"
     var wwd = new WorldWind.WorldWindow("globeCanvas", new CustomEarthElevationModel());
 
     WorldWind.Logger.setLoggingLevel(WorldWind.Logger.LEVEL_WARNING);
@@ -347,21 +348,18 @@ function launchGlobe() {
     layerBMNGOneImage.minActiveAltitude = 0
     wwd.addLayer(layerBMNGOneImage);
 
-    var blueMarble = new WorldWind.BMNGRestLayer(null, "tiles/BlueMarble256");
-    blueMarble.minActiveAltitude = 10000
-    wwd.addLayer(blueMarble);
 
     var layerBingAerial = new WorldWind.BingAerialLayer("Aja97SPGWwU2V3NBlnc_A5n0X8pguk8zIp5Z6SYRnk8cEhCwsBiotct2yyiygtq7");
-    layerBingAerial.maxActiveAltitude = 20000;
-    layerBingAerial.detailControl = 1.2;
+    layerBingAerial.maxActiveAltitude = 5000000;
+    layerBingAerial.detailControl = 0.8;
     wwd.addLayer(layerBingAerial);
 
     atmosphereLayer = new WorldWind.AtmosphereLayer();
-    atmosphereLayer.minActiveAltitude = 10000;
+    atmosphereLayer.minActiveAltitude = 5000;
     wwd.addLayer(atmosphereLayer);
 
     starFieldLayer = new WorldWind.StarFieldLayer();
-    starFieldLayer.minActiveAltitude = 10000;
+    starFieldLayer.minAtiveAltitude = 10000;
     starFieldLayer.enabled = false;
     wwd.addLayer(starFieldLayer);
 

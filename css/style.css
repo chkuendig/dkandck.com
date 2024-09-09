@@ -50,7 +50,7 @@ div.section {
     width: 100vw;
     min-height: 100vh;
     text-align: center;
-    background: url(../bg_left.png) top left repeat-y, url(../bg_right.png) top right repeat-y, #FFF;
+    background: url(../img/bg_left.png) top left repeat-y, url(../img/bg_right.png) top right repeat-y, #FFF;
     background-size: 10vh;
 }
 
@@ -308,7 +308,7 @@ img.igAvatar {
     position: relative;
     top: 35vh;
     height: 5vh;
-    background: url('/bg_home.jpg') repeat;
+    background: url('../img/bg_home.jpg') repeat;
     text-align: center;
     padding-top: 0.5vh;
 }
@@ -329,16 +329,16 @@ img.igAvatar {
 
 @font-face {
     font-family: 'Didot';
-    src: url(theanodidot-regular-webfont.eot);
-    src: url(theanodidot-regular-webfont.eot?#iefix) format("embedded-opentype"), url(theanodidot-regular-webfont.woff) format("woff"), url(theanodidot-regular-webfont.ttf) format("truetype"), url(theanodidot-regular-webfont.svg#theano_didotregular) format("svg");
+    src: url(../css/theanodidot-regular-webfont.eot);
+    src: url(../css/theanodidot-regular-webfont.eot?#iefix) format("embedded-opentype"), url(../css/theanodidot-regular-webfont.woff) format("woff"), url(../css/theanodidot-regular-webfont.ttf) format("truetype"), url(../css/theanodidot-regular-webfont.svg#theano_didotregular) format("svg");
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'Didot-Bold';
-    src: url(/Didot-Bold.eot);
-    src: url(/Didot-Bold.eot?#iefix) format("embedded-opentype"), url(/Didot-Bold.woff) format("woff"), url(/Didot-Bold.ttf) format("truetype"), url(/Didot-Bold.svg#theano_didotregular) format("svg");
+    src: url(../css/Didot-Bold.eot);
+    src: url(../css/Didot-Bold.eot?#iefix) format("embedded-opentype"), url(../css/Didot-Bold.woff) format("woff"), url(../css/Didot-Bold.ttf) format("truetype"), url(../css/Didot-Bold.svg#theano_didotregular) format("svg");
     font-weight: normal;
     font-style: normal
 }
@@ -426,7 +426,7 @@ img.igAvatar {
         position: relative;
         top: 40vh;
         height: 5vh;
-        background: url('/bg_home.jpg') repeat;
+        background: url('../img/bg_home.jpg') repeat;
         text-align: center;
         padding-top: 0.5vh;
     }
