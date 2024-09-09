@@ -1,8 +1,7 @@
 var CustomEarthElevationModel = function () {
     WorldWind.ElevationModel.call(this);
+    this.addCoverage(new WorldWind.AsterV2ElevationCoverage());
 
-    var dted0 = new WorldWind.EarthRestElevationCoverage(null, "tiles/DTED0");
-    this.addCoverage(dted0);
 };
 CustomEarthElevationModel.prototype = Object.create(WorldWind.ElevationModel.prototype);
 
