@@ -1,0 +1,218 @@
+{
+    "section2016": [
+        {
+            "file": "IMG_4239.JPG",
+            "date": "Sept 2016",
+            "position": {
+                "latitude": 47.36667,
+                "longitude": 8.545,
+                "altitude": 3100,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Zürich",
+                    "latitude": 47.36667,
+                    "longitude": 8.545
+                }
+            },
+            "locationText": "Zürich, Switzerland",
+            "text": "Deepthi's birthday party, our first picture together."
+        },
+        {
+            "file": "IMG_4405.JPG",
+            "date": "Oct 2016",
+            "position": {
+                "latitude": 46.93639,
+                "longitude": 6.72383,
+                "altitude": 3100,
+                "tilt": 10,
+                "heading": 0,
+                "overlay": {
+                    "label": "Creux du Van"
+                }
+            },
+            "locationText": "Creux du Van, Vaudt",
+            "text": "Our first hike. There will be more of these to come."
+        },
+        {
+            "file": "IMG_5583.JPG",
+            "date": "Nov 2016",
+            "position": {
+                "latitude": 37.85358,
+                "longitude": 15.28851,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Taormina",
+                    "latitude": 37.85358,
+                    "longitude": 15.28851
+                }
+            },
+            "locationText": "Taormina, Italy",
+            "text": "Our first trip away, to the windy & rainy Southern Italy."
+        }
+    ],
+    "section2017": [
+        {
+            "file": "IMG_6984.JPG",
+            "date": "Jan 2017",
+            "position": {
+                "latitude": 45.97249611, "longitude": 7.65499738,
+                "altitude": 18000,
+                "tilt": 68,
+                "heading": -100,
+                "overlay": {
+                    "label": "Gornergrat",
+
+                "latitude": 45.983578,
+                "longitude": 7.783091
+                }
+            },
+            "locationText": "Zermatt, Switzerland",
+            "text": "Our first winter adventure."
+        },
+        {
+            "file": "IMG_8254.JPG",
+            "date": "July 2017",
+            "position": {
+                "latitude": 47.9204,
+                "longitude": 8.10523,
+                "altitude": 161044,
+                "tilt": 26,
+                "heading": 0,
+                "overlay": {
+                    "kmlFile": "gpx/cycling/cycle_500m.kml"
+                }
+            },
+            "locationText": "Freiburg im Breisgau, Germany",
+            "text": "Our big cycling vacation - day 3: Exploring Freiburg after a few well deserved drinks."
+        },
+        {
+            "file": "IMG_8745.JPG",
+            "date": "October 2017",
+            "position": {
+                "latitude": 38.736946,
+                "longitude": -9.142685,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Lisbon"
+                }
+            },
+            "locationText": "Lisbon, Portugal",
+            "text": "Selfie time in Lisbon!"
+        },
+        {
+            "file": "IMG_0305.jpg",
+            "date": "December 2017",
+            "position": {
+                "latitude": 17.330955,
+                "longitude": 78.467504,
+                "altitude": 10000,
+                "tilt": 30,
+                "heading": 0,
+                "overlay": {
+                    "label": "Hyderabad"
+                }
+            },
+            "locationText": "Falaknuma Palace, Hyderabad, India",
+            "text": "Christmas trip to India, Christian's first time to the subcontinent."
+        },
+        {
+            "file": "IMG_1168.JPG",
+            "date": "December 2017",
+            "locationText": "Taj Mahal, Agra, India",
+            "position": {
+                "latitude": 27.173891,
+                "longitude": 78.042068,
+                "altitude": 800,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Agra"
+                }
+            },
+            "text": "Time for Christian to see the sights - here at the Taj Mahal"
+        }
+    ],
+    "section2018": [
+        {
+            "file": "IMG_0032.JPG",
+            "date": "April 2018",
+            "position": {
+                "latitude": 37.176944,
+                "longitude": -3.595722,
+                "altitude": 2500,
+                "tilt": 0,
+                "heading": 0,
+                "overlay": {
+                    "label": "Granada"
+                }
+            },
+            "locationText": "Alhambra, Granada, Spain",
+            "text": "Exploring Andalusia over Easter 2018. Here at the Alhambra in Granada."
+        },
+        {
+            "file": "IMG_0862.JPG",
+            "date": "April 2018",
+            "position": {
+                "latitude": 37.8868,
+                "longitude": -4.7787,
+                "altitude": 2000,
+                "tilt": 55,
+                "heading": 0,
+                "overlay": {
+                    "label": "Córdoba"
+                }
+            },
+            "locationText": "Córdoba, Spain",
+            "text": "Another selfie, this time in Córdoba."
+        },
+        {
+            "file": "IMG_0765.JPG",
+            "date": "May 2018",
+            "position": {
+                "latitude": 48.8559308,
+                "longitude": 2.2972761,
+                "altitude": 1200,
+                "tilt": 55,
+                "heading": -45,
+                "overlay": {
+                    "label": "Paris"
+                }
+            },
+            "locationText": "Eiffel Tower, Paris, France",
+            "text": "Living it up with a glass of champagne on the Eiffel Tower."
+        },
+        {
+            "file": "P1000293.jpg",
+            "date": "September 2018",
+            "locationText": "Mt. Kilimanjaro, Tanzania",
+            "position": {
+                "latitude": -3.065653,
+                "longitude": 37.3,
+                "altitude": 26000,
+                "tilt": 63,
+                "heading": -15,
+                "overlay": {
+                    "kmlFile": "./gpx/kili/kili_500m.kml"
+                }
+            },
+            "text": "Day 6: On our way up Mt. Kilimanjaro "
+        },
+        {
+            "file": "P1000362.jpg",
+            "date": "September 2018",
+            "locationText": "Mt. Kilimanjaro, Tanzania",
+            "text": "Day 7: Almost at the peak!. "
+        },
+        {
+            "file": "P1000410.jpg",
+            "date": "September 2018",
+            "locationText": "Ururu Peak, Mt. Kilimanjaro, Tanzania",
+            "text": "Day 7: We made it! "
+        }
+    ]
+}

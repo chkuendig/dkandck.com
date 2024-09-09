@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var controller = new ScrollMagic.Controller();
 
     // fetch photos 
-    let reqPhotosJson = new Request('photos.json');
+    let reqPhotosJson = new Request('photos/photos.json');
     fetch(reqPhotosJson)
         .then(function (response) {
             if (!response.ok) {
@@ -183,7 +183,7 @@ function setUpPhotoSlides(controller, photos) {
                 if (pictureidx > 0) {
                     igPictureImg = igFrame.firstChild;
                 }
-                igPictureImg.src = "pictures/" + igPicture.file
+                igPictureImg.src = "photos/" + igPicture.file
                 igPictureImg.style.width = "100%"
 
                 igFrame.appendChild(igPictureImg)

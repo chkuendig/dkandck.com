@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f8ecfc24a3eb1452de42fb32acdd1702791d61a2accc2ef9f6e868af551c679
-size 322
+#http://www.imagemagick.org/Usage/thumbnails/#cut
+mogrify -define jpeg:size=2000x2000  -thumbnail 1000x1000^ -gravity center -extent 1000x1000 -auto-orient   -path ../pictures  photos/*
+
+#copy timestamps
+for filename in photos/*; do
+ newfile="../pictures/"$(basename "$filename")
+ touch -r "${filename}" "${newfile}"
+done
