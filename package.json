@@ -26,7 +26,7 @@
     "url": "git+https://github.com/chkuendig/dkandck.com.git"
   },
   "author": "Christian Kündig <christian@kuendig.info> (http://christian.kuendig.info)",
-  "license": "ISC",
+  "license": "Copyright Christian Kündig",
   "bugs": {
     "url": "https://github.com/chkuendig/dkandck.com/issues"
   },
