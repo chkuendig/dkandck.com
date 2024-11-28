@@ -363,7 +363,7 @@ function launchGlobe() {
     wwd.addLayer(atmosphereLayer);
 
     starFieldLayer = new WorldWind.StarFieldLayer();
-    starFieldLayer.minAtiveAltitude = 10000;
+    starFieldLayer.minActiveAltitude = 10000;
     starFieldLayer.enabled = false;
     wwd.addLayer(starFieldLayer);
 
